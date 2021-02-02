@@ -1,0 +1,29 @@
+{
+  "name": "ufclubgolf",
+  "version": "1.0.0",
+  "description": "UF Club Golf's website",
+  "main": "index.js",
+  "scripts": {
+    "client-install": "npm install --prefix frontend",
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Brendan-Fisher/ufclubgolf.git"
+  },
+  "author": "Brendan Fisher, Chandler Fox, Jin Lin, Aditya Nair",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Brendan-Fisher/ufclubgolf/issues"
+  },
+  "homepage": "https://github.com/Brendan-Fisher/ufclubgolf#readme",
+  "dependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
