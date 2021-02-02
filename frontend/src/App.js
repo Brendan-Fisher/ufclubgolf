@@ -16,8 +16,6 @@ import PrivateRoute from "./components/private-route/PrivateRoute";
 import ExecDash from './components/dashboards/ExecDash';
 import AdminDash from './components/dashboards/AdminDash'
 
-let memType = "";
-
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
   // Set auth token header auth
@@ -26,8 +24,6 @@ if (localStorage.jwtToken) {
 
   // Decode token and get user info and exp
   const decoded = jwt_decode(token);
-
-  memType = decoded.memberType;
 
   // Set user and isAuthenticated
   store.dispatch(setCurrentMember(decoded));
@@ -43,6 +39,8 @@ if (localStorage.jwtToken) {
   }
 }
 
+
+
 function App() {
   return (
     <Provider store={store}>
@@ -53,7 +51,9 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Switch>
-            <PrivateRoute exact path="/dashboard" type={memType} component={MemberDash} />
+            <PrivateRoute exact path="/dashboard/member" component={MemberDash} />
+            <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
+            <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />
           </Switch>
         </div>
       </Router>

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginMember } from "../../redux/actions/authActions";
 import classnames from "classnames";
+import PrivateRoute from "../private-route/PrivateRoute";
+import AdminDash from "../dashboards/AdminDash"
 
 class Login extends Component {
     constructor() {
@@ -11,6 +13,7 @@ class Login extends Component {
         this.state = {
         email: "",
         password: "",
+        memberType: "",
         errors: {}
         };
     }
@@ -18,13 +21,21 @@ class Login extends Component {
     componentDidMount() {
         // If logged in user navigates to Login page, redirect to dashboard
         if (this.props.auth.isAuthenticated) {
-            this.props.history.push("/dashboard");
+            this.props.history.push("/dashboard/" + this.props.auth.memberType);
         }
     }
 
     componentWillReceiveProps(nextProps){
         if (nextProps.auth.isAuthenticated) {
-            this.props.history.push("/dashboard"); // Push user to dashboard when they log in
+            let memType = nextProps.auth.memberType;
+
+            if (memType === "admin") {
+                this.props.history.push("/dashboard/admin"); // Push user to dashboard when they log in
+            }
+            else if (memType === "exec"){
+                this.props.history.push("/dashboard/exec"); // Push user to dashboard when they log in
+            }
+            else this.props.history.push("/dashboard/member"); // Push user to dashboard when they log in
         }
 
         if (nextProps.errors) {
@@ -42,7 +53,7 @@ class Login extends Component {
         e.preventDefault();
         const memberData = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
         };
         // Since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
         this.props.loginMember(memberData); 
