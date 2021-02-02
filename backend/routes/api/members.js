@@ -81,6 +81,7 @@ router.post("/login", (req, res) => {
                 const payload = {
                     id: member.id,
                     name: member.name,
+                    memberType: member.memberType
                 };
 
                 // Sign token
