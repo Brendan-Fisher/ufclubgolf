@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import { registerMember } from "../../redux/actions/authActions";
+import { registerMember, loginMember } from "../../redux/actions/authActions";
 import classnames from "classnames";
 
 class Register extends Component {
@@ -24,17 +24,40 @@ class Register extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.errors) {
-            this.setState({
-                errors: nextProps.errors
-            });
+    static getDerivedStateFromProps(props, state) {
+        if (props.auth.isAuthenticated) {
+            let memType = props.auth.memberType;
+
+            if (memType === "admin") {
+                props.history.push("/dashboard/admin"); // Push user to dashboard when they log in
+            }
+            else if (memType === "exec"){
+                props.history.push("/dashboard/exec"); // Push user to dashboard when they log in
+            }
+            else props.history.push("/dashboard/member"); // Push user to dashboard when they log in
         }
+
+        if (props.errors) {
+            return {
+                errors: props.errors
+            }
+        }
+        else return null;
     }
 
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
+
+    guestLogin = e => {
+        e.preventDefault();
+        const memberData = {
+            email: "guest@guest.com",
+            password: "guest123",
+        };
+        // Since we handle the redirect within our component, we don't need to pass in this.props.history as a parameter
+        this.props.loginMember(memberData); 
+    }
 
     onSubmit = e => {
         e.preventDefault();
@@ -52,17 +75,21 @@ class Register extends Component {
 
         return (
             <div className="container">
-                <div className="row">
-                    <div className="col s8 offset-s2">
+                <div style={{ marginTop: "4rem" }} className="row">
+                    <div className="col s10 m8 l8 offset-s1 offset-m2 offset-l2">
                         <Link to="/" className="btn-flat waves-effect">
                             <i className="material-icons left">keyboard_backspace</i> Back to home
                         </Link>
+
                         <div className="col s12" style={{ paddingLeft: "11.250px"} }>
                             <h4><b>Register</b> below</h4>
                             <p className="grey-text text-darken-1">
                                 Already have an account? <Link to="/login">Log in</Link>
+                                <br></br>
+                                Or <Link to="/dashboard/member" onClick={this.guestLogin}>Continue as Guest</Link>
                             </p>
                         </div>
+
                         <form noValidate onSubmit={this.onSubmit}>
                             <div className="input-field col s12">
                                 <input  
@@ -136,6 +163,7 @@ class Register extends Component {
 
 Register.propTypes = {
     registerMember: PropTypes.func.isRequired,
+    loginMember: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 };
@@ -147,5 +175,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { registerMember }
+    { registerMember, loginMember }
 )(withRouter(Register));

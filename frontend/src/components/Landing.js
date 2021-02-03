@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 
 class Landing extends Component {
     render() {
@@ -10,40 +10,11 @@ class Landing extends Component {
                         <h4>
                             Welcome to <span style={{ fontFamily: "monospace" }}><b>UF Club Golf</b></span>
                         </h4>
-                        <p className="flow-text grey-text text-darken-1">
-                            Please register a new account or log in to proceed
-                        </p>
-                        <br />
-                        <div className="col s6">
-                        <Link
-                            to="/register"
-                            style={{
-                            width: "140px",
-                            borderRadius: "3px",
-                            letterSpacing: "1.5px"
-                            }}
-                            className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                        >
-                            Register
-                        </Link>
-                        </div>
-                        <div className="col s6">
-                        <Link
-                            to="/login"
-                            style={{
-                            width: "140px",
-                            borderRadius: "3px",
-                            letterSpacing: "1.5px"
-                            }}
-                            className="btn btn-large btn-flat waves-effect white black-text"
-                        >
-                            Log In
-                        </Link>
-                        </div>
                     </div>
                 </div>
             </div>
         );
     }
 }
+
 export default Landing;
