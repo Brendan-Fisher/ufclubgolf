@@ -1,11 +1,9 @@
 import React, { Component } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginMember } from "../../redux/actions/authActions";
 import classnames from "classnames";
-import PrivateRoute from "../private-route/PrivateRoute";
-import AdminDash from "../dashboards/AdminDash"
 
 class Login extends Component {
     constructor() {
