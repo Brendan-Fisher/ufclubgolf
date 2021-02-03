@@ -23,24 +23,25 @@ class Login extends Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        if (nextProps.auth.isAuthenticated) {
-            let memType = nextProps.auth.memberType;
+    static getDerivedStateFromProps(props, state){
+        if (props.auth.isAuthenticated) {
+            let memType = props.auth.memberType;
 
             if (memType === "admin") {
-                this.props.history.push("/dashboard/admin"); // Push user to dashboard when they log in
+                props.history.push("/dashboard/admin"); // Push user to dashboard when they log in
             }
             else if (memType === "exec"){
-                this.props.history.push("/dashboard/exec"); // Push user to dashboard when they log in
+                props.history.push("/dashboard/exec"); // Push user to dashboard when they log in
             }
-            else this.props.history.push("/dashboard/member"); // Push user to dashboard when they log in
+            else props.history.push("/dashboard/member"); // Push user to dashboard when they log in
         }
 
-        if (nextProps.errors) {
-            this.setState({
-                errors: nextProps.errors
-            });
+        if (props.errors) {
+            return {
+                errors: props.errors
+            }
         }
+        else return null;
     }
 
     onChange = e => {
@@ -63,7 +64,7 @@ class Login extends Component {
         return(
             <div className="container">
                 <div style={{ marginTop: "4rem" }} className="row">
-                    <div className="col s8 offset-s2">
+                    <div className="col s10 m8 l8 offset-s1 offset-m2 offset-l2">
                         <Link to="/" className="btn-flat waves-effect">
                             <i className="material-icons left">keyboard_backspace</i> Back to home
                         </Link>
