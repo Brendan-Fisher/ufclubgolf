@@ -10,7 +10,7 @@
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "mocha server.test.js"
+    "test": "mocha server.test.js --exit"
   },
   "repository": {
     "type": "git",
