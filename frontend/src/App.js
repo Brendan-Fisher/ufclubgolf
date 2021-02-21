@@ -11,7 +11,6 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import MemberDash from "./components/dashboards/MemberDash";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import ExecDash from './components/dashboards/ExecDash';
 import AdminDash from './components/dashboards/AdminDash'
@@ -51,7 +50,6 @@ function App() {
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
           <Switch>
-            <PrivateRoute exact path="/dashboard/member" component={MemberDash} />
             <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
             <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />
           </Switch>

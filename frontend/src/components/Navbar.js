@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import store from "../redux/store"
 import { logoutMember } from "../redux/actions/authActions";
-import { Divider, Dropdown } from 'react-materialize';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -23,35 +22,13 @@ class Navbar extends Component {
 
     render() {
         let loggedIn = store.getState().auth.isAuthenticated;
+        let memberType = store.getState().auth.memberType;
 
         return (
             <div className="navbar-fixed">
                 <nav className="z-depth-0 grey darken-1">
                     <div>
                         <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
-                        {loggedIn && 
-                            <Dropdown
-                            className="right hide-on-med-and-down"
-                            id="Dropdown_6"
-                            options={{
-                                alignment: 'left',
-                                autoTrigger: false,
-                                closeOnClick: true,
-                                constrainWidth: false,
-                                coverTrigger: true,
-                                hover: true,
-                                inDuration: 150,
-                                outDuration: 250
-                            }}
-                            trigger={<a href="#!" className="right hide-on-med-and-down"><i className="large material-icons">menu</i></a>}
-                        >
-                            <a href="/">Home</a>
-                            <Divider />
-                            <a href="/dashboard/member">User Dashboard</a>
-                            <Divider />
-                            <a href="/" onClick={this.onLogoutClick}>Log out</a>
-                        </Dropdown>
-                        }
                         <ul id="nav-mobile" className="hide-on-med-and-down right">
                             {!loggedIn &&
                                 <li>
@@ -85,6 +62,17 @@ class Navbar extends Component {
                                     </a>
                                 </li>
                             }
+                        </ul>
+                        <ul id="nav-mobile" className="left hide-on-med-and-down">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            {loggedIn && memberType !== "guest" && memberType !== "member" &&
+                                <li><a href="/dashboard/exec">User Dashboard</a></li>
+                            }
+                            {loggedIn && 
+                                <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>
+                            }
                         </ul>                     
                         <Link
                             to="/"
@@ -103,20 +91,17 @@ class Navbar extends Component {
                 <div>
                     <ul id="slide-out" className="sidenav">
                         <li><a href="/">Home</a></li>
-                        {loggedIn &&
-                            <li><a href="/dashboard/member">User Dashboard</a></li>
+                        {loggedIn && memberType !== "guest" && memberType !== "member" &&
+                            <li><a href="/dashboard/exec">User Dashboard</a></li>
                         }
                         {!loggedIn && 
                             <li><a href="/register">Register</a></li>
                         }
-                        
                         {loggedIn ? 
                         <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>
                         :
                         <li><a href="/login">Log in</a></li>
                         }
-                        
-                        
                     </ul>
                 </div>
             </div>
