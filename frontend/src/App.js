@@ -9,7 +9,11 @@ import store from "./redux/store"
 
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
+import Calendar from "./components/Calendar";
+import Tournaments from "./components/Tournaments";
+import Events from "./components/Events";
 import Register from "./components/auth/Register";
+import About from "./components/About";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import ExecDash from './components/dashboards/ExecDash';
@@ -49,6 +53,10 @@ function App() {
           <Route exact path="/" component={Landing} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/calendar" component={Calendar} />
+          <Route exact path="/tournaments" component={Tournaments} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/events" component={Events} />
           <Switch>
             <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
             <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />

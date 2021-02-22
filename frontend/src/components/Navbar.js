@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import store from "../redux/store"
 import { logoutMember } from "../redux/actions/authActions";
+import { Divider, Dropdown } from "react-materialize";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -65,14 +66,31 @@ class Navbar extends Component {
                         </ul>
                         <ul id="nav-mobile" className="left hide-on-med-and-down">
                             <li>
-                                <a href="/">Home</a>
+                                <Dropdown
+                                    id="Dropdown_6"
+                                    options={{
+                                        alignment: 'right',
+                                        autoTrigger: true,
+                                        closeOnClick: true,
+                                        constrainWidth: true,
+                                        coverTrigger: true,
+                                        hover: true,
+                                        inDuration: 150,
+                                        outDuration: 250
+                                    }}
+                                    trigger={<a href="#!"><i className="material-icons">menu</i></a>}
+                                    >
+                                        <ul>
+                                            <li><a href="/events">Events</a></li>
+                                            {loggedIn && memberType !== "guest" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                            <Divider />
+                                            {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
+                                        </ul>
+                                    </Dropdown>
                             </li>
-                            {loggedIn && memberType !== "guest" && memberType !== "member" &&
-                                <li><a href="/dashboard/exec">User Dashboard</a></li>
-                            }
-                            {loggedIn && 
-                                <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>
-                            }
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/calendar">Calendar</a></li>
+                            <li><a href="/tournaments">Tournaments</a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -82,7 +100,6 @@ class Navbar extends Component {
                             }}
                             className="col s12 m6 l3 brand-logo center black-text"
                         >
-                            <i className="material-icons">code</i>
                             UF Club Golf
                         </Link>
                     </div>
@@ -91,6 +108,10 @@ class Navbar extends Component {
                 <div>
                     <ul id="slide-out" className="sidenav">
                         <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/calendar">Calendar</a></li>
+                        <li><a href="/tournaments">Tournaments</a></li>
+                        <li><a href="/events">Events</a></li>
                         {loggedIn && memberType !== "guest" && memberType !== "member" &&
                             <li><a href="/dashboard/exec">User Dashboard</a></li>
                         }
