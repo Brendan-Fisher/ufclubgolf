@@ -33,7 +33,7 @@ class Login extends Component {
             else if (memType === "exec"){
                 props.history.push("/dashboard/exec"); // Push user to dashboard when they log in
             }
-            else props.history.push("/dashboard/member"); // Push user to dashboard when they log in
+            else props.history.push("/"); // Push user to homepage when they log in
         }
 
         if (props.errors) {

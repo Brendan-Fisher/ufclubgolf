@@ -34,7 +34,7 @@ class Register extends Component {
             else if (memType === "exec"){
                 props.history.push("/dashboard/exec"); // Push user to dashboard when they log in
             }
-            else props.history.push("/dashboard/member"); // Push user to dashboard when they log in
+            else props.history.push("/"); // Push user to home page when they log in
         }
 
         if (props.errors) {
@@ -86,7 +86,7 @@ class Register extends Component {
                             <p className="grey-text text-darken-1">
                                 Already have an account? <Link to="/login">Log in</Link>
                                 <br></br>
-                                Or <Link to="/dashboard/member" onClick={this.guestLogin}>Continue as Guest</Link>
+                                Or <Link to="/" onClick={this.guestLogin}>Continue as Guest</Link>
                             </p>
                         </div>
 
