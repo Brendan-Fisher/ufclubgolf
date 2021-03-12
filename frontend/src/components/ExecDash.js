@@ -12,7 +12,6 @@ class ExecDash extends Component {
 
   render() {
     if (this.props.memberType !== "exec" || this.props.memberType === "admin") {
-      console.log(this.props.memberType + " printed from ExecDash");
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {
       return (
