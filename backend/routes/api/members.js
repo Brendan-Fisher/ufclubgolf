@@ -25,6 +25,52 @@ router.route("/").get(function (req, res) {
   });
 });
 
+// @route PUT api/members/promote
+// @desc Promotes a member to the next memberType
+// @access Admin
+router.put("/promote", (req, res) => {
+  if (req.body.memberType === "admin")
+    res.status(400).json("Unable to promote member above Admin");
+  else {
+    let newType = "";
+    if (req.body.memberType === "pending") newType = "member";
+    else if (req.body.memberType === "member") newType = "exec";
+    else if (req.body.memberType === "exec") newType = "admin";
+    else newType = "member";
+
+    Member.findOneAndUpdate(
+      { email: req.body.email },
+      { memberType: newType },
+      (err) => {
+        if (err) {
+          res.status(400).send(err);
+        } else res.status(200).json("Member promoted to " + newType);
+      }
+    );
+  }
+});
+
+// @route PUT api/members/demote
+// @desc Demotes a member to the previous memberType
+// @access Admin
+router.route("/demote").put(function (req, res) {
+  let newType = "";
+  if (req.body.memberType === "pending") newType = "pending";
+  else if (req.body.memberType === "member") newType = "pending";
+  else if (req.body.memberType === "exec") newType = "member";
+  else newType = "admin";
+
+  Member.findOneAndUpdate(
+    { email: req.body.email },
+    { memberType: newType },
+    (err) => {
+      if (err) {
+        res.status(400).send(err);
+      } else res.status(200).json("Member demoted to " + newType);
+    }
+  );
+});
+
 // @route POST api/members
 // @desc Deletes specified member
 // @access Public

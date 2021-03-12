@@ -112,7 +112,7 @@ class Navbar extends Component {
                         <li><a href="/calendar">Calendar</a></li>
                         <li><a href="/tournaments">Tournaments</a></li>
                         <li><a href="/events">Events</a></li>
-                        {loggedIn && memberType !== "guest" && memberType !== "member" &&
+                        {loggedIn && memberType !== "pending" && memberType !== "member" &&
                             <li><a href="/dashboard/exec">User Dashboard</a></li>
                         }
                         {!loggedIn && 
