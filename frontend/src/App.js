@@ -19,6 +19,7 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import ExecDash from "./components/ExecDash";
 import AdminDash from "./components/AdminDash";
+import MemberDash from "./components/MemberDash";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {

@@ -2,154 +2,143 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import store from "../redux/store";
+import store from "../redux/store"
 import { logoutMember } from "../redux/actions/authActions";
 import { Divider, Dropdown } from "react-materialize";
 
-import M from "materialize-css/dist/js/materialize.min.js";
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 class Navbar extends Component {
-  componentDidMount() {
-    let sidenav = document.querySelector("#slide-out");
-    M.Sidenav.init(sidenav, { draggable: true });
-  }
+    componentDidMount() {
+        let sidenav = document.querySelector('#slide-out');
+        M.Sidenav.init(sidenav, { draggable: true });
+    }
 
-  onLogoutClick = (e) => {
-    e.preventDefault();
-    this.props.logoutMember();
-  };
+    onLogoutClick = e => {
+        e.preventDefault();
+        this.props.logoutMember();
+    };
 
-  render() {
-    let loggedIn = store.getState().auth.isAuthenticated;
+      
 
-    return (
-      <div className="navbar-fixed">
-        <nav className="z-depth-0 grey darken-1">
-          <div>
-            <a
-              href="/"
-              data-target="slide-out"
-              className="sidenav-trigger hide-on-large left"
-            >
-              <i className="material-icons">menu</i>
-            </a>
-            {loggedIn && (
-              <Dropdown
-                className="right hide-on-med-and-down"
-                id="Dropdown_6"
-                options={{
-                  alignment: "left",
-                  autoTrigger: false,
-                  closeOnClick: true,
-                  constrainWidth: false,
-                  coverTrigger: true,
-                  hover: true,
-                  inDuration: 150,
-                  outDuration: 250,
-                }}
-                trigger={
-                  <a href="#!" className="right hide-on-med-and-down">
-                    <i className="large material-icons">menu</i>
-                  </a>
-                }
-              >
-                <a href="/">Home</a>
-                <Divider />
-                <a href="/dashboard/member">User Dashboard</a>
-                <Divider />
-                <a href="/" onClick={this.onLogoutClick}>
-                  Log out
-                </a>
-              </Dropdown>
-            )}
-            <ul id="nav-mobile" className="hide-on-med-and-down right">
-              {!loggedIn && (
-                <li>
-                  <a
-                    href="/register"
-                    className="btn btn-medium waves-effect waves-green hoverable blue accent-3"
-                    style={{
-                      width: "120px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px",
-                      margin: "11.250px",
-                    }}
-                  >
-                    Register
-                  </a>
-                </li>
-              )}
-              {!loggedIn && (
-                <li>
-                  <a
-                    href="/login"
-                    className="btn btn-medium waves-effect hoverable white black-text"
-                    style={{
-                      width: "120px",
-                      borderRadius: "3px",
-                      letterSpacing: "1.5px",
-                      margin: "11.250px",
-                    }}
-                  >
-                    Log in
-                  </a>
-                </li>
-              )}
-            </ul>
-            <Link
-              to="/"
-              style={{
-                fontFamily: "monospace",
-                margin: "auto",
-              }}
-              className="col s12 m6 l3 brand-logo center black-text"
-            >
-              <i className="material-icons">code</i>
-              UF Club Golf
-            </Link>
-          </div>
-        </nav>
+    render() {
+        let loggedIn = store.getState().auth.isAuthenticated;
+        let memberType = store.getState().auth.memberType;
 
-        <div>
-          <ul id="slide-out" className="sidenav">
-            <li>
-              <a href="/">Home</a>
-            </li>
-            {loggedIn && (
-              <li>
-                <a href="/dashboard/member">User Dashboard</a>
-              </li>
-            )}
-            {!loggedIn && (
-              <li>
-                <a href="/register">Register</a>
-              </li>
-            )}
+        return (
+            <div className="navbar-fixed">
+                <nav className="z-depth-0 grey darken-1">
+                    <div>
+                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
+                        <ul id="nav-mobile" className="hide-on-med-and-down right">
+                            {!loggedIn &&
+                                <li>
+                                    <a 
+                                        href="/register" 
+                                        className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
+                                        style={{
+                                            width: "120px",
+                                            borderRadius: "3px",
+                                            letterSpacing: "1.5px",
+                                            margin: "11.250px"
+                                        }}
+                                    >
+                                        Register
+                                    </a>
+                                </li>
+                            }
+                            {!loggedIn &&
+                                <li>
+                                    <a 
+                                        href="/login" 
+                                        className="btn btn-medium waves-effect hoverable white black-text" 
+                                        style={{
+                                            width: "120px",
+                                            borderRadius: "3px",
+                                            letterSpacing: "1.5px",
+                                            margin: "11.250px"
+                                        }}
+                                    >
+                                        Log in
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                        <ul id="nav-mobile" className="left hide-on-med-and-down">
+                            <li>
+                                <Dropdown
+                                    id="Dropdown_6"
+                                    options={{
+                                        alignment: 'right',
+                                        autoTrigger: true,
+                                        closeOnClick: true,
+                                        constrainWidth: true,
+                                        coverTrigger: true,
+                                        hover: true,
+                                        inDuration: 150,
+                                        outDuration: 250
+                                    }}
+                                    trigger={<a href="#!"><i className="material-icons">menu</i></a>}
+                                    >
+                                        <ul>
+                                            <li><a href="/events">Events</a></li>
+                                            {loggedIn && memberType !== "guest" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                            <Divider />
+                                            {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
+                                        </ul>
+                                    </Dropdown>
+                            </li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/calendar">Calendar</a></li>
+                            <li><a href="/tournaments">Tournaments</a></li>
+                        </ul>                     
+                        <Link
+                            to="/"
+                            style={{
+                                fontFamily: "monospace",
+                                margin: "auto"
+                            }}
+                            className="col s12 m6 l3 brand-logo center black-text"
+                        >
+                            UF Club Golf
+                        </Link>
+                    </div>
+                </nav>
 
-            {loggedIn ? (
-              <li>
-                <a href="/" onClick={this.onLogoutClick}>
-                  Log out
-                </a>
-              </li>
-            ) : (
-              <li>
-                <a href="/login">Log in</a>
-              </li>
-            )}
-          </ul>
-        </div>
-      </div>
-    );
-  }
+                <div>
+                    <ul id="slide-out" className="sidenav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/calendar">Calendar</a></li>
+                        <li><a href="/tournaments">Tournaments</a></li>
+                        <li><a href="/events">Events</a></li>
+                        {loggedIn && memberType !== "guest" && memberType !== "member" &&
+                            <li><a href="/dashboard/exec">User Dashboard</a></li>
+                        }
+                        {!loggedIn && 
+                            <li><a href="/register">Register</a></li>
+                        }
+                        {loggedIn ? 
+                        <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>
+                        :
+                        <li><a href="/login">Log in</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        );
+    }
 }
 
 Navbar.propTypes = {
-  logoutMember: PropTypes.func.isRequired,
+    logoutMember: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
+const mapStateToProps = state => ({
+    auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutMember })(Navbar);
+export default connect(
+    mapStateToProps,
+    { logoutMember }
+)(Navbar);
