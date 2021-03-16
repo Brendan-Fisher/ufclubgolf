@@ -28,7 +28,7 @@ export class MemberList extends Component {
     store.getState().users.memberList.forEach((user) => {
       let row = {
         delete: (
-          <a href="#!" onClick={() => this.onDeleteClick(user)}><i className="material-icons">delete_forever</i></a>
+          <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this user?')) this.onDeleteClick(user) } }><i className="material-icons">delete_forever</i></a>
         ),
         name: user.name,
         memberType: user.memberType,
