@@ -35,10 +35,10 @@ class AdminDash extends Component {
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {
       return (
-        <div style={{ height: "90vh" }} className="container valign-wrapper">
-          <div className="section">
-            <div className="col s6">
-              <MemberList
+        <div id="container" className="container valign-wrapper">
+          <div id="content" className="section">
+            <div id="box" className="col s6">
+              <MemberList id="memberList"
                 promoteUser={this.onPromoteClick}
                 demoteUser={this.onDemoteClick}
               />

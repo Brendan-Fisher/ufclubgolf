@@ -16,9 +16,9 @@ class MemberDash extends Component {
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {
       return (
-        <div style={{ height: "75vh" }} className="container valign-wrapper">
-          <div className="row">
-            <div className="col s12 center-align">
+        <div id="container" className="container valign-wrapper">
+          <div id="content" className="row">
+            <div id="box" className="col s12 center-align">
               <h4>
                 <b>Hey there,</b> {this.props.auth.user.name.split(" ")[0]}
                 <p className="flow-text grey-text text-darken-1">
