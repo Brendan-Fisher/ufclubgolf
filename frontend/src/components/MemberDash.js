@@ -18,17 +18,19 @@ class MemberDash extends Component {
       return (
         <div id="container" className="container valign-wrapper">
           <div id="content" className="row">
-            <div id="box" className="col s12 center-align">
-              <h4>
-                <b>Hey there,</b> {this.props.auth.user.name.split(" ")[0]}
-                <p className="flow-text grey-text text-darken-1">
-                  You are logged into{" "}
-                  <span style={{ fontFamily: "monospace" }}>
-                    UF Club Golf's
-                  </span>{" "}
-                  website 👏
-                </p>
-              </h4>
+            <div className="flexbox">
+              <div id="box" className="col s12 center-align">
+                <h4>
+                  <b>Hey there,</b> {this.props.auth.user.name.split(" ")[0]}
+                  <p className="flow-text grey-text text-darken-1">
+                    You are logged into{" "}
+                    <span style={{ fontFamily: "monospace" }}>
+                      UF Club Golf's
+                    </span>{" "}
+                    website 👏
+                  </p>
+                </h4>
+              </div>
             </div>
           </div>
         </div>

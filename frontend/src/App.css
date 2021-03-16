@@ -11,7 +11,6 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: absolute;
-
 }
 
 body:after {
@@ -27,8 +26,9 @@ body:after {
 #container {
     height: 85vh;
     background-color: rgba(238, 238, 238, 0);
-    margin-top: 5vh;
+    margin-top: 2vh;
     position: relative;
+    justify-content: center;
 }
 
 #content {
@@ -85,6 +85,27 @@ nav .sidenav-trigger {
 
 .lg-calendar{display:initial;}
 .sm-calendar{display:none;}
+
+.memberList {
+    padding: 1rem;
+    margin: auto;
+    width: 100%;
+    border: solid 1px black;
+    color: black;
+}
+
+label{
+    color: black;
+}
+
+.dataTables_wrapper {
+    display: inline;
+    left: 4rem;
+}
+
+.pagination .page-item.disabled .page-link {color:black;}
+
+table th {font-weight: 800;}
 
 /*==< Tablets/Small Screens >==*/
 /* 426px - 1023px Wide */
@@ -144,7 +165,6 @@ nav .sidenav-trigger {
     nav .brand-logo {
         font-size: 1.3rem;
     }
-    
 }
 
 

@@ -37,11 +37,13 @@ class AdminDash extends Component {
       return (
         <div id="container" className="container valign-wrapper">
           <div id="content" className="section">
-            <div id="box" className="col s6">
-              <MemberList id="memberList"
-                promoteUser={this.onPromoteClick}
-                demoteUser={this.onDemoteClick}
-              />
+            <div className="flexbox">
+              <div id="box" className="col s6 memberList center-align">
+                <MemberList id="memberList"
+                  promoteUser={this.onPromoteClick}
+                  demoteUser={this.onDemoteClick}
+                />
+              </div>
             </div>
           </div>
         </div>
