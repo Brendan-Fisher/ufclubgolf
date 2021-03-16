@@ -73,7 +73,7 @@ class Navbar extends Component {
                                         autoTrigger: true,
                                         closeOnClick: true,
                                         constrainWidth: true,
-                                        coverTrigger: true,
+                                        coverTrigger: false,
                                         hover: true,
                                         inDuration: 150,
                                         outDuration: 250
@@ -82,7 +82,7 @@ class Navbar extends Component {
                                     >
                                         <ul>
                                             <li><a href="/events">Events</a></li>
-                                            {loggedIn && memberType !== "guest" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                            {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
                                             <Divider />
                                             {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
                                         </ul>
