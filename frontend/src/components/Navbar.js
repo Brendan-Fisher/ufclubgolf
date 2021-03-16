@@ -35,15 +35,18 @@ class Navbar extends Component {
                                 <li>
                                     <a 
                                         href="/register" 
-                                        className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
+                                        className="btn btn-medium waves-effect hoverable white" 
                                         style={{
-                                            width: "120px",
+                                            width: "135px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
-                                            margin: "11.250px"
+                                            margin: "11.250px",
+                                            color: "black"
                                         }}
                                     >
+                                        <text class="register">
                                         Register
+                                        </text>
                                     </a>
                                 </li>
                             }
@@ -51,15 +54,18 @@ class Navbar extends Component {
                                 <li>
                                     <a 
                                         href="/login" 
-                                        className="btn btn-medium waves-effect hoverable white black-text" 
+                                        className="btn btn-medium waves-effect white hoverable" 
                                         style={{
                                             width: "120px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
-                                            margin: "11.250px"
+                                            margin: "11.250px",
+                                            color: "black"
                                         }}
                                     >
-                                        Log in
+                                        <text class="login">
+                                        Log In
+                                        </text>
                                     </a>
                                 </li>
                             }
@@ -72,25 +78,29 @@ class Navbar extends Component {
                                         alignment: 'right',
                                         autoTrigger: true,
                                         closeOnClick: true,
-                                        constrainWidth: true,
-                                        coverTrigger: true,
+                                        constrainHeight: true,
+                                        coverTrigger: false,
                                         hover: true,
                                         inDuration: 150,
                                         outDuration: 250
                                     }}
-                                    trigger={<a href="#!"><i className="material-icons">menu</i></a>}
+                                    trigger={<a href="#!" id="push"><i className="material-icons">menu</i></a>}
                                     >
                                         <ul>
+                                            <li><a href="/about us" >About Us</a></li>
+                                            <li><a href="/calender">Calander</a></li>
+                                            <li><a href="/tournaments">Tournaments</a></li>
                                             <li><a href="/events">Events</a></li>
                                             {loggedIn && memberType !== "guest" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
                                             <Divider />
                                             {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
                                         </ul>
-                                    </Dropdown>
+                                </Dropdown>
                             </li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/calendar">Calendar</a></li>
-                            <li><a href="/tournaments">Tournaments</a></li>
+                            <li><a href="/about" class="Hover-Color">About Us</a></li>
+                            <li><a href="/calendar" class="Hover-Color">Calendar</a></li>
+                            <li><a href="/tournaments" class="Hover-Color">Tournaments</a></li>
+                            <li><a href="/events" class="Hover-Color">Events</a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -106,7 +116,7 @@ class Navbar extends Component {
                 </nav>
 
                 <div>
-                    <ul id="slide-out" className="sidenav">
+                    <ul id="slide-out" className="sidenav" >
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/calendar">Calendar</a></li>

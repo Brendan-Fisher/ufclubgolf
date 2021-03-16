@@ -23,7 +23,7 @@ nav .sidenav-trigger {
 
 @media (max-width: 1023px){
     #nav-mobile {
-        margin: auto;
+        position: relative;
     }
 
     .sidenav {
@@ -52,6 +52,7 @@ nav .sidenav-trigger {
     }
 
     .sidenav {
+        position: relative;
         width: 60vw;
     }
 
@@ -69,3 +70,23 @@ nav .sidenav-trigger {
     }
     
 }
+
+.Hover-Color:hover{
+    color: black;
+    background-color: white;
+}
+
+.login{
+    position: relative;
+    top: -10px;
+}
+
+.register{
+    position: relative;
+    top: -10px;
+}
+
+#push{
+    margin-top: 8px
+}
+
