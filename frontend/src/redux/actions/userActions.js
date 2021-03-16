@@ -57,3 +57,19 @@ export function demoteUser(user) {
       );
   };
 }
+
+export function deleteUser(user) {
+  return function (dispatch) {
+    axios
+      .post("/api/members", user)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => 
+        dispatch({
+          type: GET_ERRORS,
+          payload: err,
+        })
+      );
+  };
+}

@@ -7,6 +7,8 @@ require("dotenv").config();
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
+const validateDemoteUser = require("../../validation/demote");
+const validateDeleteUser = require("../../validation/delete");
 
 // Load User model
 const Member = require("../../models/Member");
@@ -15,7 +17,6 @@ const Member = require("../../models/Member");
 // @desc Return all registered members
 // @access Public
 router.route("/").get(function (req, res) {
-  //res.set("Content-Type", "application/json");
   Member.find(function (err, members) {
     if (err) {
       res.json(err);
@@ -54,11 +55,11 @@ router.put("/promote", (req, res) => {
 // @desc Demotes a member to the previous memberType
 // @access Admin
 router.route("/demote").put(function (req, res) {
-  let newType = "";
-  if (req.body.memberType === "pending") newType = "pending";
-  else if (req.body.memberType === "member") newType = "pending";
-  else if (req.body.memberType === "exec") newType = "member";
-  else newType = "admin";
+  const { errors, isValid, newType } = validateDemoteUser(req.body);
+  
+  if(!isValid){
+    return res.status(400).json(errors);
+  }
 
   Member.findOneAndUpdate(
     { email: req.body.email },
@@ -75,6 +76,12 @@ router.route("/demote").put(function (req, res) {
 // @desc Deletes specified member
 // @access Public
 router.post("/", (req, res) => {
+  const { errors, isValid } = validateDeleteUser(req.body);
+
+  if(!isValid){
+    return res.status(400).json(errors);
+  }
+
   Member.findOneAndDelete({ email: req.body.email }, (err, member) => {
     if (err) {
       res.status(400).send(err);
