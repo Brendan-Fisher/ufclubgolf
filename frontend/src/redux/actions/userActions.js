@@ -31,7 +31,7 @@ export function promoteUser(user) {
     axios
       .put("/api/members/promote", user)
       .then((res) => {
-        console.log(res.data);
+        window.alert(user.name + " was successfully " + res.data);
       })
       .catch((err) =>
         dispatch({
@@ -47,7 +47,7 @@ export function demoteUser(user) {
     axios
       .put("/api/members/demote", user)
       .then((res) => {
-        console.log(res.data);
+        window.alert(user.name + " was successfully " + res.data);
       })
       .catch((err) =>
         dispatch({

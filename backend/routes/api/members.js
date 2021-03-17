@@ -9,6 +9,7 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 const validateDemoteUser = require("../../validation/demote");
 const validateDeleteUser = require("../../validation/delete");
+const validatePromoteUser = require("../../validation/promote");
 
 // Load User model
 const Member = require("../../models/Member");
@@ -30,25 +31,21 @@ router.route("/").get(function (req, res) {
 // @desc Promotes a member to the next memberType
 // @access Admin
 router.put("/promote", (req, res) => {
-  if (req.body.memberType === "admin")
-    res.status(400).json("Unable to promote member above Admin");
-  else {
-    let newType = "";
-    if (req.body.memberType === "pending") newType = "member";
-    else if (req.body.memberType === "member") newType = "exec";
-    else if (req.body.memberType === "exec") newType = "admin";
-    else newType = "member";
+  const { errors, isValid, newType } = validatePromoteUser(req.body);
 
-    Member.findOneAndUpdate(
-      { email: req.body.email },
-      { memberType: newType },
-      (err) => {
-        if (err) {
-          res.status(400).send(err);
-        } else res.status(200).json("Member promoted to " + newType);
-      }
-    );
+  if(!isValid) {
+    return res.status(400).json(errors);
   }
+  
+  Member.findOneAndUpdate(
+    { email: req.body.email },
+    { memberType: newType },
+    (err) => {
+      if (err) {
+        res.status(400).send(err);
+      } else res.status(200).json("promoted to " + newType);
+    }
+  );
 });
 
 // @route PUT api/members/demote
@@ -67,7 +64,7 @@ router.route("/demote").put(function (req, res) {
     (err) => {
       if (err) {
         res.status(400).send(err);
-      } else res.status(200).json("Member demoted to " + newType);
+      } else res.status(200).json("demoted to " + newType);
     }
   );
 });
