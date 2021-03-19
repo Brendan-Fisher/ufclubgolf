@@ -24,19 +24,20 @@ body:after {
 }
 
 #container {
-    height: 85vh;
-    background-color: rgba(238, 238, 238, 0);
+    background-color: rgba(255, 255, 255, 0.5);
     margin-top: 2vh;
     position: relative;
     justify-content: center;
+    overflow: hidden;
+    margin-bottom: 2vh;
 }
 
 #content {
-    height: 75vh;
+    overflow: hidden;
     padding: 0;
     width: auto; 
     background-color: rgba(238, 238, 238, 0);
-    margin-top: 3vh;
+    margin-top: 2vh;
     position: relative;
 }
 
@@ -117,6 +118,109 @@ input::placeholder{
     color: black;
 }
 
+img {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.exec-board {
+    vertical-align: top;
+    display: inline-block;
+}
+
+.exec-heading {
+    display: block;
+    background:rgba(209, 212, 255, 0.95);
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas:
+        "vp-image vp-desc"
+        "tr-image tr-desc"
+        "pr1-image pr1-desc"
+        "pr2-image pr2-desc";
+}
+
+.grid .vp-image {
+    grid-area: vp-image;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    background: url(img/about/BlakeSimmons.png) no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 3px rgb(0, 255, 128);
+    margin-left: 1rem;
+}
+
+.grid .vp-desc {
+    grid-area: vp-desc;
+    background:rgba(209, 212, 255, 0.95);
+    padding: 1rem;
+}
+
+.grid .tr-image {
+    grid-area: tr-image;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    background: url(img/about/JacksonWiesbrot.png) no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 3px rgb(0, 255, 128);
+    margin-left: 1rem;
+}
+
+.grid .tr-desc {
+    grid-area: tr-desc;
+    background:rgba(209, 212, 255, 0.95);
+    padding: 1rem;
+}
+
+.grid .pr1-image {
+    grid-area: pr1-image;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    background: url(img/about/MomboNgu.png) no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 3px rgb(0, 255, 128);
+    margin-left: 1rem;
+}
+
+.grid .pr1-desc {
+    grid-area: pr1-desc;
+    background:rgba(209, 212, 255, 0.95);
+    padding: 1rem;
+}
+
+.grid .pr2-image {
+    grid-area: pr2-image;
+    margin: 0;
+    width: 300px;
+    height: 300px;
+    background: url(img/about/Dhruv.png) no-repeat center;
+    background-size: cover;
+    border-radius: 50%;
+    border: solid 3px rgb(0, 255, 128);
+    margin-left: 1rem;
+}
+
+.grid .pr2-desc {
+    grid-area: pr2-desc;
+    background:rgba(209, 212, 255, 0.95);
+    padding: 1rem;
+}
+
 /*==< Tablets/Small Screens >==*/
 /* 426px - 1023px Wide */
 @media (max-width: 1023px){
@@ -144,6 +248,34 @@ input::placeholder{
         display: inline-block;
         position: fixed;
     }
+}
+
+@media (max-width: 800px){
+    .grid {
+        grid-template-areas:
+            "vp-image"
+            "vp-desc"
+            "tr-image"
+            "tr-desc"
+            "pr1-image"
+            "pr1-desc"
+            "pr2-image"
+            "pr2-desc";
+    }
+
+    .grid .vp-image {
+        margin: auto;
+    }
+    .grid .tr-image {
+        margin: auto;
+    }
+    .grid .pr1-image {
+        margin: auto;
+    }
+    .grid .pr2-image {
+        margin: auto;
+    }
+    
 }
 
 @media (max-width: 560px){
