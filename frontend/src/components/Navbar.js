@@ -37,13 +37,13 @@ class Navbar extends Component {
                                         href="/register" 
                                         className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
                                         style={{
-                                            width: "120px",
+                                            width: "150px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Register
+                                        Join UF Club Golf
                                     </a>
                                 </li>
                             }
