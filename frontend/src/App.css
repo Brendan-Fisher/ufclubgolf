@@ -44,6 +44,16 @@ body:after {
   position: relative;
 }
 
+#SliderImage
+{
+    width: 100%;
+    margin: auto;
+}
+#SliderText
+{
+    text-shadow:rgb(253, 4, 4);
+}
+
 #box {
   margin: 8px;
   padding: auto;
