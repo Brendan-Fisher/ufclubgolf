@@ -5,6 +5,7 @@ import {
   promoteUser,
   demoteUser,
   getUsers,
+  deleteUser,
 } from "../../redux/actions/userActions";
 import { MDBDataTable } from "mdbreact";
 import { connect } from "react-redux";
@@ -18,10 +19,17 @@ export class MemberList extends Component {
     this.props.demoteUser(user);
   };
 
+  onDeleteClick = (user) => {
+    this.props.deleteUser(user);
+  }
+
   render() {
     let rows = [];
     store.getState().users.memberList.forEach((user) => {
       let row = {
+        delete: (
+          <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this user?')) this.onDeleteClick(user) } }><i className="material-icons">delete_forever</i></a>
+        ),
         name: user.name,
         memberType: user.memberType,
         promote: (
@@ -36,6 +44,11 @@ export class MemberList extends Component {
 
     let data = {
       columns: [
+        {
+          label: "Delete",
+          field: "delete",
+          width: 50,
+        },
         {
           label: "Name",
           field: "name",
@@ -78,4 +91,5 @@ export default connect(mapStateToProps, {
   getUsers,
   promoteUser,
   demoteUser,
+  deleteUser
 })(MemberList);

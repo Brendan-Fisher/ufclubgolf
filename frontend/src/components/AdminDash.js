@@ -5,6 +5,7 @@ import {
   getUsers,
   promoteUser,
   demoteUser,
+  deleteUser
 } from "../redux/actions/userActions";
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
@@ -26,6 +27,11 @@ class AdminDash extends Component {
     this.props.getUsers();
   };
 
+  onDeleteClick = (user) => {
+    this.props.deleteUser(user);
+    this.props.getUsers();
+  }
+
   componentDidMount() {
     this.props.getUsers();
   }
@@ -42,6 +48,7 @@ class AdminDash extends Component {
                 <MemberList id="memberList"
                   promoteUser={this.onPromoteClick}
                   demoteUser={this.onDemoteClick}
+                  deleteUser={this.onDeleteClick}
                 />
               </div>
             </div>
@@ -57,6 +64,7 @@ AdminDash.propTypes = {
   getUsers: PropTypes.func.isRequired,
   promoteUser: PropTypes.func.isRequired,
   demoteUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   users: PropTypes.object.isRequired,
 };
@@ -71,4 +79,5 @@ export default connect(mapStateToProps, {
   getUsers,
   promoteUser,
   demoteUser,
+  deleteUser
 })(AdminDash);

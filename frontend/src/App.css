@@ -107,6 +107,16 @@ label{
 
 table th {font-weight: 800;}
 
+table td {align-items: center;}
+
+input[type=text]:not(.browser-default) {
+    background-color: transparent;
+}
+
+input::placeholder{
+    color: black;
+}
+
 /*==< Tablets/Small Screens >==*/
 /* 426px - 1023px Wide */
 @media (max-width: 1023px){
