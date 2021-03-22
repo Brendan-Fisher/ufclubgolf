@@ -27,7 +27,7 @@ class Navbar extends Component {
 
         return (
             <div className="navbar-fixed">
-                <nav className="z-depth-0 grey darken-1">
+                <nav className="z-depth-0 green lighten-1">
                     <div>
                         <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
                         <ul id="nav-mobile" className="hide-on-med-and-down right">
@@ -98,7 +98,7 @@ class Navbar extends Component {
                                 fontFamily: "monospace",
                                 margin: "auto"
                             }}
-                            className="col s12 m6 l3 brand-logo center black-text"
+                            className="col s12 m6 l3 brand-logo center white-text"
                         >
                             UF Club Golf
                         </Link>
