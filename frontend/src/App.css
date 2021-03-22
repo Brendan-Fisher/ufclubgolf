@@ -11,6 +11,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
     background-position: absolute;
+    background-blend-mode: darken;
+    background-color: rgba(102, 187, 106, 0.5);
 }
 
 body:after {
@@ -24,7 +26,7 @@ body:after {
 }
 
 #container {
-    height: 85vh;
+    height: 100%;
     background-color: rgba(238, 238, 238, 0);
     margin-top: 2vh;
     position: relative;
@@ -38,6 +40,16 @@ body:after {
     background-color: rgba(238, 238, 238, 0);
     margin-top: 3vh;
     position: relative;
+}
+
+#SliderImage
+{
+    width: 100%;
+    margin: auto;
+}
+#SliderText
+{
+    text-shadow:rgb(253, 4, 4);
 }
 
 #box {
