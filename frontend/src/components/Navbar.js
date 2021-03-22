@@ -27,7 +27,7 @@ class Navbar extends Component {
 
         return (
             <div className="navbar-fixed">
-                <nav className="z-depth-0 grey darken-1">
+                <nav className="z-depth-0 green lighten-1">
                     <div>
                         <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
                         <ul id="nav-mobile" className="hide-on-med-and-down right">
@@ -37,13 +37,13 @@ class Navbar extends Component {
                                         href="/register" 
                                         className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
                                         style={{
-                                            width: "120px",
+                                            width: "150px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Register
+                                        Join UF Club Golf
                                     </a>
                                 </li>
                             }
@@ -73,7 +73,7 @@ class Navbar extends Component {
                                         autoTrigger: true,
                                         closeOnClick: true,
                                         constrainWidth: true,
-                                        coverTrigger: true,
+                                        coverTrigger: false,
                                         hover: true,
                                         inDuration: 150,
                                         outDuration: 250
@@ -82,7 +82,7 @@ class Navbar extends Component {
                                     >
                                         <ul>
                                             <li><a href="/events">Events</a></li>
-                                            {loggedIn && memberType !== "guest" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                            {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
                                             <Divider />
                                             {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
                                         </ul>
@@ -98,7 +98,7 @@ class Navbar extends Component {
                                 fontFamily: "monospace",
                                 margin: "auto"
                             }}
-                            className="col s12 m6 l3 brand-logo center black-text"
+                            className="col s12 m6 l3 brand-logo center white-text"
                         >
                             UF Club Golf
                         </Link>

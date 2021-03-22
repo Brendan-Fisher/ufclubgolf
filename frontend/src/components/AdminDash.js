@@ -5,6 +5,7 @@ import {
   getUsers,
   promoteUser,
   demoteUser,
+  deleteUser
 } from "../redux/actions/userActions";
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
@@ -26,6 +27,11 @@ class AdminDash extends Component {
     this.props.getUsers();
   };
 
+  onDeleteClick = (user) => {
+    this.props.deleteUser(user);
+    this.props.getUsers();
+  }
+
   componentDidMount() {
     this.props.getUsers();
   }
@@ -35,13 +41,16 @@ class AdminDash extends Component {
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {
       return (
-        <div style={{ height: "90vh" }} className="container valign-wrapper">
-          <div className="section">
-            <div className="col s6">
-              <MemberList
-                promoteUser={this.onPromoteClick}
-                demoteUser={this.onDemoteClick}
-              />
+        <div id="container" className="container valign-wrapper">
+          <div id="content" className="section">
+            <div className="flexbox">
+              <div id="box" className="col s6 memberList center-align">
+                <MemberList id="memberList"
+                  promoteUser={this.onPromoteClick}
+                  demoteUser={this.onDemoteClick}
+                  deleteUser={this.onDeleteClick}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -55,6 +64,7 @@ AdminDash.propTypes = {
   getUsers: PropTypes.func.isRequired,
   promoteUser: PropTypes.func.isRequired,
   demoteUser: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   users: PropTypes.object.isRequired,
 };
@@ -69,4 +79,5 @@ export default connect(mapStateToProps, {
   getUsers,
   promoteUser,
   demoteUser,
+  deleteUser
 })(AdminDash);
