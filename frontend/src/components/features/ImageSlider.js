@@ -14,7 +14,7 @@ class ImageSlider extends Component
 
     render()
     {
-        {/*--here is the container the images should store in --*/}
+        /*--here is the container the images should store in --*/
         const srcImages = [bg1, bg2]
         const items = []
         

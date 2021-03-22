@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './styles/Landing.css';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 import ImageSlider from "./features/ImageSlider";
