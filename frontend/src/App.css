@@ -11,6 +11,8 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: absolute;
+  background-blend-mode: darken;
+  background-color:rgba(0, 255, 128, .1)
 }
 
 body:after {
@@ -24,19 +26,19 @@ body:after {
 }
 
 #container {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   margin-top: 2vh;
   position: relative;
   justify-content: center;
   overflow: hidden;
   margin-bottom: 2vh;
+  padding: 0 2rem;
 }
 
 #content {
   overflow: hidden;
   padding: 0;
   width: auto;
-  background-color: rgba(238, 238, 238, 0);
   margin-top: 2vh;
   position: relative;
 }
@@ -44,7 +46,7 @@ body:after {
 #box {
   margin: 8px;
   padding: auto;
-  background-color: rgba(209, 212, 255, 0.95);
+  background-color: #a5d6a7;
   position: relative;
 }
 
