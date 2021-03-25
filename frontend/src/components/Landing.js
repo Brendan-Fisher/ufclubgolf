@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import './styles/Landing.css';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 import ImageSlider from "./features/ImageSlider";
@@ -14,7 +15,7 @@ class Landing extends Component {
         return (
             <div>
                 <ImageSlider />
-                <div style={{backgroundColor: '#66BB6B', width:window.innerWidth, height:50}}></div>
+                <div style={{backgroundColor: '#66BB6B', width:"100%", height:50}}></div>
                 <div id="container" className="container valign-wrapper">
                   <div id="content" className="row">
                     <div className="flexbox">
