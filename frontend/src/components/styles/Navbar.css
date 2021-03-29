@@ -68,3 +68,59 @@ nav .sidenav-trigger {
         font-size: 1.3rem;
     }
 }
+
+a:hover #pass{
+    text-decoration: none;
+    position: relative;
+    transition: all 0.6s;
+    color:white;
+}
+
+a:hover #pass:before {
+    content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    transition: all 0.3s;
+}
+
+a:hover #pass:hover:before {
+    width: 100%;
+    left: 0;
+    background: white;
+}
+
+#pass2{
+    text-decoration: none;
+    position: relative;
+    transition: all 0.6s;
+    color:black
+}
+ 
+#pass2:before {
+    content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: black;
+    transition: all 0.3s;
+}
+
+#pass2:hover:before {
+    width: 100%;
+    left: 0;
+    background: black;
+}
+
+.navbarhover:hover{
+    background-color: orange;
+}
+
+.nudge{
+    margin-bottom: 1.2vh;
+}

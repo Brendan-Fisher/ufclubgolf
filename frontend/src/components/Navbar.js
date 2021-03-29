@@ -20,9 +20,6 @@ class Navbar extends Component {
         e.preventDefault();
         this.props.logoutMember();
     };
-
-      
-
     render() {
         let loggedIn = store.getState().auth.isAuthenticated;
         let memberType = store.getState().auth.memberType;
@@ -67,11 +64,15 @@ class Navbar extends Component {
                             }
                         </ul>
                         <ul id="nav-mobile" className="left hide-on-med-and-down">
+                            <div>
+                                
+                            </div>
                             <li>
+                            <div class='nudge'></div>
                                 <Dropdown
                                     id="Dropdown_6"
                                     options={{
-                                        alignment: 'right',
+                                        alignment: 'left',
                                         autoTrigger: true,
                                         closeOnClick: true,
                                         constrainWidth: true,
@@ -79,20 +80,26 @@ class Navbar extends Component {
                                         hover: true,
                                         inDuration: 150,
                                         outDuration: 250
+                                    
                                     }}
-                                    trigger={<a href="#!"><i className="material-icons">menu</i></a>}
-                                    >
-                                        <ul>
-                                            <li><a href="/events">Events</a></li>
-                                            {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
-                                            <Divider />
-                                            {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
-                                        </ul>
-                                    </Dropdown>
+                                    trigger={<a href="#!" ><i className="material-icons">menu</i></a>}
+                                    >     
+                                    <ul>
+                                        <li><a href="/about" class="navbarhover"><text id="pass2">About Us</text></a></li>
+                                        <li><a href="/calendar" class="navbarhover"><text id="pass2">Calender</text></a></li>
+                                        <li><a href="/tournaments" class="navbarhover"><text id="pass2">Tournaments</text></a></li>
+                                        <li><a href="/events" class="navbarhover"><text id="pass2">Events</text></a></li>
+                                        {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                        <Divider />
+                                        {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
+                                    </ul>
+                                </Dropdown>
                             </li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/calendar">Calendar</a></li>
-                            <li><a href="/tournaments">Tournaments</a></li>
+                            
+                            <li><a href="/about" class="navbarhover"><text id="pass">About Us</text></a></li>
+                            <li><a href="/calendar" class="navbarhover"><text id="pass">Calender</text></a></li>
+                            <li><a href="/tournaments" class="navbarhover"><text id="pass">Tournaments</text></a></li>
+                            <li><a href="/events" class="navbarhover"><text id="pass">Events</text></a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -102,7 +109,7 @@ class Navbar extends Component {
                             }}
                             className="col s12 m6 l3 brand-logo center white-text"
                         >
-                            UF Club Golf
+                            <text id="pass">UF Golf Club</text>
                         </Link>
                     </div>
                 </nav>
