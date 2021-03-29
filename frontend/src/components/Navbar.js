@@ -1,3 +1,5 @@
+import './styles/Navbar.css'
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -27,7 +29,7 @@ class Navbar extends Component {
 
         return (
             <div className="navbar-fixed">
-                <nav className="z-depth-0 grey darken-1">
+                <nav className="z-depth-0 green lighten-1">
                     <div>
                         <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
                         <ul id="nav-mobile" className="hide-on-med-and-down right">
@@ -35,18 +37,15 @@ class Navbar extends Component {
                                 <li>
                                     <a 
                                         href="/register" 
-                                        className="btn btn-medium waves-effect hoverable white" 
+                                        className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
                                         style={{
-                                            width: "135px",
+                                            width: "150px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
-                                            margin: "11.250px",
-                                            color: "black"
+                                            margin: "11.250px"
                                         }}
                                     >
-                                        <text class="register">
-                                        Register
-                                        </text>
+                                        Join UF Club Golf
                                     </a>
                                 </li>
                             }
@@ -54,18 +53,15 @@ class Navbar extends Component {
                                 <li>
                                     <a 
                                         href="/login" 
-                                        className="btn btn-medium waves-effect white hoverable" 
+                                        className="btn btn-medium waves-effect hoverable white black-text" 
                                         style={{
                                             width: "120px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
-                                            margin: "11.250px",
-                                            color: "black"
+                                            margin: "11.250px"
                                         }}
                                     >
-                                        <text class="login">
-                                        Log In
-                                        </text>
+                                        Log in
                                     </a>
                                 </li>
                             }
@@ -78,29 +74,25 @@ class Navbar extends Component {
                                         alignment: 'right',
                                         autoTrigger: true,
                                         closeOnClick: true,
-                                        constrainHeight: true,
+                                        constrainWidth: true,
                                         coverTrigger: false,
                                         hover: true,
                                         inDuration: 150,
                                         outDuration: 250
                                     }}
-                                    trigger={<a href="#!" id="push"><i className="material-icons">menu</i></a>}
+                                    trigger={<a href="#!"><i className="material-icons">menu</i></a>}
                                     >
                                         <ul>
-                                            <li><a href="/about us" >About Us</a></li>
-                                            <li><a href="/calender">Calander</a></li>
-                                            <li><a href="/tournaments">Tournaments</a></li>
                                             <li><a href="/events">Events</a></li>
-                                            {loggedIn && memberType !== "guest" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                            {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
                                             <Divider />
                                             {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
                                         </ul>
-                                </Dropdown>
+                                    </Dropdown>
                             </li>
-                            <li><a href="/about" class="Hover-Color">About Us</a></li>
-                            <li><a href="/calendar" class="Hover-Color">Calendar</a></li>
-                            <li><a href="/tournaments" class="Hover-Color">Tournaments</a></li>
-                            <li><a href="/events" class="Hover-Color">Events</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/calendar">Calendar</a></li>
+                            <li><a href="/tournaments">Tournaments</a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -108,7 +100,7 @@ class Navbar extends Component {
                                 fontFamily: "monospace",
                                 margin: "auto"
                             }}
-                            className="col s12 m6 l3 brand-logo center black-text"
+                            className="col s12 m6 l3 brand-logo center white-text"
                         >
                             UF Club Golf
                         </Link>
@@ -116,7 +108,7 @@ class Navbar extends Component {
                 </nav>
 
                 <div>
-                    <ul id="slide-out" className="sidenav" >
+                    <ul id="slide-out" className="sidenav">
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/calendar">Calendar</a></li>
