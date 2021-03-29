@@ -68,7 +68,7 @@ class Navbar extends Component {
                                 
                             </div>
                             <li>
-                            <div class='nudge'></div>
+                            <div></div>
                                 <Dropdown
                                     id="Dropdown_6"
                                     options={{
@@ -82,7 +82,7 @@ class Navbar extends Component {
                                         outDuration: 250
                                     
                                     }}
-                                    trigger={<a href="#!" ><i className="material-icons">menu</i></a>}
+                                    trigger={<a href="#!" className="trigger"><i className="material-icons">menu</i></a>}
                                     >     
                                     <ul>
                                         <li><a href="/about" class="navbarhover"><text id="pass2">About Us</text></a></li>
