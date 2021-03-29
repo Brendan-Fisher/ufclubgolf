@@ -31,7 +31,7 @@ class Navbar extends Component {
             <div className="navbar-fixed">
                 <nav className="z-depth-0 green lighten-1">
                     <div>
-                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
+                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons" >menu</i></a> 
                         <ul id="nav-mobile" className="hide-on-med-and-down right">
                             {!loggedIn &&
                                 <li>
@@ -45,7 +45,9 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
+                                        <div class="rightnavbar">
                                         Join UF Club Golf
+                                        </div>
                                     </a>
                                 </li>
                             }
@@ -61,7 +63,9 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Log in
+                                        <div class="rightnavbar">
+                                            Log in
+                                        </div>
                                     </a>
                                 </li>
                             }
@@ -83,18 +87,23 @@ class Navbar extends Component {
                                     trigger={<a href="#!"><i className="material-icons">menu</i></a>}
                                     >
                                         <ul>
-                                            <li><a href="/events">Events</a></li>
+                                        <li><a href="/about" class="leftnavbar">About Us</a></li>
+                                        <li><a href="/calendar" class="leftnavbar">Calendar</a></li>
+                                        <li><a href="/tournaments" class="leftnavbar">Tournaments</a></li>
+                                        <li><a href="/events" class="leftnavbar">Events</a></li>
                                             {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
                                             <Divider />
                                             {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
                                         </ul>
                                     </Dropdown>
                             </li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/calendar">Calendar</a></li>
-                            <li><a href="/tournaments">Tournaments</a></li>
-                        </ul>                     
+                            <li><a href="/about" class="leftnavbar">About Us</a></li>
+                            <li><a href="/calendar" class="leftnavbar">Calendar</a></li>
+                            <li><a href="/tournaments" class="leftnavbar">Tournaments</a></li>
+                            <li><a href="/events" class="leftnavbar">Events</a></li>
+                            </ul>                     
                         <Link
+                            
                             to="/"
                             style={{
                                 fontFamily: "monospace",
@@ -102,7 +111,9 @@ class Navbar extends Component {
                             }}
                             className="col s12 m6 l3 brand-logo center white-text"
                         >
-                            UF Club Golf
+                            <div class="middlenavbar">
+                             UF Club Golf
+                            </div>
                         </Link>
                     </div>
                 </nav>

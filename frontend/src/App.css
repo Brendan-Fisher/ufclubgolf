@@ -58,6 +58,87 @@ body:after {
   align-items: center;
 }
 
+.calendar {
+  border: solid 1px #777;
+  width: 100%;
+  height: 600px;
+}
+
+.sidenav {
+  display: none;
+  width: 300px;
+}
+
+#sidenav {
+  display: none;
+}
+
+.dropdown-trigger {
+  margin: auto;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.dropdown-trigger:hover {
+  margin: auto;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  background-color: orange;
+}
+
+nav .sidenav-trigger {
+  margin: 11.25px;
+}
+
+.dropdown-content {
+  width: max-content !important;
+  height: auto !important;
+}
+
+.lg-calendar {
+  display: initial;
+}
+.sm-calendar {
+  display: none;
+}
+
+.memberList {
+  padding: 1rem;
+  margin: auto;
+  width: 100%;
+  border: solid 1px black;
+  color: black;
+}
+
+label {
+  color: black;
+}
+
+.dataTables_wrapper {
+  display: inline;
+  left: 4rem;
+}
+
+.pagination .page-item.disabled .page-link {
+  color: black;
+}
+
+table th {
+  font-weight: 800;
+}
+
+table td {
+  align-items: center;
+}
+
+input[type="text"]:not(.browser-default) {
+  background-color: transparent;
+}
+
+input::placeholder {
+  color: black;
+}
+
 img {
   -webkit-user-drag: none;
   user-select: none;
@@ -68,5 +149,118 @@ img {
 
 .btn {
     padding: 0!important;
+}
+
+/*==< Tablets/Small Screens >==*/
+/* 426px - 1023px Wide */
+@media (max-width: 1023px) {
+  .lg-calendar {
+    display: initial;
+  }
+  .sm-calendar {
+    display: none;
+  }
+
+  #nav-mobile {
+    margin: auto;
+  }
+
+  .sidenav {
+    display: inline-block;
+  }
+
+  nav .sidenav-trigger {
+    margin: auto;
+    margin-left: 11.25px;
+  }
+
+  .sidenav-overlay {
+    z-index: 1;
+  }
+
+  #sidenav {
+    display: inline-block;
+    position: fixed;
+  }
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-areas:
+        "exec-heading"
+      "vp-image"
+      "vp-desc"
+      "tr-image"
+      "tr-desc"
+      "pr1-image"
+      "pr1-desc"
+      "pr2-image"
+      "pr2-desc";
+  }
+
+  .grid .vp-image {
+    margin: auto;
+  }
+  .grid .tr-image {
+    margin: auto;
+  }
+  .grid .pr1-image {
+    margin: auto;
+  }
+  .grid .pr2-image {
+    margin: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .lg-calendar {
+    display: none;
+  }
+  .sm-calendar {
+    display: initial;
+  }
+}
+
+/*==< Mobile Devices >==*/
+/* <425px Wide */
+@media (max-width: 425px) {
+  #sidenav {
+    display: inline-block;
+    position: fixed;
+  }
+
+  .sidenav {
+    width: 60vw;
+  }
+
+  nav .sidenav-trigger {
+    margin: auto;
+    margin-left: 11.25px;
+  }
+
+  .sidenav-overlay {
+    z-index: 1;
+  }
+
+  nav .brand-logo {
+    font-size: 1.3rem;
+  }
+}
+
+.leftnavbar:hover{
+  color:black;
+  background-color:orange;
+}
+
+.middlenavbar:hover{
+  color:black;
+  background-color:orange;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.rightnavbar:hover{
+  color:black;
+  background-color:orange;
 }
 
