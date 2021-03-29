@@ -1,0 +1,40 @@
+.memberList {
+    padding: 1rem;
+    margin: auto;
+    width: 100%;
+    border: solid 1px black;
+    color: black;
+}
+
+.dataTables_wrapper {
+    display: inline;
+    left: 4rem;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: black;
+}
+
+input[type="text"]:not(.browser-default) {
+    background-color: transparent;
+}
+
+input::placeholder {
+    color: black;
+}
+
+label {
+    color: black;
+}
+
+table th {
+    font-weight: 800;
+}
+
+.dataTables_length {
+    display: none;
+}
+
+table td {
+    align-items: center;
+}

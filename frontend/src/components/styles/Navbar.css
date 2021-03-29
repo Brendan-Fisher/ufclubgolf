@@ -1,0 +1,70 @@
+.sidenav {
+    display: none;
+    width: 300px;
+}
+
+#sidenav {
+    display: none;
+}
+
+.dropdown-trigger {
+    margin: auto;
+    padding-right: 1rem;
+}
+
+nav .sidenav-trigger {
+    margin: 11.25px;
+}
+
+.dropdown-content {
+    width: max-content !important;
+    height: auto !important;
+}
+
+@media (max-width: 1023px) {
+    #nav-mobile {
+        margin: auto;
+    }
+
+    .sidenav {
+        display: inline-block;
+    }
+
+    nav .sidenav-trigger {
+        margin: auto;
+        margin-left: 11.25px;
+    }
+
+    .sidenav-overlay {
+        z-index: 1;
+    }
+
+    #sidenav {
+        display: inline-block;
+        position: fixed;
+    }
+}
+
+@media (max-width: 425px) {
+    #sidenav {
+        display: inline-block;
+        position: fixed;
+    }
+
+    .sidenav {
+        width: 60vw;
+    }
+
+    nav .sidenav-trigger {
+        margin: auto;
+        margin-left: 11.25px;
+    }
+
+    .sidenav-overlay {
+        z-index: 1;
+    }
+
+    nav .brand-logo {
+        font-size: 1.3rem;
+    }
+}
