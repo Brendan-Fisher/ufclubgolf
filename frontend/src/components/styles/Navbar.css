@@ -67,4 +67,20 @@ nav .sidenav-trigger {
     nav .brand-logo {
         font-size: 1.3rem;
     }
+<<<<<<< Updated upstream
 }
+=======
+}
+
+#navbarhover:hover{
+    background-color: orange;
+}
+
+.join{
+    color:white
+}
+
+.log{
+    color:black
+}
+>>>>>>> Stashed changes
