@@ -9,9 +9,13 @@ import {
   demoteUser,
   deleteUser
 } from "../redux/actions/userActions";
+import {
+  createAnnouncement
+} from "../redux/actions/contentActions";
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
 import { MemberList } from "../components/features/MemberList";
+import { CreateAnnouncement } from "../components/features/CreateAnnouncement";
 
 class AdminDash extends Component {
   onLogoutClick = (e) => {
@@ -34,6 +38,10 @@ class AdminDash extends Component {
     this.props.getUsers();
   }
 
+  onAnnouncementPost = (content) => {
+    this.props.createAnnouncement(content);
+  }
+
   componentDidMount() {
     this.props.getUsers();
   }
@@ -52,6 +60,10 @@ class AdminDash extends Component {
                   demoteUser={this.onDemoteClick}
                   deleteUser={this.onDeleteClick}
                 />
+                
+              </div>
+              <div id="box" className="col s6">
+                <CreateAnnouncement createAnnouncement={this.onAnnouncementPost}/>
               </div>
             </div>
           </div>
@@ -62,6 +74,7 @@ class AdminDash extends Component {
 }
 
 AdminDash.propTypes = {
+  createAnnouncement: PropTypes.func.isRequired,
   logoutMember: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
   promoteUser: PropTypes.func.isRequired,
@@ -81,5 +94,6 @@ export default connect(mapStateToProps, {
   getUsers,
   promoteUser,
   demoteUser,
-  deleteUser
+  deleteUser,
+  createAnnouncement
 })(AdminDash);
