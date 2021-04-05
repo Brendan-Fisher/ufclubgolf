@@ -74,20 +74,23 @@ class Register extends Component {
         const { errors } = this.state;
 
         return (
-            <div id="container" className="container">
-                <div id="content" style={{ marginTop: "4rem" }} className="row">
+            <div id="container"  className="container">
+                <div id="content" style={{ marginTop: "4rem"}} className="row">
                     <div className="flexbox">
                         <div id="box" className="col s10 m8 l8 offset-s1 offset-m2 offset-l2">
                             <Link to="/" className="btn-flat waves-effect">
-                                <i className="material-icons left">keyboard_backspace</i> Back to home
+                                <i className="material-icons left">keyboard_backspace</i> 
+                                <a><text id="pass2">Back to home</text></a>
                             </Link>
 
                             <div className="col s12" style={{ paddingLeft: "11.250px"} }>
                                 <h4><b>Register</b> below</h4>
                                 <p className="grey-text text-darken-1">
-                                    Already have an account? <Link to="/login">Log in</Link>
+                                    Already have an account? <Link to="/login">
+                                    <a><text id="pass4">Log In</text></a></Link>
                                     <br></br>
-                                    Or <Link to="/" onClick={this.guestLogin}>Continue as Guest</Link>
+                                    Or <Link to="/" onClick={this.guestLogin}>
+                                    <a><text id="pass4">Continune As Guest</text></a></Link>
                                 </p>
                             </div>
 
@@ -101,7 +104,7 @@ class Register extends Component {
                                         type="text"
                                         className={classnames("",{ invalid: errors.name })}
                                     />
-                                    <label htmlFor="name">Name</label>
+                                    <label htmlFor="name">Full Name</label>
                                     <span className="red-text">{errors.name}</span>
                                 </div>
                                 <div className="input-field col s12">
@@ -143,15 +146,15 @@ class Register extends Component {
                                 <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                     <button
                                         style={{
-                                            width: "150px",
+                                            width: "75px",
                                             borderRadius: "3px",
                                             letterSpacing: "1.5px",
-                                            marginTop: "1rem"
+                                            margin: "11.250px",
                                         }}
                                         type="submit"
-                                        className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                                        className="btn btn-medium waves-effect waves-green hoverable blue accent-3"
                                     >
-                                        Sign up
+                                        <text id="location" class="join" id="pass3">Sign Up</text>
                                     </button>
                                 </div>
                             </form>

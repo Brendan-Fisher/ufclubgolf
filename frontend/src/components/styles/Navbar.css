@@ -45,6 +45,30 @@ a:hover #pass:before {
     background: white;
 }
 
+#pass3{
+    text-decoration: none;
+    position: relative;
+    transition: all 0.6s;
+    color:white;
+}
+
+#pass3:before {
+    content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: white;
+    transition: all 0.5s;
+}
+
+button:hover #pass3:before {
+    width: 100%;
+    left: 0;
+    background: white;
+}
+
 #pass2{
     text-decoration: none;
     position: relative;
@@ -67,6 +91,30 @@ a:hover #pass2:before {
     width: 100%;
     left: 0;
     background: black;
+}
+
+#pass4{
+    text-decoration: none;
+    position: relative;
+    transition: all 0.6s;
+    color:blue
+}
+ 
+#pass4:before {
+    content: "";
+    width: 0;
+    height: 0.1em;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: blue;
+    transition: all 0.3s;
+}
+
+a:hover #pass4:before {
+    width: 100%;
+    left: 0;
+    background: blue;
 }
 
 .navbarhover:hover{
@@ -134,5 +182,21 @@ a:hover #pass2:before {
     nav .brand-logo {
         font-size: 1.3rem;
     }
+}
+
+#navbarhover:hover{
+    background-color: orange;
+}
+
+.join{
+    color:white
+}
+
+.log{
+    color:black
+}
+
+#location{
+    top: "100px"
 }
 

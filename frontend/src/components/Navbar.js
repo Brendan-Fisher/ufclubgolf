@@ -42,7 +42,7 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Join UF Club Golf
+                                        <text class="join" id="pass">Join UF Club Golf</text>
                                     </a>
                                 </li>
                             }
@@ -58,7 +58,7 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Log in
+                                        <text class="join" id="pass2">Log In</text>
                                     </a>
                                 </li>
                             }
