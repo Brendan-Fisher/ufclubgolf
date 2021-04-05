@@ -89,9 +89,9 @@ class Navbar extends Component {
                                         <li><a href="/calendar" class="navbarhover"><text id="pass2">Calender</text></a></li>
                                         <li><a href="/tournaments" class="navbarhover"><text id="pass2">Tournaments</text></a></li>
                                         <li><a href="/events" class="navbarhover"><text id="pass2">Events</text></a></li>
-                                        {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
+                                        {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" class="navbarhover"><text id="pass2">User Dashboard</text></a></li>}
                                         <Divider />
-                                        {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
+                                        {loggedIn && <li><a href="/" class="navbarhover" onClick={this.onLogoutClick}><text id="pass2">Log Out</text></a></li>}
                                     </ul>
                                 </Dropdown>
                             </li>
