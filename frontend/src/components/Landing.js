@@ -51,7 +51,7 @@ class Landing extends Component {
                             <h2>Fourth Panel</h2>
                             <p className="black-text">This is your fourth panel</p>
                           </div>
-                        </div>                            
+                        </div>                        
                       </div>
                       <div id="box" style={{ minHeight: "400px" }}className="col s12 m7 l7 center-align">
                         <h5>Recent Club Posts</h5>
