@@ -67,34 +67,6 @@ class Navbar extends Component {
                             <div>
                                 
                             </div>
-                            <li>
-                            <div></div>
-                                <Dropdown
-                                    id="Dropdown_6"
-                                    options={{
-                                        alignment: 'left',
-                                        autoTrigger: true,
-                                        closeOnClick: true,
-                                        constrainWidth: true,
-                                        coverTrigger: false,
-                                        hover: true,
-                                        inDuration: 150,
-                                        outDuration: 250
-                                    
-                                    }}
-                                    trigger={<a href="#!" className="trigger"><i className="material-icons">menu</i></a>}
-                                    >     
-                                    <ul>
-                                        <li><a href="/about" class="navbarhover"><text id="pass2">About Us</text></a></li>
-                                        <li><a href="/calendar" class="navbarhover"><text id="pass2">Calender</text></a></li>
-                                        <li><a href="/tournaments" class="navbarhover"><text id="pass2">Tournaments</text></a></li>
-                                        <li><a href="/events" class="navbarhover"><text id="pass2">Events</text></a></li>
-                                        {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" class="navbarhover"><text id="pass2">User Dashboard</text></a></li>}
-                                        <Divider />
-                                        {loggedIn && <li><a href="/" class="navbarhover" onClick={this.onLogoutClick}><text id="pass2">Log Out</text></a></li>}
-                                    </ul>
-                                </Dropdown>
-                            </li>
                             
                             <li><a href="/about" class="navbarhover"><text id="pass">About Us</text></a></li>
                             <li><a href="/calendar" class="navbarhover"><text id="pass">Calender</text></a></li>
@@ -111,6 +83,10 @@ class Navbar extends Component {
                         >
                             <text id="pass">UF Golf Club</text>
                         </Link>
+                        <ul className= "right hide-on-med-and-down" id="nav-mobile">
+                             {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" class="navbarhover"><text id="pass" class="join">User Dashboard</text></a></li>}
+                            {loggedIn && <li id="pass2"><a href="/" class="navbarhover" onClick={this.onLogoutClick}><text id="pass">Log Out</text></a></li>}
+                        </ul>
                     </div>
                 </nav>
 

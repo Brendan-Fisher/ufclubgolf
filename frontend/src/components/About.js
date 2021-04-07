@@ -14,6 +14,18 @@ class About extends Component {
               </span>
             </h4>
           </div>
+          <div className="p-image"></div>
+          <div className="p-desc">
+            <h3>
+              <b>Nick Althammer</b>
+            </h3>
+            <h4>President</h4>
+            <h5>
+              Nick is currently studying Civil Engineering. 
+              His favorite golfers is Rory McIlroy and his
+              favorite course is the Bears Club Course
+            </h5>
+          </div>
           <div className="vp-image"></div>
           <div className="vp-desc">
             <h3>
@@ -77,18 +89,6 @@ class About extends Component {
               he enjoys playing ultimate frisbee and watching sports. His
               favorite golfers are Justin Rose and Collin Morikawa and his
               favorite course is the TPC Sawgrass Valley Course
-            </h5>
-          </div>
-          <div className="p-image"></div>
-          <div className="p-desc">
-            <h3>
-              <b>Nick Althammer</b>
-            </h3>
-            <h4>President</h4>
-            <h5>
-              Dhruv is currently studying Civil Engineering. 
-              His favorite golfers are Rory McIlroy and his
-              favorite course is the Bears Club Course
             </h5>
           </div>
         </div>

@@ -9,10 +9,12 @@ class Register extends Component {
     constructor() {
         super();
         this.state = {
-        name: "",
+        firstname: "",
+        lastname: "",
         email: "",
         password: "",
         password2: "",
+        number: "",
         errors: {}
         };
     }
@@ -62,10 +64,12 @@ class Register extends Component {
     onSubmit = e => {
         e.preventDefault();
         const newMember = {
-            name: this.state.name,
+            firstname: this.state.firstname,
+            lastname: this.state.lastname,
             email: this.state.email,
             password: this.state.password,
-            password2: this.state.password2
+            password2: this.state.password2,
+            number: this.state.number,
         };
         this.props.registerMember(newMember, this.props.history);
     };
@@ -173,7 +177,7 @@ class Register extends Component {
                                     value={this.state.number}
                                     error={errors.number}
                                     id="number"
-                                    type="text" 
+                                    type="text"  
                                     className={classnames("",{ invalid: errors.number })}
                                     />
                                     <label htmlFor="number">Phone Number</label>

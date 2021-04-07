@@ -11,7 +11,6 @@ module.exports = function validateRegisterInput(data) {
     data.password = !isEmpty(data.password) ? data.password : "";
     data.password2 = !isEmpty(data.password2) ? data.password2 : "";
     data.memberType = !isEmpty(data.memberType) ? data.memberType : "";
-    data.number = !isEmpty(data.number) ? data.number : "";
 
     // Name checks
     if (Validator.isEmpty(data.firstname)) {
@@ -39,10 +38,6 @@ module.exports = function validateRegisterInput(data) {
 
     if (!Validator.equals(data.password, data.password2)) {
         errors.password2 = "Passwords must match";
-    }
-
-    if (!Validator.isMobilePhone(data.number)) {
-        errors.number = "Please enter a valid phone number";
     }
 
     return {
