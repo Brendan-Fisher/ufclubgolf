@@ -1,15 +1,22 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import './styles/Landing.css';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 import ImageSlider from "./features/ImageSlider";
+import Announcement from "./features/Announcement";
+import { getAnnouncements } from "../redux/actions/contentActions";
 
 
 class Landing extends Component {
     componentDidMount() {
         let carousel = document.querySelector('.carousel');
         M.Carousel.init(carousel, { fullWidth: true, indicators: true });
-    }  
+
+        this.props.getAnnouncements()
+    }
+        
     render() {
         return (
             <div>
@@ -24,13 +31,7 @@ class Landing extends Component {
                         </h4>
                       </div>
                       <div id="box" className="col s12 l12 m12 center-align">
-                        <h4>Announcement</h4>
-                        <h5>
-                            This box can contain a recent club announcement or important information for visitors to know
-                        </h5>
-                        <br />
-                        <br />
-                        <br />
+                        <Announcement />
                       </div>
                       <div id="box" className="col s12 m4 l4 center-align">
                         <div className="carousel carousel-slider">
@@ -100,4 +101,14 @@ class Landing extends Component {
     }
 }
 
-export default Landing;
+Landing.propTypes = {
+  getAnnouncements: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  content: state.content,
+})
+
+export default connect(mapStateToProps, {
+  getAnnouncements
+})(Landing);
