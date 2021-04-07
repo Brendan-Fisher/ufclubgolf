@@ -53,6 +53,19 @@ class About extends Component {
               utilizing Mark Bostick Golf Course for practice.
             </h5>
           </div>
+          <div className="pr1-image"></div>
+          <div className="pr1-desc">
+            <h3>
+              <b>Mombo Ngu</b>
+            </h3>
+            <h4>Public Relations</h4>
+            <h5>
+              Mombo is currently studying Sociology on the Pre-Med track. Her
+              favorite golfers are Cheyenne Woods and Matthew Wolff and she
+              enjoys being able to volunteer at the team tournaments and
+              utilizing Mark Bostick Golf Course for practice.
+            </h5>
+          </div>
           <div className="pr2-image"></div>
           <div className="pr2-desc">
             <h3>
@@ -64,6 +77,18 @@ class About extends Component {
               he enjoys playing ultimate frisbee and watching sports. His
               favorite golfers are Justin Rose and Collin Morikawa and his
               favorite course is the TPC Sawgrass Valley Course
+            </h5>
+          </div>
+          <div className="p-image"></div>
+          <div className="p-desc">
+            <h3>
+              <b>Nick Althammer</b>
+            </h3>
+            <h4>President</h4>
+            <h5>
+              Dhruv is currently studying Civil Engineering. 
+              His favorite golfers are Rory McIlroy and his
+              favorite course is the Bears Club Course
             </h5>
           </div>
         </div>

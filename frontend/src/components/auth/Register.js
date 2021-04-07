@@ -90,22 +90,33 @@ class Register extends Component {
                                     <a><text id="pass4">Log In</text></a></Link>
                                     <br></br>
                                     Or <Link to="/" onClick={this.guestLogin}>
-                                    <a><text id="pass4">Continune As Guest</text></a></Link>
+                                    <a><text id="pass4">Continue As Guest</text></a></Link>
                                 </p>
                             </div>
-
                             <form noValidate onSubmit={this.onSubmit}>
                                 <div className="input-field col s12">
                                     <input  
                                         onChange={this.onChange}
-                                        value={this.state.name}
-                                        error={errors.name}
-                                        id="name"
+                                        value={this.state.firstname}
+                                        error={errors.firstname}
+                                        id="firstname"
                                         type="text"
-                                        className={classnames("",{ invalid: errors.name })}
+                                        className={classnames("",{ invalid: errors.firstname })}
                                     />
-                                    <label htmlFor="name">Full Name</label>
-                                    <span className="red-text">{errors.name}</span>
+                                    <label htmlFor="firstname">First Name</label>
+                                    <span className="red-text">{errors.firstname}</span>
+                                </div>
+                                <div className="input-field col s12">
+                                    <input  
+                                        onChange={this.onChange}
+                                        value={this.state.lastname}
+                                        error={errors.lastname}
+                                        id="lastname"
+                                        type="text"
+                                        className={classnames("",{ invalid: errors.lastname })}
+                                    />
+                                    <label htmlFor="lastname">Last Name</label>
+                                    <span className="red-text">{errors.lastname}</span>
                                 </div>
                                 <div className="input-field col s12">
                                     <input
@@ -142,6 +153,31 @@ class Register extends Component {
                                     />
                                     <label htmlFor="password2">Confirm Password</label>
                                     <span className="red-text">{errors.password2}</span>
+                                </div>
+                                <div className="input-field col s12">
+                                    <input
+                                    onChange={this.onChange}
+                                    value={this.state.facebook}
+                                    error={errors.facebook}
+                                    id="facebook"
+                                    type="text"
+                                    optional
+                                    className={classnames("",{ invalid: errors.facebook })}
+                                    />
+                                    <label htmlFor="facebook">Facebook Username (Optional)</label>
+                                    <span className="red-text">{errors.facebook}</span>
+                                </div>
+                                <div className="input-field col s12">
+                                    <input
+                                    onChange={this.onChange}
+                                    value={this.state.number}
+                                    error={errors.number}
+                                    id="number"
+                                    type="text" 
+                                    className={classnames("",{ invalid: errors.number })}
+                                    />
+                                    <label htmlFor="number">Phone Number</label>
+                                    <span className="red-text">{errors.number}</span>
                                 </div>
                                 <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                     <button
