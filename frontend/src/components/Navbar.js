@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import store from "../redux/store"
 import { logoutMember } from "../redux/actions/authActions";
-import { Divider, Dropdown } from "react-materialize";
+import { Divider } from "react-materialize";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -20,9 +20,6 @@ class Navbar extends Component {
         e.preventDefault();
         this.props.logoutMember();
     };
-
-      
-
     render() {
         let loggedIn = store.getState().auth.isAuthenticated;
         let memberType = store.getState().auth.memberType;
@@ -45,7 +42,7 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Join UF Club Golf
+                                        <text className="join" id="pass">Join UF Club Golf</text>
                                     </a>
                                 </li>
                             }
@@ -61,38 +58,20 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        Log in
+                                        <text className="join" id="pass2">Log In</text>
                                     </a>
                                 </li>
                             }
                         </ul>
                         <ul id="nav-mobile" className="left hide-on-med-and-down">
-                            <li>
-                                <Dropdown
-                                    id="Dropdown_6"
-                                    options={{
-                                        alignment: 'right',
-                                        autoTrigger: true,
-                                        closeOnClick: true,
-                                        constrainWidth: true,
-                                        coverTrigger: false,
-                                        hover: true,
-                                        inDuration: 150,
-                                        outDuration: 250
-                                    }}
-                                    trigger={<a href="#!"><i className="material-icons">menu</i></a>}
-                                    >
-                                        <ul>
-                                            <li><a href="/events">Events</a></li>
-                                            {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec">User Dashboard</a></li>}
-                                            <Divider />
-                                            {loggedIn && <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>}
-                                        </ul>
-                                    </Dropdown>
-                            </li>
-                            <li><a href="/about">About Us</a></li>
-                            <li><a href="/calendar">Calendar</a></li>
-                            <li><a href="/tournaments">Tournaments</a></li>
+                            <div>
+                                
+                            </div>
+                            
+                            <li><a href="/about" className="navbarhover"><text id="pass">About Us</text></a></li>
+                            <li><a href="/calendar" className="navbarhover"><text id="pass">Calender</text></a></li>
+                            <li><a href="/tournaments" className="navbarhover"><text id="pass">Tournaments</text></a></li>
+                            <li><a href="/events" className="navbarhover"><text id="pass">Events</text></a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -102,8 +81,12 @@ class Navbar extends Component {
                             }}
                             className="col s12 m6 l3 brand-logo center white-text"
                         >
-                            UF Club Golf
+                            <text id="pass">UF Golf Club</text>
                         </Link>
+                        <ul className= "right hide-on-med-and-down" id="nav-mobile">
+                             {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" className="navbarhover"><text id="pass" className="join">User Dashboard</text></a></li>}
+                            {loggedIn && <li id="pass2"><a href="/" className="navbarhover" onClick={this.onLogoutClick}><text id="pass">Log Out</text></a></li>}
+                        </ul>
                     </div>
                 </nav>
 
@@ -114,6 +97,7 @@ class Navbar extends Component {
                         <li><a href="/calendar">Calendar</a></li>
                         <li><a href="/tournaments">Tournaments</a></li>
                         <li><a href="/events">Events</a></li>
+                        <Divider />
                         {loggedIn && memberType !== "pending" && memberType !== "member" &&
                             <li><a href="/dashboard/exec">User Dashboard</a></li>
                         }
