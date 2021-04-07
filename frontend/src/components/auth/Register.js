@@ -84,17 +84,16 @@ class Register extends Component {
                         <div id="box" className="col s10 m8 l8 offset-s1 offset-m2 offset-l2">
                             <Link to="/" className="btn-flat waves-effect">
                                 <i className="material-icons left">keyboard_backspace</i> 
-                                <a><text id="pass2">Back to home</text></a>
+                                <text id="pass2">Back to home</text>
                             </Link>
 
                             <div className="col s12" style={{ paddingLeft: "11.250px"} }>
                                 <h4><b>Register</b> below</h4>
                                 <p className="grey-text text-darken-1">
                                     Already have an account? <Link to="/login">
-                                    <a><text id="pass4">Log In</text></a></Link>
+                                    <text id="pass4">Log In</text></Link>
                                     <br></br>
-                                    Or <Link to="/" onClick={this.guestLogin}>
-                                    <a><text id="pass4">Continue As Guest</text></a></Link>
+                                    Or <Link to="/" onClick={this.guestLogin}><text id="pass4">Continue As Guest</text></Link>
                                 </p>
                             </div>
                             <form noValidate onSubmit={this.onSubmit}>
@@ -165,7 +164,7 @@ class Register extends Component {
                                     error={errors.facebook}
                                     id="facebook"
                                     type="text"
-                                    optional
+                                    optional="true"
                                     className={classnames("",{ invalid: errors.facebook })}
                                     />
                                     <label htmlFor="facebook">Facebook Username (Optional)</label>
@@ -194,7 +193,7 @@ class Register extends Component {
                                         type="submit"
                                         className="btn btn-medium waves-effect waves-green hoverable blue accent-3"
                                     >
-                                        <text id="location" class="join" id="pass3">Sign Up</text>
+                                        <text id="location pass3" className="join">Sign Up</text>
                                     </button>
                                 </div>
                             </form>

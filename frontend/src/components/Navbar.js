@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import store from "../redux/store"
 import { logoutMember } from "../redux/actions/authActions";
-import { Divider, Dropdown } from "react-materialize";
+import { Divider } from "react-materialize";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -42,7 +42,7 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        <text class="join" id="pass">Join UF Club Golf</text>
+                                        <text className="join" id="pass">Join UF Club Golf</text>
                                     </a>
                                 </li>
                             }
@@ -58,7 +58,7 @@ class Navbar extends Component {
                                             margin: "11.250px"
                                         }}
                                     >
-                                        <text class="join" id="pass2">Log In</text>
+                                        <text className="join" id="pass2">Log In</text>
                                     </a>
                                 </li>
                             }
@@ -68,10 +68,10 @@ class Navbar extends Component {
                                 
                             </div>
                             
-                            <li><a href="/about" class="navbarhover"><text id="pass">About Us</text></a></li>
-                            <li><a href="/calendar" class="navbarhover"><text id="pass">Calender</text></a></li>
-                            <li><a href="/tournaments" class="navbarhover"><text id="pass">Tournaments</text></a></li>
-                            <li><a href="/events" class="navbarhover"><text id="pass">Events</text></a></li>
+                            <li><a href="/about" className="navbarhover"><text id="pass">About Us</text></a></li>
+                            <li><a href="/calendar" className="navbarhover"><text id="pass">Calender</text></a></li>
+                            <li><a href="/tournaments" className="navbarhover"><text id="pass">Tournaments</text></a></li>
+                            <li><a href="/events" className="navbarhover"><text id="pass">Events</text></a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -84,8 +84,8 @@ class Navbar extends Component {
                             <text id="pass">UF Golf Club</text>
                         </Link>
                         <ul className= "right hide-on-med-and-down" id="nav-mobile">
-                             {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" class="navbarhover"><text id="pass" class="join">User Dashboard</text></a></li>}
-                            {loggedIn && <li id="pass2"><a href="/" class="navbarhover" onClick={this.onLogoutClick}><text id="pass">Log Out</text></a></li>}
+                             {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" className="navbarhover"><text id="pass" className="join">User Dashboard</text></a></li>}
+                            {loggedIn && <li id="pass2"><a href="/" className="navbarhover" onClick={this.onLogoutClick}><text id="pass">Log Out</text></a></li>}
                         </ul>
                     </div>
                 </nav>
@@ -97,6 +97,7 @@ class Navbar extends Component {
                         <li><a href="/calendar">Calendar</a></li>
                         <li><a href="/tournaments">Tournaments</a></li>
                         <li><a href="/events">Events</a></li>
+                        <Divider />
                         {loggedIn && memberType !== "pending" && memberType !== "member" &&
                             <li><a href="/dashboard/exec">User Dashboard</a></li>
                         }
