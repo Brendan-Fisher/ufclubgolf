@@ -103,11 +103,13 @@ router.post("/register", (req, res) => {
       return res.status(400).json({ email: "Email already exists" });
     } else {
       const newMember = new Member({
-        name: req.body.name,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         email: req.body.email,
         position: req.body.position ? req.body.position : "",
         password: req.body.password,
-        memberType: req.body.memberType ? req.body.memberType : "member",
+        memberType: req.body.memberType ? req.body.memberType : "pending",
+        number: req.body.number
       });
 
       // Hash password before saving in database

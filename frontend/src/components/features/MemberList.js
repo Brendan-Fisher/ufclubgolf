@@ -30,13 +30,24 @@ export class MemberList extends Component {
         delete: (
           <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this user?')) this.onDeleteClick(user) } }><i className="material-icons">delete_forever</i></a>
         ),
-        name: user.name,
+        name: user.firstname + " " + user.lastname,
         memberType: user.memberType,
         promote: (
-          <button onClick={() => this.onPromoteClick(user)}>Promote</button>
+          <button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{
+            width: "75px",
+            borderRadius: "3px",
+            letterSpacing: "1.5px",
+            margin: "11.250px",
+        }} onClick={() => this.onPromoteClick(user)}>Promote</button>
         ),
         demote: (
-          <button onClick={() => this.onDemoteClick(user)}>Demote</button>
+          <button className="btn btn-medium waves-effect waves-green hoverable blue lighten-2" style={{
+            width: "75px",
+            height: "auto",
+            borderRadius: "3px",
+            letterSpacing: "1.5px",
+            margin: "11.250px",
+        }} onClick={() => this.onDemoteClick(user)}>Demote</button>
         ),
       };
       rows.push(row);
