@@ -15,9 +15,17 @@ import {
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
 import { MemberList } from "../components/features/MemberList";
-import { CreateAnnouncement } from "../components/features/CreateAnnouncement";
+
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 class AdminDash extends Component {
+    constructor(){
+      super();
+      this.state = {
+          announcement: "",
+      }
+  }
+
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutMember();
@@ -38,11 +46,20 @@ class AdminDash extends Component {
     this.props.getUsers();
   }
 
-  onAnnouncementPost = (content) => {
+  onAnnouncementPost = e => {
+    e.preventDefault();
+    const content = this.state;
     this.props.createAnnouncement(content);
   }
 
+  onChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  }
+
   componentDidMount() {
+    let collapsible = document.querySelector('.collapsible');
+    M.Collapsible.init(collapsible, { accordion: true });
+
     this.props.getUsers();
   }
 
@@ -54,7 +71,7 @@ class AdminDash extends Component {
         <div id="container" className="container valign-wrapper">
           <div id="content" className="section">
             <div className="flexbox">
-              <div id="box" className="col s6 memberList center-align">
+              <div id="box" className="col s5 memberList">
                 <MemberList id="memberList"
                   promoteUser={this.onPromoteClick}
                   demoteUser={this.onDemoteClick}
@@ -62,8 +79,52 @@ class AdminDash extends Component {
                 />
                 
               </div>
-              <div id="box" className="col s6">
-                <CreateAnnouncement createAnnouncement={this.onAnnouncementPost}/>
+              <div className="col s6 contentFunctions">
+                <ul className="collapsible popout" style={{ maxWidth: "400px"}}>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">announcement</i><b>Update Home Page Announcement</b></div>
+                    <div className="collapsible-body">
+                      <h5>New Announcement:</h5>
+                      <form noValidate onSubmit={this.onAnnouncementPost}>
+                        <div className="input-field">
+                          <input 
+                            style={{color:"black"}}
+                            onChange={this.onChange} 
+                            value={this.state.announcement}
+                            id="announcement" />
+                        </div>
+                        <div className="col s12">
+                          <button style={{
+                                            width: "150px",
+                                            borderRadius: "3px",
+                                            letterSpacing: "1.5px",
+                                            margin: "11.250px"
+                                        }} className="btn btn-medium waves-effect waves-green hoverable blue accent-3" >
+                                          Update
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">event_note</i><b>Add New Event</b></div>
+                    <div className="collapsible-body">
+                      <h5>Hello</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post</b></div>
+                    <div className="collapsible-body">
+                      <h5>Hello</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">golf_course</i><b>Post Tournament Results</b></div>
+                    <div className="collapsible-body">
+                      <h5>Hello</h5>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -72,6 +133,8 @@ class AdminDash extends Component {
     }
   }
 }
+
+////<CreateAnnouncement createAnnouncement={this.onAnnouncementPost}/>
 
 AdminDash.propTypes = {
   createAnnouncement: PropTypes.func.isRequired,

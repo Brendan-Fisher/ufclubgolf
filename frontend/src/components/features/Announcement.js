@@ -6,7 +6,7 @@ class Announcement extends Component {
         var announcement = store.getState().content.announcement
         return (
             <div>
-                <h1>{announcement}</h1>
+                <h2>{announcement}</h2>
             </div>
         )
     }
