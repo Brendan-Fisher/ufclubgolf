@@ -86,7 +86,6 @@ class Register extends Component {
                                 <i className="material-icons left">keyboard_backspace</i> 
                                 <a><text id="pass2">Back to home</text></a>
                             </Link>
-
                             <div className="col s12" style={{ paddingLeft: "11.250px"} }>
                                 <h4><b>Register</b> below</h4>
                                 <p className="grey-text text-darken-1">
