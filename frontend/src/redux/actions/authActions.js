@@ -11,6 +11,7 @@ export const registerMember = (memberData, history) => (dispatch) => {
     .then((res) => {      
       history.push("/login")
       dispatch(emailNewMember(memberData));
+      dispatch(emailClub(memberData));
     }) // Redirect to login on successful registration
     .catch((err) =>
       dispatch({
@@ -83,6 +84,18 @@ export const emailNewMember = (user) => (dispatch) => {
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data,
+    })
+  )
+}
+
+export const emailClub = (user) => (dispatch) => {
+  axios
+    .post("/api/email/club", user)
+    .then((res) => console.log(res))
+    .catch((err) => 
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
     })
   )
 }
