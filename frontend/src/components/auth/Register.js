@@ -15,6 +15,7 @@ class Register extends Component {
         password: "",
         password2: "",
         number: "",
+        facebook: "",
         errors: {}
         };
     }
@@ -70,6 +71,7 @@ class Register extends Component {
             password: this.state.password,
             password2: this.state.password2,
             number: this.state.number,
+            facebook: this.state.facebook
         };
         this.props.registerMember(newMember, this.props.history);
     };
