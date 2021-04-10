@@ -10,7 +10,8 @@ import {
   deleteUser
 } from "../redux/actions/userActions";
 import {
-  createAnnouncement
+  createAnnouncement,
+  getPosts
 } from "../redux/actions/contentActions";
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
@@ -18,6 +19,7 @@ import { MemberList } from "./features/MemberList";
 import  PostEditor  from "./features/PostEditor";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
+import store from "../redux/store";
 
 class AdminDash extends Component {
     constructor(){
@@ -62,9 +64,11 @@ class AdminDash extends Component {
     M.Collapsible.init(collapsible, { accordion: true });
 
     this.props.getUsers();
+    this.props.getPosts();
   }
 
   render() {
+    var posts = store.getState().content.posts;
     if (this.props.memberType !== "admin") {
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {
@@ -129,7 +133,12 @@ class AdminDash extends Component {
                       <h5>Hello</h5>
                     </div>
                   </li>
-                  
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">delete_sweep</i><b>Delete Content</b></div>
+                    <div className="collapsible-body blue lighten-4">
+                      <h5>Hello</h5>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -144,6 +153,7 @@ class AdminDash extends Component {
 
 AdminDash.propTypes = {
   createAnnouncement: PropTypes.func.isRequired,
+  getPosts: PropTypes.func.isRequired,
   logoutMember: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
   promoteUser: PropTypes.func.isRequired,
@@ -164,5 +174,6 @@ export default connect(mapStateToProps, {
   promoteUser,
   demoteUser,
   deleteUser,
-  createAnnouncement
+  createAnnouncement,
+  getPosts
 })(AdminDash);
