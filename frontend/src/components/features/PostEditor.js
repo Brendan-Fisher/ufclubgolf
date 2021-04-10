@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { EditorState, } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
-import DOMPurify from 'dompurify';
+import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { createPost } from "../../redux/actions/contentActions";
 
@@ -13,6 +13,7 @@ class  PostEditor extends Component {
     super();
     this.state = {
       postTitle: "",
+      category: "",
       editorState: EditorState.createEmpty(),
       convertedContent: "",
     }
@@ -33,6 +34,7 @@ class  PostEditor extends Component {
   onPost = e => {
     var post = {
       title: this.state.postTitle,
+      category: this.state.category,
       body: this.state.convertedContent,
     }
     this.props.createPost(post);
@@ -51,7 +53,6 @@ class  PostEditor extends Component {
   render() {
     return (
       <div>
-        <h5>Post Title</h5>
         <form>
           <div className="input-field">
             <input 
@@ -60,7 +61,17 @@ class  PostEditor extends Component {
               value={this.state.postTitle}
               id="postTitle" />
           </div>
+          <label>Title</label>
+          <div className="input-field">
+            <input 
+              style={{color:"black"}}
+              onChange={this.onChange} 
+              value={this.state.category}
+              id="category" />
+          </div>
+          <label>Category</label>
         </form>
+        
         <h5>Post Body</h5>
         <Editor
             editorState={this.state.editorState}

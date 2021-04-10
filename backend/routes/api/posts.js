@@ -34,6 +34,7 @@ router.route("/create").post((req, res) => {
 
     const newPost = new Post({
         title: req.body.title,
+        category: req.body.category,
         body: req.body.body,
     })
 
