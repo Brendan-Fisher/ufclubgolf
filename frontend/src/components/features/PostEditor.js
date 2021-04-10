@@ -4,7 +4,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
 import DOMPurify from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { makeRenderer } from 'react-table';
+import { createPost } from "../../redux/actions/contentActions";
 
 class  PostEditor extends Component {
   constructor(){
