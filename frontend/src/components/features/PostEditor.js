@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import { EditorState, } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
@@ -33,7 +35,7 @@ class  PostEditor extends Component {
       title: this.state.postTitle,
       body: this.state.convertedContent,
     }
-    console.log(post);
+    this.props.createPost(post);
   }
 
   onChange = e => {
@@ -89,7 +91,14 @@ class  PostEditor extends Component {
   
 }
 
-export default PostEditor;
+PostEditor.propTypes = {
+  createPost: PropTypes.func.isRequired,
+}
 
+const mapStateToProps = (state) => ({
+  content: state.content,
+})
 
-
+export default connect(mapStateToProps, {
+  createPost
+})(PostEditor)
