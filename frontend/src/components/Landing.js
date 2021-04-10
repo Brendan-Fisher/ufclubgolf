@@ -26,11 +26,6 @@ class Landing extends Component {
                   <div id="content" className="row">
                     <div className="flexbox">
                       <div id="box" className="col s12 l12 m12 center-align">
-                        <h4>
-                            Welcome to <span style={{ fontFamily: "monospace" }}><b>UF Club Golf</b></span>
-                        </h4>
-                      </div>
-                      <div id="box" className="col s12 l12 m12 center-align">
                         <Announcement />
                       </div>
                       <div id="box" className="col s12 m4 l4 center-align">
