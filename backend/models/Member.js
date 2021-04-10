@@ -18,6 +18,10 @@ const UsersSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    facebook: {
+        type: String,
+        required: false
+    },
     number: {
         type: String,
         required: true
