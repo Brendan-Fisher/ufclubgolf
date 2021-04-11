@@ -1,17 +1,13 @@
 const mongoose = require('mongoose');
 
-const PostSchema = mongoose.Schema({
+const EventSchema = mongoose.Schema({
     
     title: {
         type: String,
         required: true
     },
-    category: {
-        type: String,
-        required: true,
-    },
     date: {
-        type: String, 
+        type: String,
         required: true,
     },
     body: {
@@ -19,7 +15,7 @@ const PostSchema = mongoose.Schema({
         required: true
     }
 },
-    {collection: 'Posts'}
+    {collection: 'Events'}
 );
 
-module.exports = Post = mongoose.model('Post', PostSchema);
+module.exports = ClubEvent = mongoose.model('Event', EventSchema);
