@@ -84,7 +84,7 @@ export class MemberList extends Component {
       rows: rows,
     };
 
-    return <MDBDataTable entries={6} theadColor={"white"} hover={true} autoWidth={true} striped={true} data={data} searching={true} />;
+    return <MDBDataTable entries={5} theadColor={"white"} hover={true} autoWidth={true} striped={true} data={data} searching={true} />;
   }
 }
 

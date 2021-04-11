@@ -6,6 +6,7 @@ require("dotenv").config();
 cors = require('cors');
 
 const members = require("./routes/api/members");
+const email = require("./routes/api/email");
 const announcements = require("./routes/api/announcements");
 const posts = require("./routes/api/posts");
 const events = require("./routes/api/events");
@@ -42,6 +43,7 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/members", members);
+app.use("/api/email", email);
 app.use("/api/announcements", announcements);
 app.use("/api/posts", posts);
 app.use("/api/events", events);
