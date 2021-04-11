@@ -80,7 +80,7 @@ class AdminDash extends Component {
                 <ul className="collapsible popout">
                   <li>
                     <div className="collapsible-header green lighten-2"><i className="material-icons">person</i><b>Member List</b></div>
-                    <div className="collapsible-body memberList ">
+                    <div className="collapsible-body memberList blue lighten-4 ">
                     <MemberList id="memberList"
                       promoteUser={this.onPromoteClick}
                       demoteUser={this.onDemoteClick}
