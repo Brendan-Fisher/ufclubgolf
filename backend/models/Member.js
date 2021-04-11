@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const UsersSchema = mongoose.Schema({
 
-    name: {
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
         type: String,
         required: true
     },
@@ -14,9 +18,13 @@ const UsersSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    position: {
+    facebook: {
         type: String,
         required: false
+    },
+    number: {
+        type: String,
+        required: true
     },
     memberType: {
         type: String,

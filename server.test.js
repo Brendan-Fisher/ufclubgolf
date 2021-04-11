@@ -12,10 +12,12 @@ const app = require("./backend/server");
 describe("Registers test user", (done) => {
   it("should respond with a json 200 response", (done) => {
     const testMember = {
-      name: "tester",
+      firstname: "tester",
+      lastname: "Mc. Tester",
       email: "test@test.com",
       password: "test123",
       password2: "test123",
+      number: "999999999",
     };
     request(app)
       .post("/api/members/register")

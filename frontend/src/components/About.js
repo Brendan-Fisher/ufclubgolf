@@ -14,6 +14,18 @@ class About extends Component {
               </span>
             </h4>
           </div>
+          <div className="p-image"></div>
+          <div className="p-desc">
+            <h3>
+              <b>Nick Althammer</b>
+            </h3>
+            <h4>President</h4>
+            <h5>
+              Nick is currently studying Civil Engineering. 
+              His favorite golfers is Rory McIlroy and his
+              favorite course is the Bears Club Course
+            </h5>
+          </div>
           <div className="vp-image"></div>
           <div className="vp-desc">
             <h3>
@@ -38,6 +50,19 @@ class About extends Component {
               free time, Jackson enjoys playing basketball and tennis. His
               favorite golfer is Tiger Woods and his favorite course is Sebonack
               Golf Club.
+            </h5>
+          </div>
+          <div className="pr1-image"></div>
+          <div className="pr1-desc">
+            <h3>
+              <b>Mombo Ngu</b>
+            </h3>
+            <h4>Public Relations</h4>
+            <h5>
+              Mombo is currently studying Sociology on the Pre-Med track. Her
+              favorite golfers are Cheyenne Woods and Matthew Wolff and she
+              enjoys being able to volunteer at the team tournaments and
+              utilizing Mark Bostick Golf Course for practice.
             </h5>
           </div>
           <div className="pr1-image"></div>

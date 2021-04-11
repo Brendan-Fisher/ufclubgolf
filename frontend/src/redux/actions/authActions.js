@@ -8,7 +8,11 @@ import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 export const registerMember = (memberData, history) => (dispatch) => {
   axios
     .post("/api/members/register", memberData)
-    .then((res) => history.push("/login")) // Redirect to login on successful registration
+    .then((res) => {      
+      history.push("/login")
+      dispatch(emailNewMember(memberData));
+      dispatch(emailClub(memberData));
+    }) // Redirect to login on successful registration
     .catch((err) =>
       dispatch({
         type: GET_ERRORS,
@@ -71,3 +75,27 @@ export const logoutMember = () => (dispatch) => {
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentMember({}));
 };
+
+export const emailNewMember = (user) => (dispatch) => {
+  axios
+    .post("/api/email/newMember", user)
+    .then((res) => console.log(res))
+    .catch((err) => 
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data,
+    })
+  )
+}
+
+export const emailClub = (user) => (dispatch) => {
+  axios
+    .post("/api/email/club", user)
+    .then((res) => console.log(res))
+    .catch((err) => 
+    dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data,
+    })
+  )
+}

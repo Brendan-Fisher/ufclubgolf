@@ -9,11 +9,26 @@ import {
   demoteUser,
   deleteUser
 } from "../redux/actions/userActions";
+import {
+  createAnnouncement,
+  getPosts
+} from "../redux/actions/contentActions";
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
-import { MemberList } from "../components/features/MemberList";
+import { MemberList } from "./features/MemberList";
+import  PostEditor  from "./features/PostEditor";
+import EventEditor from "./features/EventEditor";
+
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 class AdminDash extends Component {
+    constructor(){
+      super();
+      this.state = {
+          announcement: "",
+      }
+  }
+
   onLogoutClick = (e) => {
     e.preventDefault();
     this.props.logoutMember();
@@ -34,7 +49,20 @@ class AdminDash extends Component {
     this.props.getUsers();
   }
 
+  onAnnouncementPost = e => {
+    e.preventDefault();
+    const content = this.state;
+    this.props.createAnnouncement(content);
+  }
+
+  onChange = e => {
+    this.setState({ [e.target.id]: e.target.value });
+  }
+
   componentDidMount() {
+    let collapsible = document.querySelector('.collapsible');
+    M.Collapsible.init(collapsible, { accordion: true });
+
     this.props.getUsers();
   }
 
@@ -43,15 +71,73 @@ class AdminDash extends Component {
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {
       return (
-        <div id="container" className="container valign-wrapper">
+        <div id="container" className="container">
           <div id="content" className="section">
             <div className="flexbox">
-              <div id="box" className="col s6 memberList center-align">
-                <MemberList id="memberList"
-                  promoteUser={this.onPromoteClick}
-                  demoteUser={this.onDemoteClick}
-                  deleteUser={this.onDeleteClick}
-                />
+              <div className="col s12 contentFunctions">
+                <ul className="collapsible popout">
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">person</i><b>Member List</b></div>
+                    <div className="collapsible-body memberList blue lighten-4 ">
+                    <MemberList id="memberList"
+                      promoteUser={this.onPromoteClick}
+                      demoteUser={this.onDemoteClick}
+                      deleteUser={this.onDeleteClick}
+                    />
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">announcement</i><b>Update Home Page Announcement</b></div>
+                    <div className="collapsible-body blue lighten-4">
+                      <h5>New Announcement:</h5>
+                      <form noValidate onSubmit={this.onAnnouncementPost}>
+                        <div className="input-field">
+                          <input 
+                            style={{color:"black"}}
+                            onChange={this.onChange} 
+                            value={this.state.announcement}
+                            id="announcement" />
+                        </div>
+                        <div className="col s12">
+                          <button style={{
+                              width: "150px",
+                              borderRadius: "3px",
+                              letterSpacing: "1.5px",
+                              margin: "11.250px"
+                          }} className="btn btn-medium waves-effect waves-green hoverable blue accent-3" >
+                            Update
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">event_note</i><b>Add New Event</b></div>
+                    <div className="collapsible-body blue lighten-4">
+                    <header>Events will show up on the home page and be emailed to all registered members</header>
+                          <EventEditor />
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post</b></div>
+                    <div className="collapsible-body post-editor blue lighten-4">
+                    <header>Posts will show up on the home page and be emailed to all registered members</header>
+                      <PostEditor />
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">golf_course</i><b>Post Tournament Results</b></div>
+                    <div className="collapsible-body blue lighten-4">
+                      <h5>Hello</h5>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">delete_sweep</i><b>Delete Content</b></div>
+                    <div className="collapsible-body blue lighten-4">
+                      <h5>Hello</h5>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -61,7 +147,11 @@ class AdminDash extends Component {
   }
 }
 
+////<CreateAnnouncement createAnnouncement={this.onAnnouncementPost}/>
+
 AdminDash.propTypes = {
+  createAnnouncement: PropTypes.func.isRequired,
+  getPosts: PropTypes.func.isRequired,
   logoutMember: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
   promoteUser: PropTypes.func.isRequired,
@@ -81,5 +171,7 @@ export default connect(mapStateToProps, {
   getUsers,
   promoteUser,
   demoteUser,
-  deleteUser
+  deleteUser,
+  createAnnouncement,
+  getPosts
 })(AdminDash);

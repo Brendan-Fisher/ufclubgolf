@@ -1,14 +1,21 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import './styles/Landing.css';
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 import ImageSlider from "./features/ImageSlider";
+import Announcement from "./features/Announcement";
+import { getAnnouncements, getPosts } from "../redux/actions/contentActions";
+import PostsTable from "./features/PostsTable";
 
 
 class Landing extends Component {
     componentDidMount() {
         let carousel = document.querySelector('.carousel');
         M.Carousel.init(carousel, { fullWidth: true, indicators: true });
+
+        this.props.getAnnouncements();
     }
         
     render() {
@@ -20,18 +27,7 @@ class Landing extends Component {
                   <div id="content" className="row">
                     <div className="flexbox">
                       <div id="box" className="col s12 l12 m12 center-align">
-                        <h4>
-                            Welcome to <span style={{ fontFamily: "monospace" }}><b>UF Club Golf</b></span>
-                        </h4>
-                      </div>
-                      <div id="box" className="col s12 l12 m12 center-align">
-                        <h4>Announcement</h4>
-                        <h5>
-                            This box can contain a recent club announcement or important information for visitors to know
-                        </h5>
-                        <br />
-                        <br />
-                        <br />
+                        <Announcement />
                       </div>
                       <div id="box" className="col s12 m4 l4 center-align">
                         <div className="carousel carousel-slider">
@@ -51,36 +47,10 @@ class Landing extends Component {
                             <h2>Fourth Panel</h2>
                             <p className="black-text">This is your fourth panel</p>
                           </div>
-                        </div>                            
+                        </div>                        
                       </div>
                       <div id="box" style={{ minHeight: "400px" }}className="col s12 m7 l7 center-align">
-                        <h5>Recent Club Posts</h5>
-                        <table>
-                          <thead>
-                          <tr>
-                            <th>Title</th>
-                            <th>Category</th>
-                            <th>Date</th>
-                          </tr>
-                          </thead>
-
-                          <tbody>
-                          <tr>
-                            <td>Recent tournament results</td>
-                            <td>Tournaments</td>
-                            <td>03/22/21</td>
-                          </tr>
-                          <tr>
-                            <td>Get to know your Club officers</td>
-                            <td>Information</td>
-                            <td>03/21/21</td>
-                          </tr>
-                          </tbody>
-                        </table>
-                        <h5>
-                          This table can be used to list recent posts made by the club board members. 
-                          Posts may be about recent tournament results, information about the club, etc.
-                        </h5>
+                        <PostsTable />
                       </div>
                       <div id="box" className="col s12 center-align">
                         <h2>Calendar</h2>
@@ -101,4 +71,16 @@ class Landing extends Component {
     }
 }
 
-export default Landing;
+Landing.propTypes = {
+  getAnnouncements: PropTypes.func.isRequired,
+  getPosts: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  content: state.content,
+})
+
+export default connect(mapStateToProps, {
+  getAnnouncements,
+  getPosts
+})(Landing);
