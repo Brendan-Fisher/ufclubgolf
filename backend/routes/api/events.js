@@ -32,9 +32,17 @@ router.route("/create").post((req, res) => {
         return res.status(400).json(errors);
     }
 
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    today = mm + '/' + dd + '/' + yyyy;
+
     const newEvent = new ClubEvent({
         title: req.body.title,
-        date: req.body.date,
+        eventDate: req.body.date,
+        createdDate: today,
         body: req.body.body,
     })
 

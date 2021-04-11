@@ -24,6 +24,7 @@ export class MemberList extends Component {
   }
 
   render() {
+    console.log(store.getState().users);
     let rows = [];
     store.getState().users.memberList.forEach((user) => {
       let row = {
@@ -56,7 +57,7 @@ export class MemberList extends Component {
     let data = {
       columns: [
         {
-          label: "Delete",
+          label: "",
           field: "delete",
           width: 50,
         },

@@ -4,3 +4,4 @@ export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_USER_LIST = "SET_USER_LIST";
 export const SET_ANNOUNCEMENT = "SET_ANNOUNCEMENT";
 export const SET_POST_LIST = "SET_POST_LIST";
+export const SET_EVENT_LIST = "SET_EVENT_LIST";
