@@ -77,7 +77,7 @@ class Login extends Component {
                                 </h4>
                                 <p className="grey-text text-darken-1">
                                     Don't have an account? <Link to="/register">
-                                    <a><text id="pass4">Register</text></a></Link>
+                                    <text id="pass4">Register</text></Link>
                                 </p>
                             </div>
                             <form noValidate onSubmit={this.onSubmit}>
@@ -126,7 +126,7 @@ class Login extends Component {
                                         type="submit"
                                         className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
                                     >
-                                        <text class="join" id="pass3">Log in</text>
+                                        <text className="join" id="pass3">Log in</text>
                                     </button>
                                 </div>
                             </form>
