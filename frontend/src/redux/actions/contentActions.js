@@ -66,3 +66,18 @@ export function getPosts() {
             })
     }
 }
+
+export const createEvent = (event) => (dispatch) => {
+    console.log(event);
+    axios
+        .post("/api/events/create", event)
+        .then((res) => {
+            console.log(res.status);
+        })
+        .catch((err) => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data,
+            })
+        })
+}
