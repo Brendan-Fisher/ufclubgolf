@@ -109,7 +109,8 @@ router.post("/register", (req, res) => {
         position: req.body.position ? req.body.position : "",
         password: req.body.password,
         memberType: req.body.memberType ? req.body.memberType : "pending",
-        number: req.body.number
+        number: req.body.number,
+        facebook: req.body.facebook,
       });
 
       // Hash password before saving in database
