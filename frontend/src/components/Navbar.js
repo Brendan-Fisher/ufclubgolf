@@ -81,7 +81,7 @@ class Navbar extends Component {
                             }}
                             className="col s12 m6 l3 brand-logo center white-text"
                         >
-                            <text id="pass">UF Golf Club</text>
+                            <text id="pass">UF Club Golf</text>
                         </Link>
                         <ul className= "right hide-on-med-and-down" id="nav-mobile">
                              {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" className="navbarhover"><text id="pass" className="join">User Dashboard</text></a></li>}
