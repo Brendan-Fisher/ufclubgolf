@@ -8,6 +8,7 @@ cors = require('cors');
 const members = require("./routes/api/members");
 const email = require("./routes/api/email");
 const announcements = require("./routes/api/announcements");
+const posts = require("./routes/api/posts");
 
 const app = express();
 
@@ -43,6 +44,7 @@ require("./config/passport")(passport);
 app.use("/api/members", members);
 app.use("/api/email", email);
 app.use("/api/announcements", announcements);
+app.use("/api/posts", posts);
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 

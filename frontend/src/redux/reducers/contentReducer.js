@@ -1,4 +1,4 @@
-import { SET_ANNOUNCEMENT } from "../actions/types";
+import { SET_ANNOUNCEMENT, SET_POST_LIST } from "../actions/types";
 
 const initialState = {
     
@@ -11,7 +11,12 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 announcement: action.payload.data,
-            }
+            };
+        case SET_POST_LIST:
+            return {
+                ...state,
+                posts: action.payload.data,
+            };
         default:
             return state;
     }
