@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 
-class Events extends Component {
+class Posts extends Component {
     render() {
         return (
             <div id="container" className="container valign-wrapper">
@@ -19,4 +19,4 @@ class Events extends Component {
     }
 }
 
-export default Events;
+export default Posts;

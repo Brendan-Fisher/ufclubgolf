@@ -71,7 +71,7 @@ class Navbar extends Component {
                             <li><a href="/about" className="navbarhover"><text id="pass">About Us</text></a></li>
                             <li><a href="/calendar" className="navbarhover"><text id="pass">Calender</text></a></li>
                             <li><a href="/tournaments" className="navbarhover"><text id="pass">Tournaments</text></a></li>
-                            <li><a href="/events" className="navbarhover"><text id="pass">Events</text></a></li>
+                            <li><a href="/posts" className="navbarhover"><text id="pass">Posts</text></a></li>
                         </ul>                     
                         <Link
                             to="/"
@@ -81,7 +81,7 @@ class Navbar extends Component {
                             }}
                             className="col s12 m6 l3 brand-logo center white-text"
                         >
-                            <text id="pass">UF Golf Club</text>
+                            <text id="pass">UF Club Golf</text>
                         </Link>
                         <ul className= "right hide-on-med-and-down" id="nav-mobile">
                              {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" className="navbarhover"><text id="pass" className="join">User Dashboard</text></a></li>}
@@ -96,7 +96,7 @@ class Navbar extends Component {
                         <li><a href="/about">About</a></li>
                         <li><a href="/calendar">Calendar</a></li>
                         <li><a href="/tournaments">Tournaments</a></li>
-                        <li><a href="/events">Events</a></li>
+                        <li><a href="/posts">Posts</a></li>
                         <Divider />
                         {loggedIn && memberType !== "pending" && memberType !== "member" &&
                             <li><a href="/dashboard/exec">User Dashboard</a></li>

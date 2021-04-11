@@ -12,7 +12,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Calendar from "./components/Calendar";
 import Tournaments from "./components/Tournaments";
-import Events from "./components/Events";
+import Posts from "./components/Posts";
 import Register from "./components/auth/Register";
 import About from "./components/About";
 import Login from "./components/auth/Login";
@@ -56,7 +56,7 @@ function App() {
           <Route exact path="/calendar" component={Calendar} />
           <Route exact path="/tournaments" component={Tournaments} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/events" component={Events} />
+          <Route exact path="/posts" component={Posts} />
           <Switch>
             <PrivateRoute
               exact
