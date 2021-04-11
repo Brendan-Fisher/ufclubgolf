@@ -6,7 +6,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
 import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { createPost } from "../../redux/actions/contentActions";
+import { createPost, getPostList } from "../../redux/actions/contentActions";
 
 class  PostEditor extends Component {
   constructor(){
@@ -38,6 +38,7 @@ class  PostEditor extends Component {
       body: this.state.convertedContent,
     }
     this.props.createPost(post);
+    this.props.getPostList();
   }
 
   onChange = e => {
@@ -104,6 +105,7 @@ class  PostEditor extends Component {
 
 PostEditor.propTypes = {
   createPost: PropTypes.func.isRequired,
+  getPostList: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -111,5 +113,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-  createPost
+  createPost,
+  getPostList,
 })(PostEditor)

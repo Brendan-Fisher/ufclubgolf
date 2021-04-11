@@ -24,7 +24,6 @@ export class MemberList extends Component {
   }
 
   render() {
-    console.log(store.getState().users);
     let rows = [];
     store.getState().users.memberList.forEach((user) => {
       let row = {
@@ -85,7 +84,7 @@ export class MemberList extends Component {
       rows: rows,
     };
 
-    return <MDBDataTable entries={5} theadColor={"white"} hover={true} autoWidth={true} striped={true} data={data} searching={true} />;
+    return <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={data} searching={true} noBottomColumns={true}/>;
   }
 }
 

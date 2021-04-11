@@ -13,16 +13,17 @@ import { MDBDataTable } from "mdbreact";
 class ContentList extends Component {
     onDeletePost = (post) => {
         this.props.deletePost(post);
+        this.props.getPostList();
     }
 
     onDeleteEvent = (event) => {
         this.props.deleteEvent(event)
+        this.props.getEventList();
     }
 
     render() {
         let posts = store.getState().content.posts;
         let events = store.getState().content.events;
-        console.log(events);
 
         let postRows = [];
         let eventRows = [];
@@ -111,8 +112,9 @@ class ContentList extends Component {
         return(
             <div>
                 <h4>Delete Posts</h4>
-                <MDBDataTable entries={5} theadColor={"white"} hover={true} autoWidth={true} striped={true} data={postData} searching={true} />
-                <MDBDataTable entries={5} theadColor={"white"} hover={true} autoWidth={true} striped={true} data={eventData} searching={true} />
+                <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={postData} searching={false} noBottomColumns={true} />
+                <h4>Delete Events</h4>
+                <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={eventData} searching={false} noBottomColumns={true} />
             </div>
         )
     }

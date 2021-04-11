@@ -52,4 +52,12 @@ router.route("/create").post((req, res) => {
         .catch((err) => console.log(err));
 })
 
+router.post("/", (req, res) => {
+    Post.findOneAndDelete({ _id: req.body._id }, (err, post) => {
+      if (err) {
+        res.status(400).send(err);
+      } else res.status(200).json(post);
+    });
+  });
+
 module.exports = router;

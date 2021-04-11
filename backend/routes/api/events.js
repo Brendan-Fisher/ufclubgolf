@@ -52,4 +52,14 @@ router.route("/create").post((req, res) => {
         .catch((err) => console.log(err));
 })
 
+
+router.post("/", (req, res) => {
+    ClubEvent.findOneAndDelete({ _id: req.body._id }, (err, event) => {
+      if (err) {
+        res.status(400).send(err);
+      } else res.status(200).json(event);
+    });
+  });
+
+
 module.exports = router;
