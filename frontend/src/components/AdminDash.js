@@ -20,7 +20,6 @@ import  PostEditor  from "./features/PostEditor";
 import EventEditor from "./features/EventEditor";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
-import store from "../redux/store";
 
 class AdminDash extends Component {
     constructor(){
@@ -65,11 +64,9 @@ class AdminDash extends Component {
     M.Collapsible.init(collapsible, { accordion: true });
 
     this.props.getUsers();
-    this.props.getPosts();
   }
 
   render() {
-    var posts = store.getState().content.posts;
     if (this.props.memberType !== "admin") {
       return <Redirect to={"/dashboard/" + this.props.memberType} />;
     } else {

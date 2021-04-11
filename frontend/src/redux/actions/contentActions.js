@@ -48,24 +48,23 @@ export const createPost = (content) => (dispatch) => {
         })
 }
 
-export function getPosts() {
-    return function (dispatch) {
-        axios  
+export async function getPosts() {
+    return axios  
             .get("/api/posts")
             .then((posts) => {
-                dispatch({
-                    type: SET_POST_LIST,
-                    payload: posts,
-                })
+                setPostList(posts);
+                return posts;
             })
-            .catch((err) => {
-                dispatch({
-                    type: GET_ERRORS,
-                    payload: err.response,
-                })
-            })
-    }
 }
+
+const setPostList = (posts) => (dispatch) =>{
+    console.log("setting post list")
+    return dispatch ({
+        type: SET_POST_LIST,
+        payload: posts,
+    })
+}
+
 
 export const createEvent = (event) => (dispatch) => {
     console.log(event);
