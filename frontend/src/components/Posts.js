@@ -14,17 +14,7 @@ class Posts extends Component {
     render() {
         {/* temporary variable : The following variable should be switch to the data from database*/}
         const posts = [];
-
-        for(var i = 0; i < 12; i++)
-        {
-            let post = {
-                title:"This is a event post_id: " + i,
-                hyperlink:"about",
-                catagory:"event",
-                edited_date: "1970-1-1"
-            };
-            posts.push(post);
-        }
+        {/* data test are the following*/}
         for(var i = 0; i < 12; i++)
         {
             let post = {
@@ -38,17 +28,32 @@ class Posts extends Component {
         for(var i = 0; i < 12; i++)
         {
             let post = {
-                title:"This is a agendar post_id: " + i,
+                title:"This is a event post_id: " + i,
                 hyperlink:"about",
-                catagory:"agendar",
-                edited_date: "1970-1-1"
+                catagory:"event",
+                edited_date: "1970-1-1",
+                status: "Ended",
+            };
+            posts.push(post);
+        }
+        for(var i = 0; i < 12; i++)
+        {
+            let post = {
+                title:"This is a agenda post_id: " + i,
+                hyperlink:"about",
+                catagory:"agenda",
+                edited_date: "1970-1-1",
+                status: (i < 3 ?"Coming":"Finished"),
+                start_date: "",
+                end_date: "",
             };
             posts.push(post);
         }
 
+        
         const tab_general = [];
         const tab_event = [];
-        const tab_agendar = [];
+        const tab_agenda = [];
 
         posts.map((post, index)=>{
             if(post.catagory === "event")
@@ -59,9 +64,9 @@ class Posts extends Component {
             {
                 tab_general.push(post);
             }
-            if(post.catagory === "agendar")
+            if(post.catagory === "agenda")
             {
-                tab_agendar.push(post);
+                tab_agenda.push(post);
             }
         });
 
@@ -70,22 +75,22 @@ class Posts extends Component {
         return (
             <div>
                 <div id="container" className="container">
-                    <div id="content" className="row" style={{minWidth:'100%', marginTop:'2px'}}>
+                    <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
                         <div>
                             <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
                                 <li className="tab col s3"><a href="#tab_general" className="white-text">General</a></li>
                                 <li className="tab col s3"><a href="#tab_event" className="white-text">Event</a></li>
-                                <li className="tab col s3"><a href="#tab_agendar" className="white-text">Agendar</a></li>
+                                <li className="tab col s3"><a href="#tab_agenda" className="white-text">Agenda</a></li>
                             </ul>
                             <div id="tab_general">
-                                {!tab_general && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_general} />}
+                                {!tab_general && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_general} catagory={"general"} />}
                             </div>
                             <div id="tab_event">
                                 {tab_event.length === 0 && <p className="center"> No post existing in this catagory.</p>}
-                                {tab_event.length !== 0 && <PostsList posts={tab_event} />}
+                                {tab_event.length !== 0 && <PostsList posts={tab_event} catagory={"event"} />}
                             </div>
-                            <div id="tab_agendar">
-                                {!tab_agendar && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_agendar} />}
+                            <div id="tab_agenda">
+                                {!tab_agenda && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_agenda} catagory={"agenda"} />}
                             </div>
                         </div>
                     </div>
