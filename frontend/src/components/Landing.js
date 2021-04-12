@@ -8,13 +8,11 @@ import ImageSlider from "./features/ImageSlider";
 import Announcement from "./features/Announcement";
 import { getAnnouncements, getPosts } from "../redux/actions/contentActions";
 import PostsTable from "./features/PostsTable";
+import CarouselPanel from "./features/CarouselPanel";
 
 
 class Landing extends Component {
     componentDidMount() {
-        let carousel = document.querySelector('.carousel');
-        M.Carousel.init(carousel, { fullWidth: true, indicators: true });
-
         this.props.getAnnouncements();
     }
         
@@ -29,28 +27,9 @@ class Landing extends Component {
                       <div id="box" className="col s12 l12 m12 center-align">
                         <Announcement />
                       </div>
-                      <div id="box" className="col s12 m4 l4 center-align">
-                        <div className="carousel carousel-slider">
-                          <div className="carousel-item green lighten-3 black-text" href="#one!">
-                            <h2>Pretend this is the Events slider</h2>
-                            <h5>Carousel can contain upcoming events and the information about them as well as a direct link to more inforamtion about the event on the events page</h5>
-                          </div>
-                          <div className="carousel-item green lighten-3 black-text" href="#two!">
-                            <h2>Second Panel</h2>
-                            <p className="black-text">This is your second panel</p>
-                          </div>
-                          <div className="carousel-item green lighten-3 black-text" href="#three!">
-                            <h2>Third Panel</h2>
-                            <p className="black-text">This is your third panel</p>
-                          </div>
-                          <div className="carousel-item green lighten-3 black-text" href="#four!">
-                            <h2>Fourth Panel</h2>
-                            <p className="black-text">This is your fourth panel</p>
-                          </div>
-                        </div>                        
-                      </div>
+                      <CarouselPanel />
                       <div id="box" style={{ minHeight: "400px" }}className="col s12 m7 l7 center-align">
-                        <PostsTable />
+                        <PostsTable interval_time={3000} />
                       </div>
                       <div id="box" className="col s12 center-align">
                         <h2>Calendar</h2>
