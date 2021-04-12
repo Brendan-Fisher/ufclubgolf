@@ -45,13 +45,14 @@ export class CarouselPanel extends Component
             }
 
             panels.push(
-                <div className="carousel-item green lighten-3 black-text"   href="#one!" style={bg_style}>
+                <div className="carousel-item green lighten-3 black-text"   href="#!" 
+                style={bg_style} 
+                onClick={/* Please write page jump function here */}>
                     <h2> The Carousel Panel {i + 1} </h2>
                     <h5>Carousel can contain upcoming events and the information about them as well as a direct link to more inforamtion about the event on the events page</h5>
                 </div>
             );
         }
-
 
 
         return(
