@@ -67,9 +67,9 @@ class ContentList extends Component {
         }
 
         function convertDate(date) {
-            var test = "2021-04-11";
-            var parts = test.split('-')
-            return `${parts[1]}/${parts[2]}/${parts[0]}`;
+            var parts = date.split('-')
+            var extraParts = parts[2].split('T');
+            return `${parts[1]}/${extraParts[0]}/${parts[0]}`;
         }
 
         events.forEach((event) => {

@@ -15,7 +15,6 @@ export default function (state = initialState, action) {
                 announcement: action.payload.data,
             };
         case SET_POST_LIST:
-            console.log(action.payload)
             return {
                 ...state,
                 posts: action.payload.data,

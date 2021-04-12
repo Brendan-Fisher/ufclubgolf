@@ -118,14 +118,14 @@ class AdminDash extends Component {
                   <li>
                     <div className="collapsible-header green lighten-2"><i className="material-icons">event_note</i><b>Add New Event</b></div>
                     <div className="collapsible-body blue lighten-4">
-                    <header>Events will show up on the home page and be emailed to all registered members</header>
-                          <EventEditor />
+                      <header>Events will show up on the home page and be emailed to all registered members</header>
+                      <EventEditor />
                     </div>
                   </li>
                   <li>
                     <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post</b></div>
                     <div className="collapsible-body post-editor blue lighten-4">
-                    <header>Posts will show up on the home page and be emailed to all registered members</header>
+                      <header>Posts will show up on the home page and be emailed to all registered members</header>
                       <PostEditor />
                     </div>
                   </li>
