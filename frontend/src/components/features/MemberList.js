@@ -31,6 +31,8 @@ export class MemberList extends Component {
           <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this user?')) this.onDeleteClick(user) } }><i className="material-icons">delete_forever</i></a>
         ),
         name: user.firstname + " " + user.lastname,
+        email: <a style={{ textDecoration: "underline" }} href={"mailto: " + user.email}>{user.email}</a>,
+        phone: <a style={{ textDecoration: "underline" }} href={"tel: " + user.number}>{user.number}</a>,
         memberType: user.memberType,
         promote: (
           <button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{
@@ -63,6 +65,16 @@ export class MemberList extends Component {
         {
           label: "Name",
           field: "name",
+          width: 150,
+        },
+        {
+          label: "Email",
+          field: "email",
+          width: 150,
+        },
+        {
+          label: "Phone Number",
+          field: "phone",
           width: 150,
         },
         {
