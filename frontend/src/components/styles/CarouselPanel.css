@@ -1,0 +1,7 @@
+.panel_box {
+    background-image: url(../../img/bg_2.jpg);
+    padding: 100px;
+    margin: 100px;
+
+    background-size: cover;
+}

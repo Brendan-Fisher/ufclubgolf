@@ -3,6 +3,8 @@ import React, {Component} from "react";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
+import '../styles/CarouselPanel.css';
+import testImage from '../../img/bg_2.jpg';
 
 
 export class CarouselPanel extends Component
@@ -20,31 +22,43 @@ export class CarouselPanel extends Component
 
         let timer = setInterval(()=>{
             instance.next();
-        }, 4700);
+        }, 5500);
     }
 
     render(){
+        var panels = [];
+
+        {/* temporary inputs for testing the panel */}
+        for(var i = 0; i < 4; i++)
+        {
+            var imageSrc = testImage;
+            var bg_style = {
+                backgroundImage: "url(" + imageSrc + ")",
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
+            }
+
+            if(i % 2 !== 0) // for testing; this can be deleted safely.
+            {
+                bg_style = {};
+            }
+
+            panels.push(
+                <div className="carousel-item green lighten-3 black-text"   href="#one!" style={bg_style}>
+                    <h2> The Carousel Panel {i + 1} </h2>
+                    <h5>Carousel can contain upcoming events and the information about them as well as a direct link to more inforamtion about the event on the events page</h5>
+                </div>
+            );
+        }
+
+
 
         return(
-            <div id="box" className="col s12 m4 l4 center-align">
+            <div id="box" className="col s12 m4 l4 center-align" style={{padding:0}}>
                 <div>
-                    <div className="carousel carousel-slider">
-                        <div className="carousel-item green lighten-3 black-text" href="#one!">
-                            <h2>Pretend this is the Events slider</h2>
-                            <h5>Carousel can contain upcoming events and the information about them as well as a direct link to more inforamtion about the event on the events page</h5>
-                        </div>
-                        <div className="carousel-item green lighten-3 black-text" href="#two!">
-                            <h2>Second Panel</h2>
-                            <p className="black-text">This is your second panel</p>
-                        </div>
-                        <div className="carousel-item green lighten-3 black-text" href="#three!">
-                            <h2>Third Panel</h2>
-                            <p className="black-text">This is your third panel</p>
-                        </div>
-                        <div className="carousel-item green lighten-3 black-text" href="#four!">
-                            <h2>Fourth Panel</h2>
-                            <p className="black-text">This is your fourth panel</p>
-                        </div>
+                    <div className="carousel carousel-slider" >
+                        {panels}
                     </div>     
                 </div>
             </div>
