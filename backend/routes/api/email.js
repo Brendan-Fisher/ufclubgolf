@@ -21,8 +21,8 @@ router.post("/newMember", (req, res) => {
     var mailOptions = {
         from: 'UF Club Golf',
         to: req.body.email,
-        subject: 'Thanks for Registering to Join the UF Golf Club',
-        html: '<h1>Thanks for Registering to Join the UF Golf Club</h1><h3>Here are the next steps you should take to make the most out of the club</h3><ul><li>Venmo your dues ($30) to @Florida-ClubGolf</li><li>Come to our weekly practices on Sundays at 1:00</li><li>Check the website often for upcoming events and other announcements</li></ul><p>Do not reply to this email, it will not be seen, if you need to contact the club, email any executive board member from the about us page</p>'
+        subject: 'New Member Information',
+        html: '<h1>Thanks for Registering to Join Florida Club Golf</h1><h3>Here are the next steps you should take to make the most out of the club</h3><ul><li>Venmo your dues ($30) to @Florida-ClubGolf</li><li>Come to our weekly practices on Sundays at 1:00</li><li>Check the website often for upcoming events and other announcements</li></ul><p>Do not reply to this email, it will not be seen, if you need to contact the club, email any executive board member from the about us page</p>'
     };
 
     transporter.sendMail(mailOptions, function(error, info){
@@ -32,6 +32,31 @@ router.post("/newMember", (req, res) => {
             res.status(200).json("Email sent: " + info.response);
         }
     });
+})
+
+router.post("/all", (req, res) => {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: email,
+            pass: password
+        }
+    });
+
+    var mailOptions = {
+        from: 'UF Club Golf',
+        to: clubEmail,
+        subject: 'A New Member Has Registered to Join the Club',
+        html: `<h3>Here is some information about the new member:</h3><ul><li>Name: ${userInfo.name}</li><li>Email: ${userInfo.email}</li><li>Phone Number: ${userInfo.phoneNumber}</li><li>Facebook Username: ${userInfo.facebook}</li></ul>`,
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            res.status(400).json("Unable to send email");
+        } else {
+            res.status(200).json("Email sent: " + info.response);
+        }
+    }); 
 })
 
 router.post("/club", (req, res) => {

@@ -61,6 +61,7 @@ class  PostEditor extends Component {
               style={{color:"black"}}
               onChange={this.onChange} 
               value={this.state.postTitle}
+              type="text"
               id="postTitle" />
           </div>
           <div className="input-field">
@@ -69,6 +70,7 @@ class  PostEditor extends Component {
               style={{color:"black"}}
               onChange={this.onChange} 
               value={this.state.category}
+              type="text"
               id="category" />
           </div>
         </form>

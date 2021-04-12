@@ -93,13 +93,14 @@ class AdminDash extends Component {
                   <li>
                     <div className="collapsible-header green lighten-2"><i className="material-icons">announcement</i><b>Update Home Page Announcement</b></div>
                     <div className="collapsible-body blue lighten-4">
-                      <h5>New Announcement:</h5>
                       <form noValidate onSubmit={this.onAnnouncementPost}>
                         <div className="input-field">
+                          <label>New Announcement</label>
                           <input 
                             style={{color:"black"}}
                             onChange={this.onChange} 
                             value={this.state.announcement}
+                            type="text"
                             id="announcement" />
                         </div>
                         <div className="col s12">
