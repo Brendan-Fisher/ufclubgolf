@@ -56,23 +56,22 @@ class  PostEditor extends Component {
       <div>
         <form>
           <div className="input-field">
+          <label>Title</label>
             <input 
               style={{color:"black"}}
               onChange={this.onChange} 
               value={this.state.postTitle}
               id="postTitle" />
           </div>
-          <label>Title</label>
           <div className="input-field">
+          <label>Category</label>
             <input 
               style={{color:"black"}}
               onChange={this.onChange} 
               value={this.state.category}
               id="category" />
           </div>
-          <label>Category</label>
         </form>
-        
         <h5>Post Body</h5>
         <Editor
             editorState={this.state.editorState}

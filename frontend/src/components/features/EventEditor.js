@@ -55,17 +55,17 @@ class EventEditor extends Component {
       <div>
         <form>
           <div className="input-field">
+            <label>Event Name</label>
             <input 
               style={{color:"black"}}
               onChange={this.onChange} 
               value={this.state.postTitle}
               id="postTitle" />
           </div>
-          <label>Event Name</label>
+          <label>Event Date and Time</label>
           <div className="input-field">
-            <input onChange={this.onChange} type="date" id="date" value={this.state.date} name="query-start" min="2021-01-01"></input>
+            <input onChange={this.onChange} type="datetime-local" id="date" value={this.state.date} name="query-start" min="2021-01-01"></input>
           </div>
-          <label>Event Date</label>
         </form>
         
         <h5>Event Body</h5>
