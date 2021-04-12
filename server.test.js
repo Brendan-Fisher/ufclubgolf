@@ -1,6 +1,6 @@
 const request = require("supertest");
 
-const app = require("./backend/server");
+const app = require("./server");
 
 /**
  * Tests the registration feature of the website
