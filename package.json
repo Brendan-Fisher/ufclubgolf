@@ -10,7 +10,8 @@
     "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "mocha server.test.js --exit"
+    "test": "mocha server.test.js --exit",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "proxy": "http://localhost:5000",
   "repository": {
