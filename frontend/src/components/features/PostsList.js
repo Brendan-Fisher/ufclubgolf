@@ -16,7 +16,6 @@ export class PostsList extends Component
             max_entries: (this.props.max_entries >= 0 ? this.props.max_entries : 10),
             catagory: this.props.catagory,
             enable_search: (this.props.enable_search? this.props.enable_search:false),
-            color: "green lighten-2"
         }
     }
     
@@ -105,8 +104,8 @@ export class PostsList extends Component
             rows: rows,
         };
 
-        return <div id="table" className="collection white" > 
-                    <MDBDataTable className="text-center" entries={this.max_entries} theadColor={"green lighten-2 white-text"} hover={true} autoWidth={true} striped={true} data={data} searching={(this.enable_search === true? true: false)} />
+        return <div id="table" className="collection white" style={{marginTop:0}} > 
+                    <MDBDataTable className="text-center" entries={this.max_entries} theadColor={(this.props.active_color === true? "orange lighten-2 white-text": "green lighten-2 white-text")} hover={true} autoWidth={true} striped={true} data={data} searching={(this.props.enable_search === true? true: false)} />
                 </div>
     }
 }

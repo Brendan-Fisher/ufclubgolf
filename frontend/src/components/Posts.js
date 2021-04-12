@@ -44,8 +44,8 @@ class Posts extends Component {
                 catagory:"agenda",
                 edited_date: "1970-1-1",
                 status: (i < 3 ?"Coming":"Finished"),
-                start_date: "",
-                end_date: "",
+                start_time: "2021/12/31 8:00AM",
+                end_time: "2021/12/31 1:00PM",
             };
             posts.push(post);
         }
@@ -83,7 +83,7 @@ class Posts extends Component {
                                 <li className="tab col s3"><a href="#tab_agenda" className="white-text">Agenda</a></li>
                             </ul>
                             <div id="tab_general">
-                                {!tab_general && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_general} catagory={"general"} />}
+                                {!tab_general && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_general} catagory={"general"} enable_search={true}/>}
                             </div>
                             <div id="tab_event">
                                 {tab_event.length === 0 && <p className="center"> No post existing in this catagory.</p>}

@@ -48,7 +48,7 @@ class Tournaments extends Component {
             if(tournament_status === "Finished"){
                 past_tournaments.push(
                     <li>
-                        <div className="collapsible-header green lighten-2"><i class="material-icons">games</i>{ tournament_title}</div>
+                        <div className="collapsible-header green lighten-2 "><i class="material-icons">games</i>{ tournament_title}</div>
                         <div className="collapsible-body white" style={{paddingBlock:0}}>
                             <PostsList posts={games} catagory={"tournament_games"} />
                         </div>
@@ -58,9 +58,9 @@ class Tournaments extends Component {
             else{
                 current_tournaments.push(
                     <li>
-                        <div className="collapsible-header orange lighten-2"><i class="material-icons">donut_large</i>{ tournament_title}</div>
+                        <div className="collapsible-header orange lighten-2 "><i class="material-icons">donut_large</i>{ tournament_title}</div>
                         <div className="collapsible-body white" style={{paddingBlock:0}}>
-                            <PostsList posts={games} catagory={"tournament_games"} />
+                            <PostsList posts={games} catagory={"tournament_games"} active_color={true}/>
                         </div>
                     </li>
                 );
