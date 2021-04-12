@@ -49,7 +49,7 @@ class Landing extends Component {
                           </div>
                         </div>                        
                       </div>
-                      <div id="box" style={{ minHeight: "400px" }}className="col s12 m7 l7 center-align">
+                      <div id="box" style={{ minHeight: "400px", maxHeight: "400px" }}className="col s12 m7 l7 center-align postsTable">
                         <PostsTable />
                       </div>
                       <div id="box" className="col s12 center-align">

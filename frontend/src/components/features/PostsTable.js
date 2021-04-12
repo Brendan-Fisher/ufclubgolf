@@ -22,7 +22,7 @@ function buildTable(input){
             </tr>
         )
 
-        rows.push(row);
+        rows.unshift(row);
     }
 
     return (
@@ -33,7 +33,7 @@ function buildTable(input){
                     <tr>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Date</th>
+                        <th>Date Posted</th>
                     </tr>
                 </thead>
                 <tbody>
