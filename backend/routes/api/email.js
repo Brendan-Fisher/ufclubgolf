@@ -34,6 +34,31 @@ router.post("/newMember", (req, res) => {
     });
 })
 
+router.post("/all", (req, res) => {
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: email,
+            pass: password
+        }
+    });
+
+    var mailOptions = {
+        from: 'UF Club Golf',
+        to: clubEmail,
+        subject: 'A New Member Has Registered to Join the Club',
+        html: `<h3>Here is some information about the new member:</h3><ul><li>Name: ${userInfo.name}</li><li>Email: ${userInfo.email}</li><li>Phone Number: ${userInfo.phoneNumber}</li><li>Facebook Username: ${userInfo.facebook}</li></ul>`,
+    };
+
+    transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+            res.status(400).json("Unable to send email");
+        } else {
+            res.status(200).json("Email sent: " + info.response);
+        }
+    }); 
+})
+
 router.post("/club", (req, res) => {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
