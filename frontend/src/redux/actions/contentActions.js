@@ -58,7 +58,6 @@ export async function getPosts() {
 }
 
 const setPostList = (posts) => (dispatch) =>{
-    console.log("setting post list")
     return dispatch ({
         type: SET_POST_LIST,
         payload: posts,
@@ -67,7 +66,6 @@ const setPostList = (posts) => (dispatch) =>{
 
 
 export const createEvent = (event) => (dispatch) => {
-    console.log(event);
     axios
         .post("/api/events/create", event)
         .then((res) => {
@@ -149,5 +147,23 @@ export function deleteEvent(event) {
                 })
             );
     };
+}
+
+export const massEmail = (content, members) => (dispatch) => {
+    var email = {
+        content: content,
+        members: members,
+    }
+    axios
+        .post("/api/email/all", email)
+        .then((res) => {
+            console.log(res.status)
+        })
+        .catch((err) => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err,
+            })
+        })
 }
 

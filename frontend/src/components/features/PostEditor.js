@@ -6,7 +6,8 @@ import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
 import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { createPost, getPostList } from "../../redux/actions/contentActions";
+import { createPost, getPostList, massEmail } from "../../redux/actions/contentActions";
+import store from '../../redux/store';
 
 class  PostEditor extends Component {
   constructor(){
@@ -33,10 +34,12 @@ class  PostEditor extends Component {
 
   onPost = e => {
     var post = {
+      type: "Post",
       title: this.state.postTitle,
       category: this.state.category,
       body: this.state.convertedContent,
     }
+    this.props.massEmail(post, store.getState().users.memberList);
     this.props.createPost(post);
     this.props.getPostList();
   }
@@ -107,6 +110,7 @@ class  PostEditor extends Component {
 PostEditor.propTypes = {
   createPost: PropTypes.func.isRequired,
   getPostList: PropTypes.func.isRequired,
+  massEmail: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -116,4 +120,5 @@ const mapStateToProps = (state) => ({
 export default connect(mapStateToProps, {
   createPost,
   getPostList,
+  massEmail,
 })(PostEditor)
