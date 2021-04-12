@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/Brendan-Fisher/ufclubgolf/issues"
   },
-  "homepage": "https://github.com/Brendan-Fisher/ufclubgolf#readme",
+  "homepage": "https://ufclubgolf.herokuapp.com/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
