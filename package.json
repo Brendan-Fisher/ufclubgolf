@@ -6,12 +6,14 @@
   "scripts": {
     "server-install": "cd backend && npm install",
     "client-install": "cd frontend && npm install",
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "mocha server.test.js --exit"
+    "test": "mocha server.test.js --exit",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
+  "proxy": "http://localhost:5000",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Brendan-Fisher/ufclubgolf.git"
@@ -21,20 +23,29 @@
   "bugs": {
     "url": "https://github.com/Brendan-Fisher/ufclubgolf/issues"
   },
-  "homepage": "https://github.com/Brendan-Fisher/ufclubgolf#readme",
+  "homepage": "https://ufclubgolf.herokuapp.com/",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "dompurify": "^2.2.7",
     "dotenv": "^8.2.0",
+    "draft-convert": "^2.1.10",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
     "express": "^4.17.1",
+    "html-to-draftjs": "^1.5.0",
+    "immutable": "^4.0.0-rc.12",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mdbreact": "^5.0.1",
     "mongoose": "^5.11.15",
+    "nodemailer": "^6.5.0",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
     "react": "^17.0.1",
+    "react-draft-wysiwyg": "^1.14.5",
     "react-table": "^7.6.3",
     "request": "^2.88.2",
     "validator": "^13.5.2"

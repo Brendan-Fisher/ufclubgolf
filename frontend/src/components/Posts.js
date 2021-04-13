@@ -3,7 +3,7 @@ import { post } from "request";
 import M from 'materialize-css/dist/js/materialize.min.js';
 
 
-class Events extends Component {
+class Posts extends Component {
 
     componentDidMount()
     {
@@ -72,4 +72,4 @@ class Events extends Component {
     }
 }
 
-export default Events;
+export default Posts;

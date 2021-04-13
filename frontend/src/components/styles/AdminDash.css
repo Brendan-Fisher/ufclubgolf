@@ -1,9 +1,10 @@
 .memberList {
     padding: 1rem;
     margin: auto;
-    width: 100%;
     border: solid 1px black;
     color: black;
+    width: 100%;
+    overflow-x: scroll;
 }
 
 .dataTables_wrapper {
@@ -37,4 +38,21 @@ table th {
 
 table td {
     align-items: center;
+}
+
+.contentFunctions {
+    width: 100%;
+}
+
+.post-editor .demo-editor{
+    background-color: white;
+}
+
+.container {
+    height: fit-content;
+}
+
+#container {
+    min-height: 400px !important;
+    padding: 0;
 }
