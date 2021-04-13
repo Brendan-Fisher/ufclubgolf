@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { post } from "request";
 import M from 'materialize-css/dist/js/materialize.min.js';
-
+import {PostsList} from "./features/PostsList.js";
 
 class Posts extends Component {
 
@@ -13,56 +13,84 @@ class Posts extends Component {
 
     render() {
         {/* temporary variable : The following variable should be switch to the data from database*/}
-        var capacity = 3;
-        var title = "hello world";
-        var type = "";
-        var accessLink = "about";
-        var lastEditDate = "";
-
-        var page_index = 0;
-        var page_show_max = 10;
-        var page_isNeed = (page_show_max < capacity);
-
-        var tab_selection = "Events";
         const posts = [];
-
-        {/*= import access link into the container =*/}
-        for(var i = 0; i < (page_isNeed ? page_show_max : capacity); i++)
+        {/* data test are the following*/}
+        for(var i = 0; i < 12; i++)
         {
-            var post_index = page_show_max * page_index + i;
-            posts.push(
-                <a href={accessLink} className="collection-item waves-effect waves-teal"> {title} </a>
-            )
+            let post = {
+                title:"This is a general post_id: " + i,
+                hyperlink:"about",
+                catagory:"general",
+                edited_date: "1970-1-1"
+            };
+            posts.push(post);
         }
+        for(var i = 0; i < 12; i++)
+        {
+            let post = {
+                title:"This is a event post_id: " + i,
+                hyperlink:"about",
+                catagory:"event",
+                edited_date: "1970-1-1",
+                status: "Ended",
+            };
+            posts.push(post);
+        }
+        for(var i = 0; i < 12; i++)
+        {
+            let post = {
+                title:"This is a agenda post_id: " + i,
+                hyperlink:"about",
+                catagory:"agenda",
+                edited_date: "1970-1-1",
+                status: (i < 3 ?"Coming":"Finished"),
+                start_time: "2021/12/31 8:00AM",
+                end_time: "2021/12/31 1:00PM",
+            };
+            posts.push(post);
+        }
+
         
         const tab_general = [];
         const tab_event = [];
-        const tab_agendar = [];
+        const tab_agenda = [];
+
+        posts.map((post, index)=>{
+            if(post.catagory === "event")
+            {
+                tab_event.push(post);
+            }
+            if(post.catagory === "general")
+            {
+                tab_general.push(post);
+            }
+            if(post.catagory === "agenda")
+            {
+                tab_agenda.push(post);
+            }
+        });
 
 
+        
         return (
             <div>
-                <div id="container" className="container valign-wrapper ">
-                    <div id="content" className="row" style={{minWidth:'100%', marginTop:'0px'}}>
+                <div id="container" className="container">
+                    <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
                         <div>
                             <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
                                 <li className="tab col s3"><a href="#tab_general" className="white-text">General</a></li>
                                 <li className="tab col s3"><a href="#tab_event" className="white-text">Event</a></li>
-                                <li className="tab col s3"><a href="#tab_agendar" className="white-text">Agendar</a></li>
+                                <li className="tab col s3"><a href="#tab_agenda" className="white-text">Agenda</a></li>
                             </ul>
                             <div id="tab_general">
-                                {capacity === 0 && <p className="center"> No post existing in this catagory.</p>}
-                                {capacity !== 0 && <div className="collection"> {posts} </div>}
+                                {!tab_general && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_general} catagory={"general"} enable_search={true}/>}
                             </div>
                             <div id="tab_event">
-                                {capacity = 0}
-                                {capacity === 0 && <p className="center"> No post existing in this catagory.</p>}
-                                {capacity !== 0 && <div className="collection"> {posts} </div>}
+                                {tab_event.length === 0 && <p className="center"> No post existing in this catagory.</p>}
+                                {tab_event.length !== 0 && <PostsList posts={tab_event} catagory={"event"} />}
                             </div>
-                            <div id="tab_agendar">
-                                {capacity = 0}
-                                {capacity === 0 && <p className="center"> No post existing in this catagory.</p>}
-                                {capacity !== 0 && <div className="collection"> {posts} </div>}
+                            <div id="tab_agenda">
+                                {!tab_agenda && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_agenda} catagory={"agenda"} />}
                             </div>
                         </div>
                     </div>
