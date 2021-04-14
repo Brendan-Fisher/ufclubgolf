@@ -142,7 +142,7 @@ class AdminDash extends Component {
                     <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post/Event/Tournament</b></div>
                     <div className="collapsible-body post-editor blue lighten-4">
                       <header>Posts will show up on the home page and be emailed to all registered members</header>
-                      <label>Select content category</label>
+                      <label>Select content type</label>
                       <br/>
                       <ul>
                         <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("post")}>General Post</button></li>

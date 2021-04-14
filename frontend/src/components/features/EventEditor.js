@@ -67,7 +67,7 @@ class EventEditor extends Component {
               id="eventTitle" />
           </div>
           <label>Event Date and Time</label>
-          <div className="input-field">
+          <div className="input-field" style={{maxWidth: "200px"}}>
             <input onChange={this.onChange} type="datetime-local" id="date" value={this.state.date} name="query-start" min="2021-01-01"></input>
           </div>
         </form>
@@ -99,7 +99,6 @@ class EventEditor extends Component {
       </div>
     )
   }
-  
 }
 
 EventEditor.propTypes = {
