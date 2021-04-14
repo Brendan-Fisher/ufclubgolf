@@ -23,11 +23,14 @@ import ContentList from "./features/ContentList";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
+
 class AdminDash extends Component {
     constructor(){
       super();
       this.state = {
           announcement: "",
+          category: "",
+          editor: <div></div>
       }
   }
 
@@ -59,6 +62,25 @@ class AdminDash extends Component {
 
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
+  }
+
+  onSelectCategory = (cat) => {
+    console.log(cat);
+    this.setState({ category: cat }, () => this.switchEditor())
+  }
+
+  switchEditor() {
+    switch(this.state.category){
+      case "post":
+        this.setState({ editor: <PostEditor /> });
+        break;
+      case "event":
+        this.setState({ editor: <EventEditor /> });
+        break;
+      case "tournament":
+        this.setState({ editor: <PostEditor /> });
+        break;
+    }
   }
 
   componentDidMount() {
@@ -117,23 +139,17 @@ class AdminDash extends Component {
                     </div>
                   </li>
                   <li>
-                    <div className="collapsible-header green lighten-2"><i className="material-icons">event_note</i><b>Add New Event</b></div>
-                    <div className="collapsible-body blue lighten-4">
-                      <header>Events will show up on the home page and be emailed to all registered members</header>
-                      <EventEditor />
-                    </div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post</b></div>
+                    <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post/Event/Tournament</b></div>
                     <div className="collapsible-body post-editor blue lighten-4">
                       <header>Posts will show up on the home page and be emailed to all registered members</header>
-                      <PostEditor />
-                    </div>
-                  </li>
-                  <li>
-                    <div className="collapsible-header green lighten-2"><i className="material-icons">golf_course</i><b>Post Tournament Results</b></div>
-                    <div className="collapsible-body blue lighten-4">
-                      <h5>Hello</h5>
+                      <label>Select content category</label>
+                      <br/>
+                      <ul>
+                        <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("post")}>General Post</button></li>
+                        <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("event")}>New Event</button></li>
+                        <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("tournament")}>Tournament Results</button></li>
+                      </ul>
+                      {this.state.editor}
                     </div>
                   </li>
                   <li>

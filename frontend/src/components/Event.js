@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {convertToRaw} from 'draft-js';
 import { getEvent } from '../redux/actions/contentActions';
 import DOMPurify from 'dompurify';
 

@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import store from "../../redux/store";
 import PropTypes from "prop-types";
-import { MDBDataTable } from "mdbreact";
+import {
+    getPostList,
+    getEventList,
+} from "../../redux/actions/contentActions";
 import { connect } from "react-redux";
-import { post } from "request";
-import M from 'materialize-css/dist/js/materialize.min.js';
+import { MDBDataTable } from "mdbreact";
 
-export class PostsList extends Component
+
+class PostsList extends Component
 {
     constructor(props)
     {
@@ -36,19 +39,10 @@ export class PostsList extends Component
             rows.push(row);
         });
 
-        {/* specified tag for different catagory */}
+        /* specified tag for different catagory */
         let columns = [];
         if(this.props.catagory === "agenda" || this.props.catagory === "event" || this.props.catagory === "tournament_games")
-        {
-            columns.push({
-                label: "Status",
-                field: "status",
-                sort: "asc",
-                width:50,
-            });
-
-        }
-        if(this.props.catagory === "tournament_games")
+        if(this.props.catagory === "tournament")
         {
             columns.push({
                 label: "Winner",
@@ -67,19 +61,6 @@ export class PostsList extends Component
                 'aria-label': 'Name',
             },
         });
-        if(this.props.catagory === "agenda")
-        {
-            columns.push({
-                label: "Start Time",
-                field:"start_time",
-                width: 100,
-            });
-            columns.push({
-                label: "End Time",
-                field:"end_time",
-                width: 100,
-            });
-        }
         if(this.props.catagory !== "agenda" && this.props.catagory !== "tournament_games")
             columns.push({
                 label: "Last Edited Date",
@@ -88,24 +69,29 @@ export class PostsList extends Component
                 width: 50,
             }
         );
-        if(this.props.catagory === "tournament_games")
-        {
-            columns.push({
-                label: "Start Date",
-                field:"start_time",
-                sort:"asc",
-                width: 50,
-            });
-        }
-
 
         let data = {
             columns:columns,
             rows: rows,
         };
 
-        return <div id="table" className="collection white" style={{marginTop:0}} > 
-                    <MDBDataTable className="text-center" entries={5} theadColor={(this.props.active_color === true? "orange lighten-2 white-text": "green lighten-2 white-text")} hover={true} autoWidth={true} striped={true} data={data} searching={this.props.enable_search} />
+        return <div id="table" className="collection blue lighten-4" style={{marginTop:0}} > 
+                    <MDBDataTable className="text-center" entries={5} theadColor={"orange lighten-4"}  hover={true} autoWidth={true} striped={true} data={data} searching={this.props.enable_search} />
                 </div>
     }
 }
+
+
+PostsList.propTypes = {
+    getPostList: PropTypes.func.isRequired,
+    getEventList: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+    content: state.content
+});
+
+export default connect(mapStateToProps, {
+    getPostList,
+    getEventList,
+})(PostsList);

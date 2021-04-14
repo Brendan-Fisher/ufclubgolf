@@ -134,6 +134,8 @@ class ContentList extends Component {
 ContentList.propTypes = {
     deletePost: PropTypes.func.isRequired,
     deleteEvent: PropTypes.func.isRequired,
+    getPostList: PropTypes.func.isRequired,
+    getEventList: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

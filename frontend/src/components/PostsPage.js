@@ -1,7 +1,13 @@
+import "./styles/PostsPage.css";
 import React, { Component } from "react";
-import { post } from "request";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import {
+    getPostList,
+    getEventList
+  } from "../redux/actions/contentActions";
 import M from 'materialize-css/dist/js/materialize.min.js';
-import {PostsList} from "./features/PostsList.js";
+import PostsList from "./features/PostsList";
 
 class PostsPage extends Component {
 
@@ -9,12 +15,15 @@ class PostsPage extends Component {
     {
         let tabs = document.querySelector('.tabs');
         var instance = M.Tabs.init(tabs, {duration:200, responsiveThreshold: window.innerWidth});
+
+        this.props.getPostList();
+        this.props.getEventList();
     }
 
     render() {
-        {/* temporary variable : The following variable should be switch to the data from database*/}
+       
         const posts = [];
-        {/* data test are the following*/}
+
         for(var i = 0; i < 12; i++)
         {
             let post = {
@@ -78,9 +87,8 @@ class PostsPage extends Component {
                     <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
                         <div>
                             <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
-                                <li className="tab col s3"><a href="#tab_general" className="white-text">General</a></li>
-                                <li className="tab col s3"><a href="#tab_event" className="white-text">Event</a></li>
-                                <li className="tab col s3"><a href="#tab_agenda" className="white-text">Agenda</a></li>
+                                <li className="tab col s3"><a href="#tab_general" className="white-text">All Club Posts</a></li>
+                                <li className="tab col s3"><a href="#tab_event" className="white-text">Events</a></li>
                             </ul>
                             <div id="tab_general">
                                 {!tab_general && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_general} catagory={"general"} enable_search={true}/>}
@@ -88,9 +96,6 @@ class PostsPage extends Component {
                             <div id="tab_event">
                                 {tab_event.length === 0 && <p className="center"> No post existing in this catagory.</p>}
                                 {tab_event.length !== 0 && <PostsList posts={tab_event} catagory={"event"} />}
-                            </div>
-                            <div id="tab_agenda">
-                                {!tab_agenda && <p className="center"> No post existing in this catagory.</p> || <PostsList posts={tab_agenda} catagory={"agenda"} />}
                             </div>
                         </div>
                     </div>
@@ -100,4 +105,18 @@ class PostsPage extends Component {
     }
 }
 
-export default PostsPage;
+
+PostsPage.propTypes = {
+    getPostList: PropTypes.func.isRequired,
+    getEventList: PropTypes.func.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    content: state.content
+  });
+  
+  export default connect(mapStateToProps, {
+    getPostList,
+    getEventList,
+  })(PostsPage);
+  

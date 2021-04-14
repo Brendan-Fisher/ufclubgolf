@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getPost } from "../redux/actions/contentActions";
-import {convertToRaw} from 'draft-js';
 import DOMPurify from 'dompurify';
 
 

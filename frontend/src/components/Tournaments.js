@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import M from 'materialize-css/dist/js/materialize.min.js';
-import {PostsList} from "./features/PostsList.js";
+import PostsList from "./features/PostsList";
 
 
 class Tournaments extends Component {
@@ -50,7 +50,7 @@ class Tournaments extends Component {
                     <li>
                         <div className="collapsible-header green lighten-2 "><i class="material-icons">games</i>{ tournament_title}</div>
                         <div className="collapsible-body white" style={{paddingBlock:0}}>
-                            <PostsList posts={games} catagory={"tournament_games"} />
+                            <PostsList posts={games} catagory={"tournament"} />
                         </div>
                     </li>
                 );
@@ -60,7 +60,7 @@ class Tournaments extends Component {
                     <li>
                         <div className="collapsible-header orange lighten-2 "><i class="material-icons">donut_large</i>{ tournament_title}</div>
                         <div className="collapsible-body white" style={{paddingBlock:0}}>
-                            <PostsList posts={games} catagory={"tournament_games"} active_color={true}/>
+                            <PostsList posts={games} catagory={"tournament"} active_color={true}/>
                         </div>
                     </li>
                 );
