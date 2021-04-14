@@ -84,6 +84,7 @@ class PostsPage extends Component {
             <div>
                 <div id="container" className="container">
                     <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
+                        <div id="box" className="col s12 center"><h5><span style={{fontFamily: "monospace" }}>Still under development</span></h5></div>
                         <div>
                             <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
                                 <li className="tab col s3"><a href="#tab_general" className="white-text">All Club Posts</a></li>

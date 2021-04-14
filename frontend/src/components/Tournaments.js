@@ -80,6 +80,7 @@ class Tournaments extends Component {
                             <h4>
                                 Welcome to the <span style={{ fontFamily: "monospace" }}><b>UF Club Golf</b> Tournament History Page</span>
                             </h4>
+                            <h5><span style={{fontFamily: "monospace" }}>Still under development</span></h5>
                         </div>
                     </div>
                 </div>

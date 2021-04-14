@@ -13,6 +13,7 @@ class About extends Component {
                 <b>Executive Board Members of the UF Golf Club</b>
               </span>
             </h4>
+            <h5><span style={{fontFamily: "monospace" }}>Still under development</span></h5>
           </div>
           <div className="p-image"></div>
           <div className="p-desc">
