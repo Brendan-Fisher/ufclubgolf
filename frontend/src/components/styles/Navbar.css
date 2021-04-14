@@ -21,121 +21,6 @@ nav .sidenav-trigger {
     height: auto !important;
 }
 
-#pass{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:white;
-}
-
-#pass:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: white;
-    transition: all 0.5s;
-}
-
-a:hover #pass:before {
-    width: 100%;
-    left: 0;
-    background: white;
-}
-
-#pass3{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:white;
-}
-
-#pass3:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: white;
-    transition: all 0.5s;
-}
-
-button:hover #pass3:before {
-    width: 100%;
-    left: 0;
-    background: white;
-}
-
-#pass2{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:black
-}
- 
-#pass2:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: black;
-    transition: all 0.3s;
-}
-
-a:hover #pass2:before {
-    width: 100%;
-    left: 0;
-    background: black;
-}
-
-#pass4{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:blue
-}
- 
-#pass4:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: blue;
-    transition: all 0.3s;
-}
-
-a:hover #pass4:before {
-    width: 100%;
-    left: 0;
-    background: blue;
-}
-
-.navbarhover:hover{
-    background-color: orange;
-}
-
-.nudge{
-    margin-bottom: 1.2vh;
-}
-
-.dropdown-trigger{
-    height: 64px;
-    top: 50%;
-    color: white;
-}
-
-.dropdown-trigger:hover {
-    background-color: orange;
-    color: white;
-}
-
 @media (max-width: 1023px) {
     #nav-mobile {
         margin: auto;
@@ -182,6 +67,9 @@ a:hover #pass4:before {
     nav .brand-logo {
         font-size: 1.3rem;
     }
+<<<<<<< Updated upstream
+}
+=======
 }
 
 #navbarhover:hover{
@@ -195,8 +83,4 @@ a:hover #pass4:before {
 .log{
     color:black
 }
-
-#location{
-    top: "100px"
-}
-
+>>>>>>> Stashed changes
