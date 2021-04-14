@@ -4,7 +4,7 @@ module.exports = function validateDemoteUser(data) {
     let errors = {};
     let newType = "";
 
-    if(data.email === "gatorsclubgolf@gmail.com"){
+    if(data.email === "floridaclubgolfteam@gmail.com" || data.email === "gatorsclubgolf@gmail.com"){
         errors.error = "Unable to demote root admin";
     }
     

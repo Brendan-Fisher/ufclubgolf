@@ -33,12 +33,13 @@ export function promoteUser(user) {
       .then((res) => {
         window.alert(user.firstname + " was successfully " + res.data);
       })
-      .catch((err) =>
+      .catch((err) =>{
+        window.alert("Unable to promote user (Probably admin already)");
         dispatch({
           type: GET_ERRORS,
           payload: err,
         })
-      );
+      });
   };
 }
 
@@ -49,12 +50,13 @@ export function demoteUser(user) {
       .then((res) => {
         window.alert(user.firstname + " was successfully " + res.data);
       })
-      .catch((err) =>
+      .catch((err) => {
+        window.alert("Unable to demote user (Probably root admin)")
         dispatch({
           type: GET_ERRORS,
           payload: err,
         })
-      );
+      });
   };
 }
 
@@ -63,13 +65,15 @@ export function deleteUser(user) {
     axios
       .post("/api/members", user)
       .then((res) => {
+        window.alert("User deleted")
         console.log(res.data);
       })
-      .catch((err) => 
+      .catch((err) => {
+        window.alert("Unable to delete user (Probably root admin)")
         dispatch({
           type: GET_ERRORS,
           payload: err,
         })
-      );
+      });
   };
 }
