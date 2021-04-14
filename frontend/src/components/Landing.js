@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import store from '../redux/store';
 import './styles/Landing.css';
 
 import ImageSlider from "./features/ImageSlider";
 import Announcement from "./features/Announcement";
-import { getAnnouncements, getPosts } from "../redux/actions/contentActions";
+import { getAnnouncements, getPostList } from "../redux/actions/contentActions";
 import PostsTable from "./features/PostsTable";
 import CarouselPanel from "./features/CarouselPanel";
 
@@ -13,6 +14,9 @@ import CarouselPanel from "./features/CarouselPanel";
 class Landing extends Component {
     componentDidMount() {
         this.props.getAnnouncements();
+        this.props.getPostList();
+
+        console.log(store.getState().content);
     }
         
     render() {
@@ -26,8 +30,8 @@ class Landing extends Component {
                       <div id="box" className="col s12 l12 m12 center-align">
                         <Announcement />
                       </div>
-                        <CarouselPanel />
-                      <div id="box" style={{ minHeight: "400px" }}className="col s12 m7 l7 center-align">
+                      <CarouselPanel />
+                      <div id="box" style={{ minHeight: "400px" }}className="col s12 m6 l6 center-align">
                         <PostsTable />
                       </div>
                       <div id="box" className="col s12 center-align">
@@ -45,7 +49,7 @@ class Landing extends Component {
 
 Landing.propTypes = {
   getAnnouncements: PropTypes.func.isRequired,
-  getPosts: PropTypes.func.isRequired,
+  getPostList: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -54,5 +58,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getAnnouncements,
-  getPosts
+  getPostList
 })(Landing);

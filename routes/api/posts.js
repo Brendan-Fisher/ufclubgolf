@@ -22,6 +22,16 @@ router.route("/").get(function (req, res) {
     })
 })
 
+router.route("/find").post((req, res)  => {
+    Post.findById(req.body._id, (err, post) => {
+        if(err) {
+            res.json(err);
+        } else {
+            res.json(post);
+        }
+    })
+})
+
 // @route POST api/posts/create
 // @desc Creates new post 
 router.route("/create").post((req, res) => {

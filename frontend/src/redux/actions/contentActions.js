@@ -52,18 +52,24 @@ export async function getPosts() {
     return axios  
             .get("/api/posts")
             .then((posts) => {
-                setPostList(posts);
                 return posts;
             })
 }
 
-const setPostList = (posts) => (dispatch) =>{
-    return dispatch ({
-        type: SET_POST_LIST,
-        payload: posts,
-    })
-}
+export async function getPost(id) {
+    let postID = {
+        _id: id
+    }
 
+    return axios
+        .post("/api/posts/find", postID)
+        .then((post) => {
+            return post;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
 
 export const createEvent = (event) => (dispatch) => {
     axios

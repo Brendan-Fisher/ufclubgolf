@@ -56,7 +56,7 @@ export class CarouselPanel extends Component
 
 
         return(
-            <div id="box" className="col s12 m4 l4 center-align" style={{padding:0}}>
+            <div id="box" className="col s12 m5 l5 center-align" style={{padding:0}}>
                 <div>
                     <div className="carousel carousel-slider" >
                         {panels}

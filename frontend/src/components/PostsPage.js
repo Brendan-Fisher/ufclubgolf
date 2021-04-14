@@ -3,7 +3,7 @@ import { post } from "request";
 import M from 'materialize-css/dist/js/materialize.min.js';
 import {PostsList} from "./features/PostsList.js";
 
-class Posts extends Component {
+class PostsPage extends Component {
 
     componentDidMount()
     {
@@ -100,4 +100,4 @@ class Posts extends Component {
     }
 }
 
-export default Posts;
+export default PostsPage;
