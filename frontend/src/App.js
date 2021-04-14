@@ -21,6 +21,7 @@ import ExecDash from "./components/ExecDash";
 import AdminDash from "./components/AdminDash";
 import MemberDash from "./components/MemberDash";
 import Post from "./components/Post";
+import Event from "./components/Event";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -59,6 +60,7 @@ function App() {
           <Route exact path="/about" component={About} />
           <Route exact path="/posts" component={Posts} />
           <Route exact path="/posts/:id" component={Post} />
+          <Route exact path="/events/:id" component={Event} />
           <Switch>
             <PrivateRoute
               exact

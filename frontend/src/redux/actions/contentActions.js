@@ -123,6 +123,21 @@ export function getEventList(){
     }
 }
 
+export async function getEvent(id) {
+    let eventID = {
+        _id: id
+    }
+
+    return axios
+        .post("/api/events/find", eventID)
+        .then((event) => {
+            return event;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
 export function deletePost(post) {
     return function (dispatch) {
         axios

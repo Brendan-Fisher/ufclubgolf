@@ -32,7 +32,7 @@ class ContentList extends Component {
         posts.forEach((post) => {
             let row = {
                 delete: <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this post?')) this.onDeletePost(post) } }><i className="material-icons">delete_forever</i></a>,
-                title: post.title,
+                title: <a href={"/posts/" + post._id}>{post.title}</a>,
                 category: post.category,
                 date: post.date,
             }
@@ -66,16 +66,27 @@ class ContentList extends Component {
             rows: postRows,
         }
 
-        function convertDate(date) {
-            var parts = date.split('-')
+        function convertDate(dateTime) {
+            var parts = dateTime.split('-')
             var extraParts = parts[2].split('T');
-            return `${parts[1]}/${extraParts[0]}/${parts[0]}`;
+            var timeParts = extraParts[1].split(':');
+            var hour = parseInt(timeParts[0]);
+            var dayPart = ''
+            
+            if(hour >= 12){
+                dayPart = "PM"
+            }
+            else dayPart = "AM"
+        
+            timeParts[0] = hour % 12;
+        
+            return `${parts[1]}/${extraParts[0]}/${parts[0]} at ${timeParts[0]}:${timeParts[1]} ${dayPart}`;
         }
 
         events.forEach((event) => {
             let row = {
                 delete: <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this post?')) this.onDeleteEvent(event) } }><i className="material-icons">delete_forever</i></a>,
-                title: event.title,
+                title: <a href={"/events/" + event._id}>{event.title}</a>,
                 eventDate: convertDate(event.eventDate),
                 dateCreated: event.createdDate,
             }
