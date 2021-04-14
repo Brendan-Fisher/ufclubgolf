@@ -34,7 +34,7 @@ router.put("/promote", (req, res) => {
   const { errors, isValid, newType } = validatePromoteUser(req.body);
 
   if(!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json("Unable to promote user");
   }
   
   Member.findOneAndUpdate(
@@ -55,7 +55,7 @@ router.route("/demote").put(function (req, res) {
   const { errors, isValid, newType } = validateDemoteUser(req.body);
   
   if(!isValid){
-    return res.status(400).json(errors);
+    return res.status(400).send("Unable to demote user");
   }
 
   Member.findOneAndUpdate(
