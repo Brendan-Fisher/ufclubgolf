@@ -86,6 +86,8 @@ export const createEvent = (event) => (dispatch) => {
 }
 
 export const createTournament = (tournament) => (dispatch) => {
+    console.log(tournament);
+
     axios
         .post("/api/tournaments/create", tournament)
         .then((res) => {
@@ -191,6 +193,22 @@ export function deleteEvent(event) {
     return function (dispatch) {
         axios
             .post("/api/events", event)
+            .then((res) => {
+                console.log(res.data);
+            })
+            .catch((err) => 
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err,
+                })
+            );
+    };
+}
+
+export function deleteTournament(tournament) {
+    return function (dispatch) {
+        axios
+            .post("/api/tournaments", tournament)
             .then((res) => {
                 console.log(res.data);
             })

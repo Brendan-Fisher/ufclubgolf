@@ -35,6 +35,7 @@ router.route("/find").post((req, res)  => {
 // @route POST api/tournaments/create
 // @desc Creates new events 
 router.route("/create").post((req, res) => {
+
     // Form Validation
     const { errors, isValid } = validateTournamentContent(req.body);
 
@@ -42,9 +43,18 @@ router.route("/create").post((req, res) => {
         return res.status(400).json(errors);
     }
 
+   
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    
+    today = mm + '/' + dd + '/' + yyyy;
+
     const newTournament = new Tournament({
         title: req.body.title,
         startDate: req.body.startDate,
+        createdDate: today,
         body: req.body.body,
     })
 

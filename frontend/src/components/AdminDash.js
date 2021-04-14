@@ -12,7 +12,8 @@ import {
 import {
   createAnnouncement,
   getPostList,
-  getEventList
+  getEventList,
+  getTournamentList,
 } from "../redux/actions/contentActions";
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
@@ -91,6 +92,7 @@ class AdminDash extends Component {
     this.props.getUsers();
     this.props.getPostList();
     this.props.getEventList();
+    this.props.getTournamentList();
   }
 
   render() {
@@ -175,6 +177,7 @@ AdminDash.propTypes = {
   createAnnouncement: PropTypes.func.isRequired,
   getPostList: PropTypes.func.isRequired,
   getEventList: PropTypes.func.isRequired,
+  getTournamentList: PropTypes.func.isRequired,
   logoutMember: PropTypes.func.isRequired,
   getUsers: PropTypes.func.isRequired,
   promoteUser: PropTypes.func.isRequired,
@@ -187,6 +190,7 @@ AdminDash.propTypes = {
 const mapStateToProps = (state) => ({
   auth: state.auth,
   users: state.users,
+  content: state.content,
 });
 
 export default connect(mapStateToProps, {
@@ -198,4 +202,5 @@ export default connect(mapStateToProps, {
   createAnnouncement,
   getPostList,
   getEventList,
+  getTournamentList,
 })(AdminDash);

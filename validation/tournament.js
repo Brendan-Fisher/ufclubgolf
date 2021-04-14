@@ -14,7 +14,7 @@ module.exports = function validateTournamentContent(data) {
     }
 
     if(Validator.isEmpty(data.startDate)){
-        errors.date = "Unable to make tournament without start date"
+        errors.startDate = "Unable to make tournament without start date"
     }
 
     if(Validator.isEmpty(data.body)) {
