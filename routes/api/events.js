@@ -22,6 +22,17 @@ router.route("/").get(function (req, res) {
     })
 })
 
+
+router.route("/find").post((req, res)  => {
+    ClubEvent.findById(req.body._id, (err, event) => {
+        if(err) {
+            res.json(err);
+        } else {
+            res.json(event);
+        }
+    })
+})
+
 // @route POST api/events/create
 // @desc Creates new events 
 router.route("/create").post((req, res) => {
