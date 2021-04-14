@@ -17,8 +17,9 @@ import {
 import { logoutMember } from "../redux/actions/authActions";
 import { Redirect } from "react-router-dom";
 import { MemberList } from "./features/MemberList";
-import  PostEditor  from "./features/PostEditor";
+import PostEditor  from "./features/PostEditor";
 import EventEditor from "./features/EventEditor";
+import TournamentEditor from "./features/TournamentEditor";
 import ContentList from "./features/ContentList";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -78,7 +79,7 @@ class AdminDash extends Component {
         this.setState({ editor: <EventEditor /> });
         break;
       case "tournament":
-        this.setState({ editor: <PostEditor /> });
+        this.setState({ editor: <TournamentEditor /> });
         break;
     }
   }

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS, SET_ANNOUNCEMENT, SET_POST_LIST, SET_EVENT_LIST } from "./types";
+import { GET_ERRORS, SET_ANNOUNCEMENT, SET_POST_LIST, SET_EVENT_LIST, SET_TOURNAMENT_LIST } from "./types";
 
 export const createAnnouncement = (content) => (dispatch) => {
     axios
@@ -85,6 +85,20 @@ export const createEvent = (event) => (dispatch) => {
         })
 }
 
+export const createTournament = (tournament) => (dispatch) => {
+    axios
+        .post("/api/tournaments/create", tournament)
+        .then((res) => {
+            console.log(res.status);
+        })
+        .catch((err) => {
+            dispatch({
+                type: GET_ERRORS,
+                payload: err.response.data,
+            })
+        })
+}
+
 export function getPostList(){
     return function (dispatch) {
         axios
@@ -108,10 +122,29 @@ export function getEventList(){
     return function (dispatch) {
         axios
             .get("/api/events")
-            .then((posts) => {
+            .then((events) => {
                 dispatch({
                     type: SET_EVENT_LIST,
-                    payload: posts,
+                    payload: events,
+                })
+            })
+            .catch((err) => 
+                dispatch({
+                    type: GET_ERRORS,
+                    payload: err.response,
+                })
+            );
+    }
+}
+
+export function getTournamentList(){
+    return function (dispatch) {
+        axios
+            .get("/api/tournaments")
+            .then((tournaments) => {
+                dispatch({
+                    type: SET_TOURNAMENT_LIST,
+                    payload: tournaments,
                 })
             })
             .catch((err) => 

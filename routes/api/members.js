@@ -55,6 +55,7 @@ router.route("/demote").put(function (req, res) {
   const { errors, isValid, newType } = validateDemoteUser(req.body);
   
   if(!isValid){
+    re
     return res.status(400).send("Unable to demote user");
   }
 

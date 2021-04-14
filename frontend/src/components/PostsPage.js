@@ -21,7 +21,6 @@ class PostsPage extends Component {
     }
 
     render() {
-       
         const posts = [];
 
         for(var i = 0; i < 12; i++)

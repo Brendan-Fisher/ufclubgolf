@@ -11,6 +11,7 @@ const email = require("./routes/api/email");
 const announcements = require("./routes/api/announcements");
 const posts = require("./routes/api/posts");
 const events = require("./routes/api/events");
+const tournaments = require("./routes/api/tournaments");
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use("/api/email", email);
 app.use("/api/announcements", announcements);
 app.use("/api/posts", posts);
 app.use("/api/events", events);
+app.use("/api/tournaments", tournaments)
 
 // Serve static assets if in production
 if(process.env.NODE_ENV === 'production'){

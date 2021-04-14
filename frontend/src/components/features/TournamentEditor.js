@@ -6,10 +6,10 @@ import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
 import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { createEvent, getEventList, massEmail } from "../../redux/actions/contentActions";
+import { createTournament, getTournamentList } from "../../redux/actions/contentActions";
 import store from '../../redux/store';
 
-class EventEditor extends Component {
+class TournamentEditor extends Component {
   constructor(){
     super();
     this.state = {
@@ -33,15 +33,14 @@ class EventEditor extends Component {
   }
 
   onPost = e => {
-    var event = {
-      type: "Event",
+    var tournament = {
+      type: "Tournament",
       title: this.state.eventTitle,
-      date: this.state.date,
+      startDate: this.state.date,
       body: this.state.convertedContent,
     }
-    this.props.massEmail(event, store.getState().users.memberList);
-    this.props.createEvent(event);
-    this.props.getEventList();
+    this.props.createTournament(tournament);
+    this.props.getTournamentList();
   }
 
   onChange = e => {
@@ -59,20 +58,20 @@ class EventEditor extends Component {
       <div>
         <form>
           <div className="input-field">
-            <label>Event Name</label>
+            <label>Tournament Name</label>
             <input 
               onChange={this.onChange} 
               value={this.state.eventTitle}
               type="text"
               id="eventTitle" />
           </div>
-          <label>Event Date and Time</label>
+          <label>Tournament Start Date</label>
           <div className="input-field" style={{maxWidth: "200px"}}>
-            <input onChange={this.onChange} type="datetime-local" id="date" value={this.state.date} min="2021-01-01"></input>
+            <input onChange={this.onChange} type="date" id="date" value={this.state.date} name="query-start"></input>
           </div>
         </form>
         
-        <h5>Event Body</h5>
+        <h5>Tournament Post Body</h5>
         <Editor
             editorState={this.state.editorState}
             wrapperClassName="post-editor"
@@ -88,23 +87,22 @@ class EventEditor extends Component {
         />
         <div className="preview" dangerouslySetInnerHTML={this.createMarkup(this.state.convertedContent)}></div>
         <button style={{
-            width: "150px",
+            width: "auto",
             borderRadius: "3px",
             letterSpacing: "1.5px",
             margin: "11.250px"
         }} className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
         onClick={this.onPost}>
-          Create Event
+          Post Tournament Info
         </button>
       </div>
     )
   }
 }
 
-EventEditor.propTypes = {
-  createEvent: PropTypes.func.isRequired,
-  getEventList: PropTypes.func.isRequired,
-  massEmail: PropTypes.func.isRequired,
+TournamentEditor.propTypes = {
+  createTournament: PropTypes.func.isRequired,
+  getTournamentList: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -112,7 +110,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-  createEvent,
-  getEventList,
-  massEmail,
-})(EventEditor)
+  createTournament,
+  getTournamentList,
+})(TournamentEditor)
