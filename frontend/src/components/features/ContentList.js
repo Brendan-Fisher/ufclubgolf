@@ -43,7 +43,7 @@ class ContentList extends Component {
             let row = {
                 delete: <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this post?')) this.onDeletePost(post) } }><i className="material-icons">delete_forever</i></a>,
                 category: "Post",
-                title: (<a href={"/posts/" + post._id} className="collection-item"><u>{post.title}</u></a>),
+                title: (<a href={"/posts/" + post._id}><u>{post.title}</u></a>),
                 date: post.date,
             }
 
