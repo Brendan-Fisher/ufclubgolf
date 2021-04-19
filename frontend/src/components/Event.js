@@ -43,6 +43,7 @@ function buildEvent(event){
                     <div id="box" className="col s12 center-align">
                         <h2>{event.title}</h2>
                         <h6>Event Date: {convertDate(event.eventDate)}</h6>
+                        <h6>Event Location: {event.location}</h6>
                     </div>
                     <div dangerouslySetInnerHTML={createMarkup(event.body)} className="col s12"></div>
                 </div>

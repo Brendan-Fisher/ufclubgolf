@@ -55,9 +55,10 @@ function buildSlides(input){
             let slide = (
                 <div className="carousel-item green lighten-3 black-text">
                     <h1>{input.data[i].title}</h1>
-                    <h6>Event Date: {convertDate(input.data[i].eventDate)}</h6>
+                    <h6>Date: {convertDate(input.data[i].eventDate)}</h6>
+                    <h6>Location: {input.data[i].location}</h6>
                     <hr />
-                    <button className="btn btn-info"><a style={{color: "black", padding: "4px"}} href={"/events/" + input.data[i]._id}>More Info</a></button>
+                    <button className="btn btn-info"><a style={{ color: "black", padding: "16px" }} href={"/events/" + input.data[i]._id}>More Info</a></button>
                 </div>
             )
             slides.push(slide);

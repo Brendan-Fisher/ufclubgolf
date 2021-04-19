@@ -41,6 +41,13 @@ class TournamentEditor extends Component {
     }
     this.props.createTournament(tournament);
     this.props.getTournamentList();
+
+    this.setState({
+      eventTitle: "",
+      date: "",
+      editorState: EditorState.createEmpty(),
+      convertedContent: "",
+    })
   }
 
   onChange = e => {

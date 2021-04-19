@@ -80,7 +80,8 @@ router.post("/all", (req, res) => {
     
     var mailOptions = {
         from: 'UF Club Golf',
-        to: emails,
+        to: email,
+        bcc: emails,
         subject: subject,
         html: body,
     };

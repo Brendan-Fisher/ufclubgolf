@@ -54,6 +54,7 @@ router.route("/create").post((req, res) => {
         title: req.body.title,
         eventDate: req.body.date,
         createdDate: today,
+        location: req.body.location,
         body: req.body.body,
     })
 

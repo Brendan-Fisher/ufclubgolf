@@ -8,6 +8,7 @@ module.exports = function validateEventContent(data) {
     data.title = !isEmpty(data.title) ? data.title : "";
     data.date = !isEmpty(data.date) ? data.date : "";
     data.body = !isEmpty(data.body) ? data.body : "";
+    data.location = !isEmpty(data.body) ? data.body : "";
 
     if(Validator.isEmpty(data.title)){
         errors.title = "Unable to make event without title"
@@ -19,6 +20,10 @@ module.exports = function validateEventContent(data) {
 
     if(Validator.isEmpty(data.body)) {
         errors.body = "Unable to make event without body";
+    }
+
+    if(Validator.isEmpty(data.location)) {
+        errors.location = "Unable to make event without location";
     }
 
     return {
