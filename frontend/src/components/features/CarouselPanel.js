@@ -1,7 +1,6 @@
 import DOMPurify from "dompurify";
 import React, {Component} from "react";
 import { getEvents } from "../../redux/actions/contentActions";
-import Link from "react-materialize";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 

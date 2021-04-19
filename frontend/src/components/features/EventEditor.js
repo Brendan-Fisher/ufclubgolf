@@ -8,7 +8,6 @@ import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { createEvent, getEventList, massEmail } from "../../redux/actions/contentActions";
 import store from '../../redux/store';
-import { throws } from 'should';
 
 class EventEditor extends Component {
   constructor(){

@@ -9,7 +9,6 @@ import {
     getTournamentList
   } from "../redux/actions/contentActions";
 import M from 'materialize-css/dist/js/materialize.min.js';
-import PostsList from "./features/PostsList";
 import { MDBDataTable } from "mdbreact";
 
 function convertDate(dateTime) {
@@ -125,7 +124,6 @@ class PostsPage extends Component {
             <div>
                 <div id="container" className="container blue lighten-4">
                     <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
-                        
                             <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
                                 <li className="tab col s3"><a href="#tab_general" className="white-text">All Club Posts</a></li>
                                 <li className="tab col s3"><a href="#tab_event" className="white-text">Events</a></li>
@@ -136,7 +134,6 @@ class PostsPage extends Component {
                             <div id="tab_event">
                                 <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={eventData} searching={false} noBottomColumns={true} />
                             </div>
-                        
                     </div>
                 </div>
             </div>

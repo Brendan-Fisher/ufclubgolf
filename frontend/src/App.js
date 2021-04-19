@@ -1,5 +1,6 @@
 import "./App.css";
 import "mdbreact/dist/css/mdb.css";
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
@@ -22,6 +23,8 @@ import AdminDash from "./components/AdminDash";
 import MemberDash from "./components/MemberDash";
 import Post from "./components/Post";
 import Event from "./components/Event";
+
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -46,34 +49,51 @@ if (localStorage.jwtToken) {
   }
 }
 
-function App() {
-  return (
-    <Provider store={store}>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Route exact path="/" component={Landing} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/calendar" component={Calendar} />
-          <Route exact path="/tournaments" component={Tournaments} />
-          <Route exact path="/about" component={About} />
-          <Route exact path="/posts" component={Posts} />
-          <Route exact path="/posts/:id" component={Post} />
-          <Route exact path="/events/:id" component={Event} />
-          <Switch>
-            <PrivateRoute
-              exact
-              path="/dashboard/member"
-              component={MemberDash}
-            />
-            <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
-            <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />
-          </Switch>
-        </div>
-      </Router>
-    </Provider>
-  );
+class App extends Component {
+  componentDidMount(){
+    let fab = document.querySelector('.fixed-action-btn');
+    M.FloatingActionButton.init(fab);
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <div className="fixed-action-btn">
+              <a className="btn-floating btn-large orange darken-2">
+                <i className="large material-icons">menu</i>
+              </a>
+              <ul>
+                <li><a rel="noopener noreferrer" href="https://www.facebook.com/groups/uf.club.golf" className="btn-floating blue"><i className="large fab fa-facebook fa-5x"></i></a></li>
+                <li><a rel="noopener noreferrer" href="https://twitter.com/UFClubGolf" className="btn-floating green"><i className="large fab fa-twitter fa-5x"></i></a></li>
+                <li><a rel="noopener noreferrer" href="https://twitter.com/UFClubGolf" className="btn-floating red"><i className="large far fa-comment-alt"></i></a></li>
+              </ul>
+            </div>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/calendar" component={Calendar} />
+            <Route exact path="/tournaments" component={Tournaments} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/posts/:id" component={Post} />
+            <Route exact path="/events/:id" component={Event} />
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/dashboard/member"
+                component={MemberDash}
+              />
+              <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
+              <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />
+            </Switch>
+          </div>
+        </Router>
+      </Provider>
+    );
+  }
 }
 
 export default App;
