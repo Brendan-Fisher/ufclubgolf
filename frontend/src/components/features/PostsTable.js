@@ -16,13 +16,13 @@ function buildTable(input){
     for(var i = 0; i < input.data.length; i++){
         let row = (
             <tr key={input.data[i].title}>
-                <td>{input.data[i].title}</td>
+                <td><a href={"/posts/" + input.data[i]._id}>{input.data[i].title}</a></td>
                 <td>{input.data[i].category}</td>
                 <td>{input.data[i].date}</td>
             </tr>
         )
 
-        rows.push(row);
+        rows.unshift(row);
     }
 
     return (
@@ -33,7 +33,7 @@ function buildTable(input){
                     <tr>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Date</th>
+                        <th>Date Posted</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -31,6 +31,8 @@ export class MemberList extends Component {
           <a href="#!" onClick={() => { if (window.confirm('Are you sure you would like to delete this user?')) this.onDeleteClick(user) } }><i className="material-icons">delete_forever</i></a>
         ),
         name: user.firstname + " " + user.lastname,
+        email: <a style={{ textDecoration: "underline" }} href={"mailto: " + user.email}>{user.email}</a>,
+        phone: <a style={{ textDecoration: "underline" }} href={"tel: " + user.number}>{user.number}</a>,
         memberType: user.memberType,
         promote: (
           <button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{
@@ -56,13 +58,23 @@ export class MemberList extends Component {
     let data = {
       columns: [
         {
-          label: "Delete",
+          label: "",
           field: "delete",
           width: 50,
         },
         {
           label: "Name",
           field: "name",
+          width: 150,
+        },
+        {
+          label: "Email",
+          field: "email",
+          width: 150,
+        },
+        {
+          label: "Phone Number",
+          field: "phone",
           width: 150,
         },
         {
@@ -84,7 +96,7 @@ export class MemberList extends Component {
       rows: rows,
     };
 
-    return <MDBDataTable entries={5} theadColor={"white"} hover={true} autoWidth={true} striped={true} data={data} searching={true} />;
+    return <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={data} searching={true} noBottomColumns={true}/>;
   }
 }
 

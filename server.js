@@ -4,12 +4,14 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 require("dotenv").config();
 cors = require('cors');
+const path = require('path');
 
 const members = require("./routes/api/members");
 const email = require("./routes/api/email");
 const announcements = require("./routes/api/announcements");
 const posts = require("./routes/api/posts");
 const events = require("./routes/api/events");
+const tournaments = require("./routes/api/tournaments");
 
 const app = express();
 
@@ -47,6 +49,17 @@ app.use("/api/email", email);
 app.use("/api/announcements", announcements);
 app.use("/api/posts", posts);
 app.use("/api/events", events);
+app.use("/api/tournaments", tournaments)
+
+// Serve static assets if in production
+if(process.env.NODE_ENV === 'production'){
+  // Set static folder
+  app.use(express.static('frontend/build'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
 
 const port = process.env.PORT || 5000; // process.env.port is Heroku's port if you choose to deploy the app there
 

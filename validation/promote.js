@@ -5,7 +5,7 @@ module.exports = function validatePromoteUser(data) {
     let newType = "";
 
     if(data.memberType === "admin"){
-        errors.error = "Unable to promote root admin";
+        errors.error = "Unable to promote admin";
         newType = "admin";
     }
     

@@ -82,7 +82,7 @@ class ImageSlider extends Component
                 <li key={index}>
                     <img alt={"image number " + index + " has not found."} src={value} className="SliderImg"/>  
                     <div className="caption right-align">
-                        <h3>Welcome to UF Golf Club!</h3>
+                        <h3>Welcome to Florida Club Golf!</h3>
                         <h5 className="light grey-text text-lighten-3">{quote.quote}<br/>- {quote.author}</h5>
                     </div>
                 </li>

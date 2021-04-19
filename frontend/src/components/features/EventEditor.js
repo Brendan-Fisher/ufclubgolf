@@ -6,13 +6,14 @@ import { Editor } from 'react-draft-wysiwyg';
 import { convertToHTML } from 'draft-convert'; 
 import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { createEvent } from "../../redux/actions/contentActions";
+import { createEvent, getEventList, massEmail } from "../../redux/actions/contentActions";
+import store from '../../redux/store';
 
 class EventEditor extends Component {
   constructor(){
     super();
     this.state = {
-      postTitle: "",
+      eventTitle: "",
       date: "",
       editorState: EditorState.createEmpty(),
       convertedContent: "",
@@ -33,11 +34,14 @@ class EventEditor extends Component {
 
   onPost = e => {
     var event = {
-      title: this.state.postTitle,
+      type: "Event",
+      title: this.state.eventTitle,
       date: this.state.date,
       body: this.state.convertedContent,
     }
+    this.props.massEmail(event, store.getState().users.memberList);
     this.props.createEvent(event);
+    this.props.getEventList();
   }
 
   onChange = e => {
@@ -55,17 +59,17 @@ class EventEditor extends Component {
       <div>
         <form>
           <div className="input-field">
+            <label>Event Name</label>
             <input 
-              style={{color:"black"}}
               onChange={this.onChange} 
-              value={this.state.postTitle}
-              id="postTitle" />
+              value={this.state.eventTitle}
+              type="text"
+              id="eventTitle" />
           </div>
-          <label>Event Name</label>
-          <div className="input-field">
-            <input onChange={this.onChange} type="date" id="date" value={this.state.date} name="query-start" min="2021-01-01"></input>
+          <label>Event Date and Time</label>
+          <div className="input-field" style={{maxWidth: "200px"}}>
+            <input onChange={this.onChange} type="datetime-local" id="date" value={this.state.date} min="2021-01-01"></input>
           </div>
-          <label>Event Date</label>
         </form>
         
         <h5>Event Body</h5>
@@ -95,11 +99,12 @@ class EventEditor extends Component {
       </div>
     )
   }
-  
 }
 
 EventEditor.propTypes = {
   createEvent: PropTypes.func.isRequired,
+  getEventList: PropTypes.func.isRequired,
+  massEmail: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -107,5 +112,7 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {
-  createEvent
+  createEvent,
+  getEventList,
+  massEmail,
 })(EventEditor)
