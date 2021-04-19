@@ -6,7 +6,7 @@ import './styles/Landing.css';
 
 import ImageSlider from "./features/ImageSlider";
 import Announcement from "./features/Announcement";
-import { getAnnouncements, getPostList } from "../redux/actions/contentActions";
+import { getAnnouncements, getPostList, getEventList } from "../redux/actions/contentActions";
 import PostsTable from "./features/PostsTable";
 import CarouselPanel from "./features/CarouselPanel";
 
@@ -15,6 +15,7 @@ class Landing extends Component {
     componentDidMount() {
         this.props.getAnnouncements();
         this.props.getPostList();
+        this.props.getEventList();
 
         console.log(store.getState().content);
     }
@@ -30,7 +31,7 @@ class Landing extends Component {
                       <div id="box" className="col s12 l12 m12 center-align">
                         <Announcement />
                       </div>
-                      <CarouselPanel />
+                        <CarouselPanel />
                       <div id="box" style={{ minHeight: "400px" }}className="col s12 m6 l6 center-align">
                         <PostsTable />
                       </div>
@@ -50,6 +51,7 @@ class Landing extends Component {
 Landing.propTypes = {
   getAnnouncements: PropTypes.func.isRequired,
   getPostList: PropTypes.func.isRequired,
+  getEventList: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -58,5 +60,6 @@ const mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps, {
   getAnnouncements,
-  getPostList
+  getPostList,
+  getEventList
 })(Landing);

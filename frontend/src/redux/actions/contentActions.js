@@ -56,6 +56,14 @@ export async function getPosts() {
             })
 }
 
+export async function getEvents() {
+    return axios  
+            .get("/api/events")
+            .then((events) => {
+                return events;
+            })
+}
+
 export async function getPost(id) {
     let postID = {
         _id: id
