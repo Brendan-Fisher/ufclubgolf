@@ -62,7 +62,7 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <div className="fixed-action-btn">
-              <a className="btn-floating btn-large orange darken-2">
+              <a href="!#" className="btn-floating btn-large orange darken-2">
                 <i className="large material-icons">menu</i>
               </a>
               <ul>
