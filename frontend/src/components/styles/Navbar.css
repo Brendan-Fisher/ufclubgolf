@@ -16,6 +16,17 @@ nav .sidenav-trigger {
     margin: 11.25px;
 }
 
+nav {
+    border-top: solid 2px rgb(255, 132, 0) !important;
+    border-bottom: solid 2px rgb(13, 0, 255) !important;
+}
+
+.navbar-brand{
+    padding: 0 16px 0 16px  !important;
+    height: 60px;
+    background-color: rgba(49, 97, 0, 0.25);
+}
+
 .dropdown-content {
     width: max-content !important;
     height: auto !important;
@@ -125,6 +136,10 @@ a:hover #pass4:before {
     margin-bottom: 1.2vh;
 }
 
+.navbarhover{
+    height: 60px;
+}
+
 .dropdown-trigger{
     height: 64px;
     top: 50%;
@@ -160,7 +175,7 @@ a:hover #pass4:before {
     }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 600px) {
     #sidenav {
         display: inline-block;
         position: fixed;
@@ -181,7 +196,14 @@ a:hover #pass4:before {
 
     nav .brand-logo {
         font-size: 1.5rem;
+        height: 52px;
     }
+
+    .navbarhover{
+        height: 52px;
+    }
+
+
 }
 
 #navbarhover:hover{

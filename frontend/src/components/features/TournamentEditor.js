@@ -7,7 +7,6 @@ import { convertToHTML } from 'draft-convert';
 import  DOMPurify  from 'dompurify';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { createTournament, getTournamentList } from "../../redux/actions/contentActions";
-import store from '../../redux/store';
 
 class TournamentEditor extends Component {
   constructor(){
@@ -41,6 +40,13 @@ class TournamentEditor extends Component {
     }
     this.props.createTournament(tournament);
     this.props.getTournamentList();
+
+    this.setState({
+      eventTitle: "",
+      date: "",
+      editorState: EditorState.createEmpty(),
+      convertedContent: "",
+    })
   }
 
   onChange = e => {

@@ -60,6 +60,10 @@ class AdminDash extends Component {
     e.preventDefault();
     const content = this.state;
     this.props.createAnnouncement(content);
+    
+    this.setState({
+      announcement: "",
+    })
   }
 
   onChange = e => {

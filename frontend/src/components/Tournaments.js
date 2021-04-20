@@ -1,16 +1,23 @@
 import React, { Component } from "react";
-import M from 'materialize-css/dist/js/materialize.min.js';
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import PostsList from "./features/PostsList";
+import { getTournamentList } from "../redux/actions/contentActions";
+import store from "../redux/store";
 
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 class Tournaments extends Component {
     componentDidMount()
     {
         let collapsible = document.querySelector('.collapsible');
-        var instance = M.Collapsible.init(collapsible, {accordion: true});
+        M.Collapsible.init(collapsible, {accordion: true});
+
+        this.props.getTournamentList();
     }  
 
     render() {
+        let tournaments = store.getState().content.tournaments;
         var num_current_tournament = 1;
         var num_past_tournament = 1;
 
@@ -103,4 +110,15 @@ class Tournaments extends Component {
     }
 }
 
-export default Tournaments;
+Tournaments.propTypes = {
+    getTournamentList: PropTypes.func.isRequired,
+  };
+  
+  const mapStateToProps = (state) => ({
+    content: state.content
+  });
+  
+  export default connect(mapStateToProps, {
+    getTournamentList
+  })(Tournaments);
+  

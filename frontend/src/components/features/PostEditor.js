@@ -42,6 +42,13 @@ class  PostEditor extends Component {
     this.props.massEmail(post, store.getState().users.memberList);
     this.props.createPost(post);
     this.props.getPostList();
+
+    this.setState({
+      postTitle: "",
+      category: "",
+      editorState: EditorState.createEmpty(),
+      convertedContent: "",
+    })
   }
 
   onChange = e => {

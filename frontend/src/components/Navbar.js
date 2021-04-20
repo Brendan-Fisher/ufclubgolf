@@ -63,11 +63,7 @@ class Navbar extends Component {
                                 </li>
                             }
                         </ul>
-                        <ul id="nav-mobile" className="left hide-on-med-and-down">
-                            <div>
-                                
-                            </div>
-                            
+                        <ul id="nav-mobile" className="left hide-on-med-and-down">                           
                             <li><a href="/about" className="navbarhover"><text id="pass">About Us</text></a></li>
                             <li><a href="/calendar" className="navbarhover"><text id="pass">Calender</text></a></li>
                             <li><a href="/tournaments" className="navbarhover"><text id="pass">Tournaments</text></a></li>
@@ -79,7 +75,7 @@ class Navbar extends Component {
                                 fontFamily: "monospace",
                                 margin: "auto"
                             }}
-                            className="col s12 m6 l3 brand-logo center white-text"
+                            className="col s12 m6 l3 brand-logo center white-text navbar-brand"
                         >
                             <text id="pass">UF Club Golf</text>
                         </Link>

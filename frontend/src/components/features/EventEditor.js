@@ -17,6 +17,7 @@ class EventEditor extends Component {
       date: "",
       editorState: EditorState.createEmpty(),
       convertedContent: "",
+      location: "",
     }
   }
 
@@ -37,11 +38,20 @@ class EventEditor extends Component {
       type: "Event",
       title: this.state.eventTitle,
       date: this.state.date,
+      location: this.state.location,
       body: this.state.convertedContent,
     }
     this.props.massEmail(event, store.getState().users.memberList);
     this.props.createEvent(event);
     this.props.getEventList();
+
+    this.setState({
+      eventTitle: "",
+      date: "",
+      editorState: EditorState.createEmpty(),
+      convertedContent: "",
+      location: "",
+    })
   }
 
   onChange = e => {
@@ -67,8 +77,16 @@ class EventEditor extends Component {
               id="eventTitle" />
           </div>
           <label>Event Date and Time</label>
-          <div className="input-field" style={{maxWidth: "200px"}}>
+          <div className="input-field" style={{maxWidth: "250px"}}>
             <input onChange={this.onChange} type="datetime-local" id="date" value={this.state.date} min="2021-01-01"></input>
+          </div>
+          <div className="input-field">
+            <label>Event Location</label>
+            <input 
+              onChange={this.onChange}
+              value={this.state.location}
+              type="text"
+              id="location" />
           </div>
         </form>
         
