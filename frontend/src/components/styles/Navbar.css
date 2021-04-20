@@ -136,6 +136,10 @@ a:hover #pass4:before {
     margin-bottom: 1.2vh;
 }
 
+.navbarhover{
+    height: 60px;
+}
+
 .dropdown-trigger{
     height: 64px;
     top: 50%;
@@ -192,6 +196,10 @@ a:hover #pass4:before {
 
     nav .brand-logo {
         font-size: 1.5rem;
+        height: 52px;
+    }
+
+    .navbarhover{
         height: 52px;
     }
 
