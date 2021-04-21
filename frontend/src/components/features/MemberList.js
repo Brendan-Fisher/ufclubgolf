@@ -103,6 +103,8 @@ export class MemberList extends Component {
 MemberList.propTypes = {
   promoteUser: PropTypes.func.isRequired,
   demoteUser: PropTypes.func.isRequired,
+  getUsers: PropTypes.func.isRequired,
+  deleteUser: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({

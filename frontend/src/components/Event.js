@@ -45,7 +45,7 @@ function buildEvent(event){
                         <h6>Event Date: {convertDate(event.eventDate)}</h6>
                         <h6>Event Location: {event.location}</h6>
                     </div>
-                    <div dangerouslySetInnerHTML={createMarkup(event.body)} className="col s12"></div>
+                    <div dangerouslySetInnerHTML={createMarkup(event.body)} className="col s12" style={{backgroundColor: "rgba(255, 255, 255, 1)"}}></div>
                 </div>
             </div>
         </div>

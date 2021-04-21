@@ -19,14 +19,14 @@ function createMarkup(html) {
 
 function buildPost(post){
     return (
-        <div id="container" className="container">
+        <div id="container" className="container" >
             <div id="row" className="row">
                 <div className="flexbox">
                     <div id="box" className="col s12 center-align">
                         <h2>{post.title}</h2>
                         <h6>Posted on: {post.date}</h6>
                     </div>
-                    <div dangerouslySetInnerHTML={createMarkup(post.body)} className="col s12"></div>
+                    <div dangerouslySetInnerHTML={createMarkup(post.body)} className="col s12" style={{backgroundColor: "rgba(255, 255, 255, 1)"}}></div>
                 </div>
             </div>
         </div>
