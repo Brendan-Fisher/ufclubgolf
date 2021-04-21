@@ -1,10 +1,7 @@
-import DOMPurify from "dompurify";
 import React, {Component} from "react";
 import { getEvents } from "../../redux/actions/contentActions";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
-
-import testImage from '../../img/bg_2.jpg';
 
 async function getEventList(){
     var eventArray = await getEvents();
@@ -31,16 +28,10 @@ function convertDate(dateTime) {
     return `${parts[1]}/${extraParts[0]}/${parts[0]} at ${timeParts[0]}:${timeParts[1]} ${dayPart}`;
 }
 
-function createMarkup(html) {
-    return  {
-      __html: DOMPurify.sanitize(html)
-    }
-  }
-
 function buildSlides(input){
     let slides = [];
 
-    if(input.data.length == 0){
+    if(input.data.length === 0){
         let slide = (
             <div className="carousel-item green lighten-3 black-text">
                 <h2>There appears to be no upcoming club events</h2>
@@ -89,7 +80,7 @@ class CarouselPanel extends Component
         let carousel = document.querySelector('.carousel');
         let instance = M.Carousel.init(carousel, { fullWidth: true, indicators: true, duration: 500});
 
-        let timer = setInterval(()=>{
+        setInterval(()=>{
             instance.next();
         }, 5500);
 
@@ -99,11 +90,9 @@ class CarouselPanel extends Component
     render(){
         return(
             <div id="box" className="col s12 m5 l5 center-align" style={{padding:0}}>
-                <div>
-                    <div className="carousel carousel-slider" >
-                        {this.state.events}
-                    </div>     
-                </div>
+                <div className="carousel carousel-slider" >
+                    {this.state.events}
+                </div>     
             </div>
         );
     }

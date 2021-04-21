@@ -33,8 +33,6 @@ class ContentList extends Component {
         let events = store.getState().content.events;
         let tournaments = store.getState().content.tournaments;
 
-        console.log(tournaments);
-
         let rows = [];
         let eventRows = [];
 

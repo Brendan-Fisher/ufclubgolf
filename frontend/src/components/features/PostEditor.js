@@ -17,6 +17,7 @@ class  PostEditor extends Component {
       category: "",
       editorState: EditorState.createEmpty(),
       convertedContent: "",
+      email: false,
     }
   }
 
@@ -39,7 +40,9 @@ class  PostEditor extends Component {
       category: this.state.category,
       body: this.state.convertedContent,
     }
-    this.props.massEmail(post, store.getState().users.memberList);
+    if(this.state.email){
+      this.props.massEmail(post, store.getState().users.memberList);
+    }
     this.props.createPost(post);
     this.props.getPostList();
 
@@ -83,6 +86,10 @@ class  PostEditor extends Component {
               type="text"
               id="category" />
           </div>
+            <label>
+              <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
+              <span>Email all members?</span>
+            </label>
         </form>
         <h5>Post Body</h5>
         <Editor

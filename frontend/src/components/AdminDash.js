@@ -71,7 +71,6 @@ class AdminDash extends Component {
   }
 
   onSelectCategory = (cat) => {
-    console.log(cat);
     this.setState({ category: cat }, () => this.switchEditor())
   }
 
@@ -148,7 +147,6 @@ class AdminDash extends Component {
                   <li>
                     <div className="collapsible-header green lighten-2"><i className="material-icons">forum</i><b>Create Post/Event/Tournament</b></div>
                     <div className="collapsible-body post-editor blue lighten-4">
-                      <header>Posts will show up on the home page and be emailed to all registered members</header>
                       <label>Select content type</label>
                       <br/>
                       <ul>
