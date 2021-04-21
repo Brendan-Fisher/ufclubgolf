@@ -42,7 +42,9 @@ class EventEditor extends Component {
       location: this.state.location,
       body: this.state.convertedContent,
     }
-    this.props.massEmail(event, store.getState().users.memberList);
+    if(this.state.email){
+      this.props.massEmail(event, store.getState().users.memberList);
+    }
     this.props.createEvent(event);
     this.props.getEventList();
 

@@ -13,7 +13,6 @@ class About extends Component {
                 <b>Executive Board Members of the UF Golf Club</b>
               </span>
             </h4>
-            <h5><span style={{fontFamily: "monospace" }}>Still under development</span></h5>
           </div>
           <div className="p-image"></div>
           <div className="p-desc">
@@ -66,25 +65,12 @@ class About extends Component {
               utilizing Mark Bostick Golf Course for practice.
             </h5>
           </div>
-          <div className="pr1-image"></div>
-          <div className="pr1-desc">
-            <h3>
-              <b>Mombo Ngu</b>
-            </h3>
-            <h4>Public Relations</h4>
-            <h5>
-              Mombo is currently studying Sociology on the Pre-Med track. Her
-              favorite golfers are Cheyenne Woods and Matthew Wolff and she
-              enjoys being able to volunteer at the team tournaments and
-              utilizing Mark Bostick Golf Course for practice.
-            </h5>
-          </div>
           <div className="pr2-image"></div>
           <div className="pr2-desc">
             <h3>
               <b>Dhruv Patel</b>
             </h3>
-            <h4>Public Relations</h4>
+            <h4>Player Relations</h4>
             <h5>
               Dhruv is currently studying Computer Science and in his free time
               he enjoys playing ultimate frisbee and watching sports. His
