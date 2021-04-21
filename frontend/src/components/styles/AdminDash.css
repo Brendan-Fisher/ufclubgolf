@@ -6,6 +6,11 @@
     overflow-x: scroll;
 }
 
+.contentList {
+    padding: 1rem;
+    margin: auto;
+}
+
 .dataTables_wrapper {
     display: inline;
     left: 4rem;

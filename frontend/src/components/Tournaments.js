@@ -65,9 +65,9 @@ class Tournaments extends Component {
                     <div className="flexbox">
                         <div id="box" className="col s12 center-align" >
                             <h4>
-                                Welcome to the <span style={{ fontFamily: "monospace" }}><b>UF Club Golf</b> Tournament History Page</span>
+                                Welcome to the <span style={{ fontFamily: "monospace" }}>Tournament History Page</span>
                             </h4>
-                            <h5><span style={{fontFamily: "monospace" }}>Still under development</span></h5>
+                            <h5><span style={{fontFamily: "monospace" }}>Here you can view past and upcoming club and intercollegiate tournaments</span></h5>
                         </div>
                     </div>
                 </div>

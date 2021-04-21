@@ -4,13 +4,61 @@
     height: 600px;
 }
 
-#SliderImage {
-    width: 100%;
-    margin: auto;
+.welcome {
+    max-width: 700px;
+    margin: 1rem;
+}
+
+.cap{
+    max-width: 700px;
+    margin:  1rem;
+}
+
+h3 {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+p {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+h4 {
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+h5 {
+    margin-right: 1rem ;
+    margin-left: 1rem ;
+}
+
+
+.slider .slides li {
+    display: inline-block;
+    text-align: center;
+    list-style: none;
+}
+
+.slider .slides ul {
+    text-align: center;
+}
+
+.slider .slides li img {
+    max-width: 100%;
+    max-height: 100%;
+    vertical-align: middle;
+    background-size: auto;
+    background-repeat: no-repeat;
+}
+
+.slider .slides li  {
+    background-image: url("../../img/golfballTexture.jpg");
 }
 
 #SliderText {
-    text-shadow:rgb(253, 4, 4);
+    text-shadow:rgba(0, 38, 255, 0.438);
 }
 
 table td {
@@ -23,6 +71,18 @@ table td {
     }
     .sm-calendar {
         display: none;
+    }
+
+    div.caption {
+        max-width: max-content;
+        left: 0 !important;
+        width: max-content;
+        text-align: left;
+        float: right;
+        text-shadow: tomato;
+        background-color: rgba(129, 199, 132, 0.713);
+        background-size: contain;
+        color:white !important;
     }
     
 }
@@ -38,6 +98,8 @@ table td {
     table td {
         font-size: 14px !important;
     }
+
+    
 }
 
 @media (max-width: 560px) {
@@ -51,5 +113,15 @@ table td {
 
     table td {
         font-size: 12px !important;
+    }
+    .caption {
+        text-align: center !important;
+        top: 10% !important;
+        left: 10% !important; 
+        width: 80% !important;
+        margin: auto;
+        background-color: rgba(129, 199, 132, 0.6);
+        background-size: contain;
+        color:white !important;
     }
   }

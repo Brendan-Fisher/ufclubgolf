@@ -124,16 +124,22 @@ class PostsPage extends Component {
             <div>
                 <div id="container" className="container blue lighten-4">
                     <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
-                            <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
-                                <li className="tab col s3"><a href="#tab_general" className="white-text">All Club Posts</a></li>
-                                <li className="tab col s3"><a href="#tab_event" className="white-text">Events</a></li>
-                            </ul>
-                            <div id="tab_general">
-                                <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={generalData} searching={false} noBottomColumns={true} />
-                            </div>
-                            <div id="tab_event">
-                                <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={eventData} searching={false} noBottomColumns={true} />
-                            </div>
+                        <div id="box" className="col s12 center-align" >
+                            <h4>
+                                Welcome to the <span style={{ fontFamily: "monospace" }}>Club Posts and Events Page</span>
+                            </h4>
+                            <h5><span style={{fontFamily: "monospace" }}>Here you can view recent club posts including new events, information, and tournaments</span></h5>
+                        </div>
+                        <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
+                            <li className="tab col s3"><a href="#tab_general" className="white-text">All Club Posts</a></li>
+                            <li className="tab col s3"><a href="#tab_event" className="white-text">Events</a></li>
+                        </ul>
+                        <div id="tab_general">
+                            <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={generalData} searching={false} noBottomColumns={true} />
+                        </div>
+                        <div id="tab_event">
+                            <MDBDataTable entries={5} theadColor={"orange lighten-4"} hover={true} autoWidth={true} striped={true} data={eventData} searching={false} noBottomColumns={true} />
+                        </div>
                     </div>
                 </div>
             </div>

@@ -106,6 +106,12 @@ class AdminDash extends Component {
         <div id="container" className="container">
           <div id="content" className="section">
             <div className="flexbox">
+              <div id="box" className="col s12 center-align" >
+                <h4>
+                    Welcome to the <span style={{ fontFamily: "monospace" }}>Admin Dashboard</span>
+                </h4>
+                <h5><span style={{fontFamily: "monospace" }}>Here you can manage members as well as update, create, and delete content</span></h5>
+              </div>
               <div className="col s12 contentFunctions">
                 <ul className="collapsible popout">
                   <li>
@@ -159,7 +165,7 @@ class AdminDash extends Component {
                   </li>
                   <li>
                     <div className="collapsible-header green lighten-2"><i className="material-icons">delete_sweep</i><b>Delete Content</b></div>
-                    <div className="collapsible-body blue lighten-4">
+                    <div className="contentList collapsible-body blue lighten-4">
                       <ContentList />
                     </div>
                   </li>

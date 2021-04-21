@@ -3,6 +3,9 @@ import { Component } from "react";
 import M from 'materialize-css/dist/js/materialize.min.js';
 import bg1 from '../../img/impressionImage.jpg';
 import bg2 from '../../img/bg.jpg';
+import bg4 from '../../img/slider/Nationals.jpg';
+import bg5 from '../../img/slider/PresidentsCup2019.jpg';
+import bg6 from '../../img/slider/SkylerandNick.jpg';
 
 const quotes = [
     {
@@ -71,7 +74,7 @@ class ImageSlider extends Component
     render()
     {
         /*--here is the container the images should store in --*/
-        const srcImages = [bg1, bg2]
+        const srcImages = [bg1, bg2, bg4, bg5, bg6]
         const items = []
         
         for(const [index, value] of srcImages.entries())
@@ -81,9 +84,9 @@ class ImageSlider extends Component
             items.push(
                 <li key={index}>
                     <img alt={"image number " + index + " has not found."} src={value} className="SliderImg"/>  
-                    <div className="caption right-align">
-                        <h3>Welcome to Florida Club Golf!</h3>
-                        <h5 className="light grey-text text-lighten-3">{quote.quote}<br/>- {quote.author}</h5>
+                    <div className="caption">
+                        <h3 className="welcome"><span style={{fontFamily: "monospace"}}>Welcome to Florida Club Golf!</span></h3>
+                        <h5 className="cap">{quote.quote}<br/>- <b><u>{quote.author}</u></b></h5>
                     </div>
                 </li>
             )
