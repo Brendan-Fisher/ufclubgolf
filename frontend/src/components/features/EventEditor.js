@@ -18,6 +18,7 @@ class EventEditor extends Component {
       editorState: EditorState.createEmpty(),
       convertedContent: "",
       location: "",
+      email: false,
     }
   }
 
@@ -51,6 +52,7 @@ class EventEditor extends Component {
       editorState: EditorState.createEmpty(),
       convertedContent: "",
       location: "",
+      email: false,
     })
   }
 
@@ -88,6 +90,10 @@ class EventEditor extends Component {
               type="text"
               id="location" />
           </div>
+          <label>
+              <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
+              <span>Email all members?</span>
+            </label>
         </form>
         
         <h5>Event Body</h5>

@@ -13,6 +13,10 @@
     text-shadow:rgb(253, 4, 4);
 }
 
+table td {
+    font-size: 16px !important;
+}
+
 @media (min-width: 1024px) {
     .lg-calendar {
         display: initial;
@@ -20,6 +24,7 @@
     .sm-calendar {
         display: none;
     }
+    
 }
 
 @media (max-width: 1023px) {
@@ -29,13 +34,22 @@
     .sm-calendar {
         display: none;
     }
+
+    table td {
+        font-size: 14px !important;
+    }
 }
 
 @media (max-width: 560px) {
     .lg-calendar {
       display: none;
     }
+
     .sm-calendar {
       display: initial;
+    }
+
+    table td {
+        font-size: 12px !important;
     }
   }
