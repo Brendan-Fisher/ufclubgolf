@@ -35,6 +35,7 @@ MERN Stack
 <b>Tools</b>
 - [React-Redux](https://react-redux.js.org/)
 - [Materialize](https://materializecss.com/)
+- [Nodemailer](https://nodemailer.com/about/)
 
 
 ## Features
