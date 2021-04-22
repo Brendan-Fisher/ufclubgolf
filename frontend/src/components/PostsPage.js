@@ -124,11 +124,11 @@ class PostsPage extends Component {
             <div>
                 <div id="container" className="container blue lighten-4">
                     <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
-                        <div id="box" className="col s12 center-align" >
+                        <div id="box" className="col s12 center-align" style={{padding: "0", width: "fit-content"}} >
                             <h4>
                                 Welcome to the <span style={{ fontFamily: "monospace" }}>Club Posts and Events Page</span>
                             </h4>
-                            <h5><span style={{fontFamily: "monospace" }}>Here you can view recent club posts including new events, information, and tournaments</span></h5>
+                            <h5><span style={{fontFamily: "monospace" }}>Here you can view recent posts about new events, information, and tournaments</span></h5>
                         </div>
                         <ul className="tabs tabs-fixed-width z-depth-1 green lighten-1 top">
                             <li className="tab col s3"><a href="#tab_general" className="white-text">All Club Posts</a></li>
