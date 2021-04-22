@@ -20,7 +20,6 @@ import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import ExecDash from "./components/ExecDash";
 import AdminDash from "./components/AdminDash";
-import MemberDash from "./components/MemberDash";
 import Post from "./components/Post";
 import Event from "./components/Event";
 
@@ -81,11 +80,6 @@ class App extends Component {
             <Route exact path="/posts/:id" component={Post} />
             <Route exact path="/events/:id" component={Event} />
             <Switch>
-              <PrivateRoute
-                exact
-                path="/dashboard/member"
-                component={MemberDash}
-              />
               <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
               <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />
             </Switch>

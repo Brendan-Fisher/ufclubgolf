@@ -199,6 +199,9 @@ class Register extends Component {
                                     </button>
                                 </div>
                             </form>
+                            <div className="col s12 center-align" style={{ paddingLeft: "11.250px"} }>
+                                <p><b>You should receive an email from the club upon registering. If you do not see it, check your spam folder</b></p>
+                            </div>
                         </div>
                     </div>
                 </div>
