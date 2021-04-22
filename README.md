@@ -41,3 +41,5 @@ MERN Stack
 - Role-based access control to allow club executives and admins access to dashboard to modify website content and control member status
 - Dynamic web pages with real time content updates
 - User authentication using JSON Web Tokens to and password hashing to protect vulnerable information
+- Automated emails sent to members when new posts/events are created
+- Automated emails sent to new members as well as to the club with new member information
