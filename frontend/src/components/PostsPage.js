@@ -124,7 +124,7 @@ class PostsPage extends Component {
             <div>
                 <div id="container" className="container blue lighten-4">
                     <div id="content" className="row" style={{minWidth:'90%', marginTop:'0px', marginBottom:"0px"}}>
-                        <div id="box" className="col s12 center-align" style={{padding: "0", width: "fit-content"}} >
+                        <div id="box" className="col s12 center-align">
                             <h4>
                                 Welcome to the <span style={{ fontFamily: "monospace" }}>Club Posts and Events Page</span>
                             </h4>
