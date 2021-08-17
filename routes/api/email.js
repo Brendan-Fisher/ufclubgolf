@@ -40,7 +40,7 @@ router.post("/newMember", (req, res) => {
         from: 'UF Club Golf',
         to: req.body.email,
         subject: 'New Member Information',
-        html: '<h1>Thanks for Registering to Join Florida Club Golf</h1><h3>Here are the next steps you should take to make the most out of the club</h3><ul><li>Venmo your dues ($30) to @Florida-ClubGolf</li><li>Come to our weekly practices on Sundays at 1:00</li><li>Check the website often for upcoming events and other announcements</li></ul><p>Do not reply to this email, it will not be seen, if you need to contact the club, email any executive board member from the about us page</p>'
+        html: '<h1>Thanks for Registering to Join Florida Club Golf</h1><h3>Here are the next steps you should take to make the most out of the club</h3><ul><li>Venmo your dues ($30) to @Florida-ClubGolf</li><li>Come to our weekly practices on Sundays at 1:00</li><li>Check the website often for upcoming events and other announcements</li></ul><p>Do not reply to this email, it will not be seen, if you need to contact the club, email any executive board member from the about us page. Remember to mark this email as not spam so that you can see future emails from the club</p>'
     };
 
     transporter.sendMail(mailOptions, function(error, info){
