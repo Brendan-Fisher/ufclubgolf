@@ -78,12 +78,9 @@ class Register extends Component {
 
     render() {
         const { errors } = this.state;
-
         return (
             <div id="container"  className="container">
-                <div id="content" style={{ marginTop: "4rem"}} className="row">
-                    <div className="flexbox">
-                        <div id="box" className="col s10 m8 l8 offset-s1 offset-m2 offset-l2">
+                <div id="content" className="row">
                             <Link to="/" className="btn-flat waves-effect">
                                 <i className="material-icons left">keyboard_backspace</i> 
                                 <text id="pass2">Back to home</text>
@@ -203,8 +200,6 @@ class Register extends Component {
                                 <p><b>You should receive an email from the club upon registering. If you do not see it, check your spam folder</b></p>
                             </div>
                         </div>
-                    </div>
-                </div>
             </div>
         );
     }

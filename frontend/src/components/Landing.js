@@ -17,7 +17,7 @@ class Landing extends Component {
         this.props.getPostList();
         this.props.getEventList();
 
-        console.log(store.getState().content);
+       // console.log(store.getState().content);
     }
         
     render() {
