@@ -6,7 +6,7 @@ const router = express.Router();
 const validate = require("./validate");
 
 // Load Announcement model
-const Post = require("../models/Post");
+const Post = require("../models/PostModel");
 
 
 // @route GET api/posts
