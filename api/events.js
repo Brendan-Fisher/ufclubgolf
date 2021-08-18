@@ -3,40 +3,41 @@ const express = require("express");
 const router = express.Router();
 
 // Load content validation
-const validatePostContent = require("../../validation/post");
+const validate = require("./validate");
 
 // Load Announcement model
-const Post = require("../../models/Post");
+const ClubEvent = require("../models/EventModel");
 
 
-// @route GET api/posts
-// @desc Return all stored posts
+// @route GET api/events
+// @desc Return all stored events
 // @access Public
 router.route("/").get(function (req, res) {
-    Post.find(function (err, posts) {
+    ClubEvent.find(function (err, events) {
         if (err) {
             res.json(err);
         } else {
-            res.json(posts);
+            res.json(events);
         }
     })
 })
 
+
 router.route("/find").post((req, res)  => {
-    Post.findById(req.body._id, (err, post) => {
+    ClubEvent.findById(req.body._id, (err, event) => {
         if(err) {
             res.json(err);
         } else {
-            res.json(post);
+            res.json(event);
         }
     })
 })
 
-// @route POST api/posts/create
-// @desc Creates new post 
+// @route POST api/events/create
+// @desc Creates new events 
 router.route("/create").post((req, res) => {
     // Form Validation
-    const { errors, isValid } = validatePostContent(req.body);
+    const { errors, isValid } = validate.validateEventContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
@@ -49,25 +50,28 @@ router.route("/create").post((req, res) => {
     
     today = mm + '/' + dd + '/' + yyyy;
 
-    const newPost = new Post({
+    const newEvent = new ClubEvent({
         title: req.body.title,
-        category: req.body.category,
-        date: today,
+        eventDate: req.body.date,
+        createdDate: today,
+        location: req.body.location,
         body: req.body.body,
     })
 
-    newPost
+    newEvent
         .save()
-        .then((post) => res.json(post))
+        .then((event) => res.json(event))
         .catch((err) => console.log(err));
 })
 
+
 router.post("/", (req, res) => {
-    Post.findOneAndDelete({ _id: req.body._id }, (err, post) => {
+    ClubEvent.findOneAndDelete({ _id: req.body._id }, (err, event) => {
       if (err) {
         res.status(400).send(err);
-      } else res.status(200).json(post);
+      } else res.status(200).json(event);
     });
   });
+
 
 module.exports = router;
