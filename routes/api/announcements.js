@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // Load content validation
-const validateAnnouncementContent = require("../../validation/announcement");
+const validate = require("./validate");
 
 // Load Announcement model
 const Announcement = require("../../models/Announcement");
@@ -26,7 +26,7 @@ router.route("/").get(function (req, res) {
 // @desc Creates new announcement to replace existing one
 router.route("/create").post((req, res) => {
     // Form Validation
-    const { errors, isValid } = validateAnnouncementContent(req.body);
+    const { errors, isValid } = validate.validateAnnouncementContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);

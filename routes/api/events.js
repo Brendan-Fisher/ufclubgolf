@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 
 // Load content validation
-const validateEventContent = require("../../validation/event");
+const validate = require("./validate");
 
 // Load Announcement model
 const ClubEvent = require("../../models/Event");
@@ -37,7 +37,7 @@ router.route("/find").post((req, res)  => {
 // @desc Creates new events 
 router.route("/create").post((req, res) => {
     // Form Validation
-    const { errors, isValid } = validateEventContent(req.body);
+    const { errors, isValid } = validate.validateEventContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);

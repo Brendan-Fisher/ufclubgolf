@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 
-const validateTournamentContent = require("../../validation/tournament");
+const validate = require("./validate");
 
 // Load Announcement model
 const Tournament = require("../../models/Tournament");
@@ -37,7 +37,7 @@ router.route("/find").post((req, res)  => {
 router.route("/create").post((req, res) => {
 
     // Form Validation
-    const { errors, isValid } = validateTournamentContent(req.body);
+    const { errors, isValid } = validate.validateTournamentContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);

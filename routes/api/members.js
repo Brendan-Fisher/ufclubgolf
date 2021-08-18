@@ -5,11 +5,8 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 // Load input validation
-const validateRegisterInput = require("../../validation/register");
-const validateLoginInput = require("../../validation/login");
-const validateDemoteUser = require("../../validation/demote");
-const validateDeleteUser = require("../../validation/delete");
-const validatePromoteUser = require("../../validation/promote");
+const validate = require("./validate");
+
 
 // Load User model
 const Member = require("../../models/Member");
@@ -31,7 +28,7 @@ router.route("/").get(function (req, res) {
 // @desc Promotes a member to the next memberType
 // @access Admin
 router.put("/promote", (req, res) => {
-  const { errors, isValid, newType } = validatePromoteUser(req.body);
+  const { errors, isValid, newType } = validate.validatePromoteUser(req.body);
 
   if(!isValid) {
     return res.status(400).json("Unable to promote user");
@@ -52,10 +49,9 @@ router.put("/promote", (req, res) => {
 // @desc Demotes a member to the previous memberType
 // @access Admin
 router.route("/demote").put(function (req, res) {
-  const { errors, isValid, newType } = validateDemoteUser(req.body);
+  const { errors, isValid, newType } = validate.validateDemoteUser(req.body);
   
   if(!isValid){
-    re
     return res.status(400).send("Unable to demote user");
   }
 
@@ -74,7 +70,7 @@ router.route("/demote").put(function (req, res) {
 // @desc Deletes specified member
 // @access Public
 router.post("/", (req, res) => {
-  const { errors, isValid } = validateDeleteUser(req.body);
+  const { errors, isValid } = validate.validateDeleteUser(req.body);
 
   if(!isValid){
     return res.status(400).json(errors);
@@ -92,7 +88,7 @@ router.post("/", (req, res) => {
 // @access Public
 router.post("/register", (req, res) => {
   // Form Validation
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validate.validateRegisterInput(req.body);
 
   // Check Validation
   if (!isValid) {
@@ -134,7 +130,7 @@ router.post("/register", (req, res) => {
 // @access Public
 router.post("/login", (req, res) => {
   // Form validation
-  const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = validate.validateLoginInput(req.body);
 
   // Check validation
   if (!isValid) {
