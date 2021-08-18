@@ -18,7 +18,8 @@ class EventEditor extends Component {
       editorState: EditorState.createEmpty(),
       convertedContent: "",
       location: "",
-      email: false,
+      emailAll: false,
+      emailExec: false,
     }
   }
 
@@ -42,9 +43,21 @@ class EventEditor extends Component {
       location: this.state.location,
       body: this.state.convertedContent,
     }
-    if(this.state.email){
+    if(this.state.emailAll){
       this.props.massEmail(event, store.getState().users.memberList);
     }
+    else if(this.state.emailExec){
+      let officers = [];
+
+      store.getState().users.memberList.forEach(member => {
+        if(member.memberType === "exec" || member.memberType === "admin"){
+          officers.push(member);
+        }
+      });
+
+      this.props.massEmail(event, officers);
+    }
+
     this.props.createEvent(event);
     this.props.getEventList();
 
@@ -54,7 +67,6 @@ class EventEditor extends Component {
       editorState: EditorState.createEmpty(),
       convertedContent: "",
       location: "",
-      email: false,
     })
   }
 
@@ -93,9 +105,14 @@ class EventEditor extends Component {
               id="location" />
           </div>
           <label>
-              <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
-              <span>Email all members?</span>
-            </label>
+            <input type="checkbox" onChange={() => this.setState({ emailAll: !this.state.emailAll, emailExec: false })} id="email" />
+            <span>Email all members?</span>
+          </label>
+          <p></p>
+          <label>
+            <input type="checkbox" onChange={() => this.setState({ emailExec: !this.state.emailExec, emailAll: false })} id="email" />
+            <span>Email club officers?</span>
+          </label>
         </form>
         
         <h5>Event Body</h5>

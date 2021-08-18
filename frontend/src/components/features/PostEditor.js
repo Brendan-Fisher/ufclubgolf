@@ -17,7 +17,8 @@ class  PostEditor extends Component {
       category: "",
       editorState: EditorState.createEmpty(),
       convertedContent: "",
-      email: false,
+      emailAll: false,
+      emailExec: false,
     }
   }
 
@@ -40,8 +41,17 @@ class  PostEditor extends Component {
       category: this.state.category,
       body: this.state.convertedContent,
     }
-    if(this.state.email){
+    if(this.state.emailAll){
       this.props.massEmail(post, store.getState().users.memberList);
+    }
+    else if(this.state.emailExec){
+      let officers = [];
+      store.getState().users.memberList.forEach(member => {
+        if(member.memberType === "exec" || member.memberType === "admin"){
+          officers.push(member);
+        }
+      });
+      this.props.massEmail(post, officers);
     }
     this.props.createPost(post);
     this.props.getPostList();
@@ -87,9 +97,14 @@ class  PostEditor extends Component {
               id="category" />
           </div>
             <label>
-              <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
+              <input type="checkbox" onChange={() => this.setState({ emailAll: !this.state.emailAll, emailExec: false })} id="email" />
               <span>Email all members?</span>
             </label>
+            <p></p>
+          <label>
+            <input type="checkbox" onChange={() => this.setState({ emailExec: !this.state.emailExec, emailAll: false })} id="email" />
+            <span>Email club officers?</span>
+          </label>
         </form>
         <h5>Post Body</h5>
         <Editor
