@@ -93,9 +93,14 @@ class EventEditor extends Component {
               id="location" />
           </div>
           <label>
-              <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
-              <span>Email all members?</span>
-            </label>
+            <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
+            <span>Email all members?</span>
+          </label>
+          <p></p>
+          <label>
+            <input type="checkbox" onChange={() => this.setState({ email: !this.state.email })} id="email" />
+            <span>Email club officers?</span>
+          </label>
         </form>
         
         <h5>Event Body</h5>
