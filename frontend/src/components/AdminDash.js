@@ -87,7 +87,6 @@ class AdminDash extends Component {
         break;
       default:
         break;
-
     }
   }
 
@@ -158,11 +157,9 @@ class AdminDash extends Component {
                     <div className="collapsible-body post-editor blue lighten-4">
                       <label>Select content type</label>
                       <br/>
-                      <ul>
-                        <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("post")}>General Post</button></li>
-                        <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("event")}>New Event</button></li>
-                        <li><button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("tournament")}>Tournament Results</button></li>
-                      </ul>
+                      <button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"px"}} onClick={() => this.onSelectCategory("post")}>General Post</button>
+                      <button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("event")}>New Event</button>
+                      <button className="btn btn-medium waves-effect waves-green hoverable orange lighten-2" style={{borderRadius: "3px",letterSpacing: "1.5px",margin: "4px",padding:"4px"}} onClick={() => this.onSelectCategory("tournament")}>Tournament Results</button>
                       {this.state.editor}
                     </div>
                   </li>
