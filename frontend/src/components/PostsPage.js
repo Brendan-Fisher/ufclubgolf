@@ -8,7 +8,6 @@ import {
     getEventList,
     getTournamentList
   } from "../redux/actions/contentActions";
-import M from 'materialize-css/dist/js/materialize.min.js';
 import { MDBDataTable } from "mdbreact";
 
 function convertDate(dateTime) {
@@ -32,9 +31,6 @@ class PostsPage extends Component {
 
     componentDidMount()
     {
-        let tabs = document.querySelector('.tabs');
-        var instance = M.Tabs.init(tabs, {duration:200, responsiveThreshold: window.innerWidth});
-
         this.props.getPostList();
         this.props.getEventList();
         this.props.getTournamentList();

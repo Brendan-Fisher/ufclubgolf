@@ -62,6 +62,8 @@ class ExecDash extends Component {
       case "tournament":
         this.setState({ editor: <TournamentEditor /> });
         break;
+      default: 
+        break;
     }
   }
 

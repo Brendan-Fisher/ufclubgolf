@@ -34,8 +34,6 @@ class ContentList extends Component {
         let tournaments = store.getState().content.tournaments;
 
         let rows = [];
-        let eventRows = [];
-
         
         posts.forEach((post) => {
             let row = {

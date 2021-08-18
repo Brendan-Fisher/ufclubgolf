@@ -24,9 +24,6 @@ class PostsList extends Component
     
     render()
     {
-        //let posts = store.getState().content.posts;
-        let events = store.getState().content.events;
-
         console.log(store.getState().content);
         let rows = [];
         const posts = this.props.posts; 

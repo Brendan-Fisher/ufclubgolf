@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DOMPurify from 'dompurify';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import PostsList from "./features/PostsList";
 import { getTournamentList } from "../redux/actions/contentActions";
 import store from "../redux/store";
 
@@ -31,7 +30,7 @@ class Tournaments extends Component {
     render() {
         let tournaments = store.getState().content.tournaments;
         console.log(tournaments)
-        var today = new Date;
+        var today = new Date();
 
         const past = [];
         const upcoming = [];
