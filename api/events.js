@@ -2,48 +2,47 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 
+// Load content validation
 const validate = require("./validate");
 
 // Load Announcement model
-const Tournament = require("../../models/Tournament");
+const ClubEvent = require("../models/Event");
 
 
-// @route GET api/tournaments
+// @route GET api/events
 // @desc Return all stored events
 // @access Public
 router.route("/").get(function (req, res) {
-    Tournament.find(function (err, tournaments) {
+    ClubEvent.find(function (err, events) {
         if (err) {
             res.json(err);
         } else {
-            res.json(tournaments);
+            res.json(events);
         }
     })
 })
 
 
 router.route("/find").post((req, res)  => {
-    Tournament.findById(req.body._id, (err, tournament) => {
+    ClubEvent.findById(req.body._id, (err, event) => {
         if(err) {
             res.json(err);
         } else {
-            res.json(tournament);
+            res.json(event);
         }
     })
 })
 
-// @route POST api/tournaments/create
+// @route POST api/events/create
 // @desc Creates new events 
 router.route("/create").post((req, res) => {
-
     // Form Validation
-    const { errors, isValid } = validate.validateTournamentContent(req.body);
+    const { errors, isValid } = validate.validateEventContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
     }
 
-   
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -51,25 +50,26 @@ router.route("/create").post((req, res) => {
     
     today = mm + '/' + dd + '/' + yyyy;
 
-    const newTournament = new Tournament({
+    const newEvent = new ClubEvent({
         title: req.body.title,
-        startDate: req.body.startDate,
+        eventDate: req.body.date,
         createdDate: today,
+        location: req.body.location,
         body: req.body.body,
     })
 
-    newTournament
+    newEvent
         .save()
-        .then((tournament) => res.json(tournament))
+        .then((event) => res.json(event))
         .catch((err) => console.log(err));
 })
 
 
 router.post("/", (req, res) => {
-    Tournament.findOneAndDelete({ _id: req.body._id }, (err, tournament) => {
+    ClubEvent.findOneAndDelete({ _id: req.body._id }, (err, event) => {
       if (err) {
         res.status(400).send(err);
-      } else res.status(200).json(tournament);
+      } else res.status(200).json(event);
     });
   });
 

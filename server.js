@@ -6,12 +6,12 @@ require("dotenv").config();
 cors = require('cors');
 const path = require('path');
 
-const members = require("./routes/api/members");
-const email = require("./routes/api/email");
-const announcements = require("./routes/api/announcements");
-const posts = require("./routes/api/posts");
-const events = require("./routes/api/events");
-const tournaments = require("./routes/api/tournaments");
+const members = require("./api/members");
+const email = require("./api/email");
+const announcements = require("./api/announcements");
+const posts = require("./api/posts");
+const events = require("./api/events");
+const tournaments = require("./api/tournaments");
 
 const app = express();
 

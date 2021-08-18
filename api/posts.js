@@ -6,38 +6,37 @@ const router = express.Router();
 const validate = require("./validate");
 
 // Load Announcement model
-const ClubEvent = require("../../models/Event");
+const Post = require("../models/Post");
 
 
-// @route GET api/events
-// @desc Return all stored events
+// @route GET api/posts
+// @desc Return all stored posts
 // @access Public
 router.route("/").get(function (req, res) {
-    ClubEvent.find(function (err, events) {
+    Post.find(function (err, posts) {
         if (err) {
             res.json(err);
         } else {
-            res.json(events);
+            res.json(posts);
         }
     })
 })
 
-
 router.route("/find").post((req, res)  => {
-    ClubEvent.findById(req.body._id, (err, event) => {
+    Post.findById(req.body._id, (err, post) => {
         if(err) {
             res.json(err);
         } else {
-            res.json(event);
+            res.json(post);
         }
     })
 })
 
-// @route POST api/events/create
-// @desc Creates new events 
+// @route POST api/posts/create
+// @desc Creates new post 
 router.route("/create").post((req, res) => {
     // Form Validation
-    const { errors, isValid } = validate.validateEventContent(req.body);
+    const { errors, isValid } = validate.validatePostContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
@@ -50,28 +49,25 @@ router.route("/create").post((req, res) => {
     
     today = mm + '/' + dd + '/' + yyyy;
 
-    const newEvent = new ClubEvent({
+    const newPost = new Post({
         title: req.body.title,
-        eventDate: req.body.date,
-        createdDate: today,
-        location: req.body.location,
+        category: req.body.category,
+        date: today,
         body: req.body.body,
     })
 
-    newEvent
+    newPost
         .save()
-        .then((event) => res.json(event))
+        .then((post) => res.json(post))
         .catch((err) => console.log(err));
 })
 
-
 router.post("/", (req, res) => {
-    ClubEvent.findOneAndDelete({ _id: req.body._id }, (err, event) => {
+    Post.findOneAndDelete({ _id: req.body._id }, (err, post) => {
       if (err) {
         res.status(400).send(err);
-      } else res.status(200).json(event);
+      } else res.status(200).json(post);
     });
   });
-
 
 module.exports = router;

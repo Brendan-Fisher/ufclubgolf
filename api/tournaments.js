@@ -2,46 +2,48 @@ require("dotenv").config();
 const express = require("express");
 const router = express.Router();
 
-// Load content validation
 const validate = require("./validate");
 
 // Load Announcement model
-const Post = require("../../models/Post");
+const Tournament = require("../models/Tournament");
 
 
-// @route GET api/posts
-// @desc Return all stored posts
+// @route GET api/tournaments
+// @desc Return all stored events
 // @access Public
 router.route("/").get(function (req, res) {
-    Post.find(function (err, posts) {
+    Tournament.find(function (err, tournaments) {
         if (err) {
             res.json(err);
         } else {
-            res.json(posts);
+            res.json(tournaments);
         }
     })
 })
 
+
 router.route("/find").post((req, res)  => {
-    Post.findById(req.body._id, (err, post) => {
+    Tournament.findById(req.body._id, (err, tournament) => {
         if(err) {
             res.json(err);
         } else {
-            res.json(post);
+            res.json(tournament);
         }
     })
 })
 
-// @route POST api/posts/create
-// @desc Creates new post 
+// @route POST api/tournaments/create
+// @desc Creates new events 
 router.route("/create").post((req, res) => {
+
     // Form Validation
-    const { errors, isValid } = validate.validatePostContent(req.body);
+    const { errors, isValid } = validate.validateTournamentContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
     }
 
+   
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -49,25 +51,27 @@ router.route("/create").post((req, res) => {
     
     today = mm + '/' + dd + '/' + yyyy;
 
-    const newPost = new Post({
+    const newTournament = new Tournament({
         title: req.body.title,
-        category: req.body.category,
-        date: today,
+        startDate: req.body.startDate,
+        createdDate: today,
         body: req.body.body,
     })
 
-    newPost
+    newTournament
         .save()
-        .then((post) => res.json(post))
+        .then((tournament) => res.json(tournament))
         .catch((err) => console.log(err));
 })
 
+
 router.post("/", (req, res) => {
-    Post.findOneAndDelete({ _id: req.body._id }, (err, post) => {
+    Tournament.findOneAndDelete({ _id: req.body._id }, (err, tournament) => {
       if (err) {
         res.status(400).send(err);
-      } else res.status(200).json(post);
+      } else res.status(200).json(tournament);
     });
   });
+
 
 module.exports = router;

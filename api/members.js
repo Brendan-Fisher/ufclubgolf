@@ -9,7 +9,7 @@ const validate = require("./validate");
 
 
 // Load User model
-const Member = require("../../models/Member");
+const Member = require("../models/Member");
 
 // @route GET api/members
 // @desc Return all registered members
