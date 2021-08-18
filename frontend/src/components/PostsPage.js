@@ -10,6 +10,8 @@ import {
   } from "../redux/actions/contentActions";
 import { MDBDataTable } from "mdbreact";
 
+import M from 'materialize-css/dist/js/materialize.min.js';
+
 function convertDate(dateTime) {
     var parts = dateTime.split('-')
     var extraParts = parts[2].split('T');
@@ -31,6 +33,9 @@ class PostsPage extends Component {
 
     componentDidMount()
     {
+        let tabs = document.querySelector('.tabs');
+        M.Tabs.init(tabs, {duration:200, responsiveThreshold: window.innerWidth});
+
         this.props.getPostList();
         this.props.getEventList();
         this.props.getTournamentList();
