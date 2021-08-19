@@ -37,7 +37,6 @@ class Navbar extends Component {
                 <div className="container">
                     <nav className="navbar">
                         <a className="navbar-brand" href="/"><img alt="Florida Club Golf"></img></a>
-                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large right"><i className="material-icons">menu</i></a> 
                         <div className="navbar-collapse">
                             <ul id="nav-mobile" className="hide-on-med-and-down right">
                                 <li>
@@ -73,10 +72,11 @@ class Navbar extends Component {
                                 </li>
                             </ul>       
                         </div>  
+                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large right"><i className="material-icons">menu</i></a> 
                     </nav>
                 </div>
                 <div>
-                    <ul id="slide-out" className="sidenav">
+                    <ul id="slide-out" className="sidenav sidenav-trigger">
                         <li><a href="/">Home</a></li>
                         <li><a href="/about">About</a></li>
                         <li><a href="/calendar">Calendar</a></li>

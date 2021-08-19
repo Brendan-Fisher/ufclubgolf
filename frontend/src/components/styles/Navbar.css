@@ -129,7 +129,7 @@ a:hover {
     }
 
     nav .sidenav-trigger {
-        margin: auto;
+        display: inline-block;
         margin-left: 11.25px;
         color:rgb(33, 67, 141)
     }
@@ -155,7 +155,6 @@ a:hover {
     }
 
     nav .sidenav-trigger {
-        margin: auto;
         margin-left: 11.25px;
     }
 
@@ -167,23 +166,4 @@ a:hover {
         font-size: 1.5rem;
         height: 52px;
     }
-
-    .navbarhover{
-        height: 52px;
-    }
-
-
 }
-
-.join{
-    color:white
-}
-
-.log{
-    color:black
-}
-
-#location{
-    top: "100px"
-}
-
