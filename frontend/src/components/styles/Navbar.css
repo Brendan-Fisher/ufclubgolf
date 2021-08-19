@@ -119,6 +119,25 @@ a:hover {
     border-left: .3em solid transparent;
 }
 
+.dropdown-content {
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    padding: 0.25rem 0;
+}
+
+.dropdown-content li>a {
+    color: rgb(33, 67, 141) !important;
+    padding: .5rem .75rem;
+}
+
+.dropdown-content li>a:hover {
+    background: rgba(241, 93, 41, .1) !important;
+}
+
+.dropdown-content li {
+    min-height: 20px !important;
+}
+
 @media (max-width: 1023px) {
     #nav-mobile {
         margin: auto;
