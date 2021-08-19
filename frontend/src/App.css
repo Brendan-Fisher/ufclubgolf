@@ -1,19 +1,26 @@
 /*==< Global >==*/
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
 html {
   overflow: hidden;
   height: 100%;
 }
 
 body {
+  color: #2c2a29;
   height: 100%;
   overflow: auto;
-  background: url(./img/bg_v1.01.png);
+  /*background: url(./img/bg_v1.01.png);*/
   background-attachment: fixed;
   background-size: cover;
   background-position: absolute;
   background-blend-mode: darken;
   background-color:rgba(0, 255, 128, .1);
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-family: 'Gotham SSm A', 'Gotham SSm B', sans-serif !important;
+  font-size: 1rem;
+  font-weight: 400 !important;
 }
 
 body:after {
@@ -26,15 +33,19 @@ body:after {
   z-index: -1;
 }
 
-#container {
-  background-color: rgb(230, 230, 230);
-  margin-top: 2vh;
+.container {
+  max-width: 1140px;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.main-wrap {
+  min-height: 100vh;
+  background: #f3f3f3;
+  border-bottom: 4px solid rgb(241, 93, 41);
   position: relative;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 2vh;
-  padding: 0 2rem;
-  min-height: 85vh;
+  z-index: 1;
 }
 
 #content {
@@ -80,3 +91,32 @@ label {
 .collapsible-body h1 h2 h3 h4 h5 h6 p {
   margin: 0;
 }
+
+@media  screen and (max-width: 767px) {
+  .container > .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+}
+
+@media (min-width: 768px) {
+  .main-wrap {
+    padding-bottom: 30px;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .container {
+      max-width: 1140px;
+  }
+}
+

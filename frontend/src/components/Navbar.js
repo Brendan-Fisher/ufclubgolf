@@ -3,7 +3,6 @@ import './styles/Navbar.css'
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import store from "../redux/store"
 import { logoutMember } from "../redux/actions/authActions";
 import { Divider } from "react-materialize";
@@ -13,7 +12,16 @@ import M from 'materialize-css/dist/js/materialize.min.js';
 class Navbar extends Component {
     componentDidMount() {
         let sidenav = document.querySelector('#slide-out');
-        M.Sidenav.init(sidenav, { draggable: true });
+        M.Sidenav.init(sidenav, { draggable: true, edge: 'right' });
+
+        let profileDropdown = document.querySelector('.profile-trigger');
+        M.Dropdown.init(profileDropdown, { hover: false, coverTrigger: false });
+        
+        let clubDropdown = document.querySelector('.club-trigger');
+        M.Dropdown.init(clubDropdown, { hover: false, coverTrigger: false });
+
+        let eventDropdown = document.querySelector('.event-trigger');
+        M.Dropdown.init(eventDropdown, { hover: false, coverTrigger: false });
     }
 
     onLogoutClick = e => {
@@ -25,85 +33,66 @@ class Navbar extends Component {
         let memberType = store.getState().auth.memberType;
 
         return (
-            <div className="navbar-fixed">
-                <nav className="z-depth-0 green lighten-1">
-                    <div>
-                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large left"><i className="material-icons">menu</i></a> 
-                        <ul id="nav-mobile" className="hide-on-med-and-down right">
-                            {!loggedIn &&
+            <div className="navbar-wrap">
+                <div className="container">
+                    <nav className="navbar">
+                        <a className="navbar-brand" href="/"><img alt="Florida Club Golf"></img></a>
+                        <div className="navbar-collapse">
+                            <ul id="nav-mobile" className="hide-on-med-and-down right">
                                 <li>
-                                    <a 
-                                        href="/register" 
-                                        className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
-                                        style={{
-                                            width: "150px",
-                                            borderRadius: "3px",
-                                            letterSpacing: "1.5px",
-                                            margin: "11.250px"
-                                        }}
-                                    >
-                                        <text className="join" id="pass">Join UF Club Golf</text>
-                                    </a>
+                                    <a href="#!" data-target="club-dropdown" className="dropdown-toggle nav-item club-trigger hide-on-med-and-down">Club</a>
+                                    <ul id='club-dropdown' className='dropdown-content'>
+                                        <li><a href="/about">Officers</a></li>
+                                    </ul>
                                 </li>
-                            }
-                            {!loggedIn &&
                                 <li>
-                                    <a 
-                                        href="/login" 
-                                        className="btn btn-medium waves-effect hoverable white black-text" 
-                                        style={{
-                                            width: "120px",
-                                            borderRadius: "3px",
-                                            letterSpacing: "1.5px",
-                                            margin: "11.250px"
-                                        }}
-                                    >
-                                        <text className="join" id="pass2">Log In</text>
-                                    </a>
+                                    <a href="#!" data-target="event-dropdown" className="dropdown-toggle nav-item event-trigger hide-on-med-and-down">Events</a>
+                                    <ul id="event-dropdown" className="dropdown-content">
+                                        <li><a href="/calendar">Calendar</a></li>
+                                    </ul>
                                 </li>
-                            }
-                        </ul>
-                        <ul id="nav-mobile" className="left hide-on-med-and-down">                           
-                            <li><a href="/about" className="navbarhover"><text id="pass">About Us</text></a></li>
-                            <li><a href="/calendar" className="navbarhover"><text id="pass">Calender</text></a></li>
-                            <li><a href="/tournaments" className="navbarhover"><text id="pass">Tournaments</text></a></li>
-                            <li><a href="/posts" className="navbarhover"><text id="pass">Posts</text></a></li>
-                        </ul>                     
-                        <Link
-                            to="/"
-                            style={{
-                                fontFamily: "monospace",
-                                margin: "auto"
-                            }}
-                            className="col s12 m6 l3 brand-logo center white-text navbar-brand"
-                        >
-                            <text id="pass">UF Club Golf</text>
-                        </Link>
-                        <ul className= "right hide-on-med-and-down" id="nav-mobile">
-                             {loggedIn && memberType !== "pending" && memberType !== "member" && <li><a href="/dashboard/exec" className="navbarhover"><text id="pass" className="join">User Dashboard</text></a></li>}
-                            {loggedIn && <li id="pass2"><a href="/" className="navbarhover" onClick={this.onLogoutClick}><text id="pass">Log Out</text></a></li>}
-                        </ul>
-                    </div>
-                </nav>
-
+                                <li><a href="/posts" className="nav-item">Posts</a></li>
+                                <li><a href="/contact" className="nav-item">Contact</a></li>
+                                <li>
+                                    <a href="#!" data-target="profile-dropdown" className="nav-item profile-trigger"><i className="material-icons">person</i></a>
+                                    <ul id='profile-dropdown' className='dropdown-content'>
+                                        {!loggedIn &&
+                                            <li><a href="/register">Join the Club!</a></li>
+                                        }
+                                        {!loggedIn &&
+                                            <li><a href="/login">Log In</a></li>
+                                        }
+                                        {loggedIn &&  memberType !== "pending" && memberType !== "member" && 
+                                            <li><a href="/dashboard/exec">User Dashboard</a></li>
+                                        }
+                                        {loggedIn && 
+                                            <li><a href="/" onClick={this.onLogoutClick}>Log Out</a></li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>       
+                        </div>  
+                        <a href="/" data-target="slide-out" className="sidenav-trigger hide-on-large right"><i className="material-icons">menu</i></a> 
+                    </nav>
+                </div>
                 <div>
-                    <ul id="slide-out" className="sidenav">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About</a></li>
-                        <li><a href="/calendar">Calendar</a></li>
-                        <li><a href="/tournaments">Tournaments</a></li>
-                        <li><a href="/posts">Posts</a></li>
+                    <ul id="slide-out" className="sidenav sidenav-trigger">
+                        <li><a href="/" className="nav-item">Home</a></li>
+                        <li><a href="/about" className="nav-item">About</a></li>
+                        <li><a href="/calendar" className="nav-item">Calendar</a></li>
+                        <li><a href="/tournaments" className="nav-item">Tournaments</a></li>
+                        <li><a href="/posts" className="nav-item">Posts</a></li>
                         <Divider />
                         {loggedIn && memberType !== "pending" && memberType !== "member" &&
-                            <li><a href="/dashboard/exec">User Dashboard</a></li>
+                            <li><a href="/dashboard/exec" className="nav-item">User Dashboard</a></li>
                         }
                         {!loggedIn && 
-                            <li><a href="/register">Register</a></li>
+                            <li><a href="/register" className="nav-item">Register</a></li>
                         }
                         {loggedIn ? 
-                        <li><a href="/" onClick={this.onLogoutClick}>Log out</a></li>
+                        <li><a href="/" onClick={this.onLogoutClick} className="nav-item">Log out</a></li>
                         :
-                        <li><a href="/login">Log in</a></li>
+                        <li><a href="/login" className="nav-item">Log in</a></li>
                         }
                     </ul>
                 </div>

@@ -4,68 +4,98 @@
     height: 600px;
 }
 
-.welcome {
-    max-width: 700px;
-    margin: 1rem;
+.header-image img {
+    content:url(../../img/headers/golfbag.jpg);
+    width: 100%!important;
+    display: block!important;
 }
 
-.cap{
-    max-width: 700px;
-    margin:  1rem;
+.header-wrap {
+    padding-top: 50px;
+    position: relative;
+    z-index: 1;
 }
 
-h3 {
-    margin-right: 1rem;
-    margin-left: 1rem;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 0;
+    padding: 0 !important;
 }
 
-p {
-    margin-right: 1rem;
-    margin-left: 1rem;
+aside {
+    padding: 30px;
 }
 
-h4 {
-    margin-right: 1rem;
-    margin-left: 1rem;
+.home-content {
+    align-items: stretch;
+    display: flex !important;
 }
 
-h5 {
-    margin-right: 1rem ;
-    margin-left: 1rem ;
-}
-
-
-.slider .slides li {
-    display: inline-block;
-    text-align: center;
-    list-style: none;
-}
-
-.slider .slides ul {
-    text-align: center;
-}
-
-.slider .slides li img {
+.home-box {
+    flex-basis: 0;
+    flex-grow: 1;
     max-width: 100%;
-    max-height: 100%;
-    vertical-align: middle;
-    background-size: auto;
-    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
-.slider .slides li  {
-    background-image: url("../../img/golfballTexture.jpg");
+.home-box h2 {
+    margin-bottom: 0.75rem;
+    border-bottom: 3px solid rgb(241, 93, 41);
+    font-size: 2rem;
+    color: rgb(33, 67, 141);
 }
 
-#SliderText {
-    text-shadow:rgba(0, 38, 255, 0.438);
+.home-about {
+    background-color: #fff;
+    padding: 15px;
+    height: 100%;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-table td {
-    font-size: 16px !important;
+.home-events {
+    background-color: #fff;
+    padding: 15px;
+    height: 100%;
+    border-bottom: 1px solid #e5e5e5;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
+    .home-announcement {
+        display: none;
+    }
+
+    .header-wrap {
+        padding-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .header-announcement-wrap {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .header-announcement {
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.8)
+    }
+
+    .header-announcement>h3 {
+        margin-top: 0 !important;
+    }
+
     .lg-calendar {
         display: initial;
     }
@@ -87,22 +117,20 @@ table td {
     
 }
 
-@media (max-width: 1023px) {
-    .lg-calendar {
-        display: initial;
+@media (max-width: 767px) {
+    .home-announcement {
+        display: block !important;
+        width: 100vw;
     }
-    .sm-calendar {
+
+    .home-announcement .col {
+        width: 100vw;
+    }
+
+    .header-announcement {
         display: none;
     }
 
-    table td {
-        font-size: 14px !important;
-    }
-
-    
-}
-
-@media (max-width: 560px) {
     .lg-calendar {
       display: none;
     }

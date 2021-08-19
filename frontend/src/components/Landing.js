@@ -3,11 +3,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import './styles/Landing.css';
 
-import ImageSlider from "./features/ImageSlider";
-import Announcement from "./features/Announcement";
 import { getAnnouncements, getPostList, getEventList } from "../redux/actions/contentActions";
-import PostsTable from "./features/PostsTable";
-import CarouselPanel from "./features/CarouselPanel";
+import store from "../redux/store";
+
+import M from 'materialize-css/dist/js/materialize.min.js';
 
 
 class Landing extends Component {
@@ -16,33 +15,59 @@ class Landing extends Component {
         this.props.getPostList();
         this.props.getEventList();
 
+        let slider = document.querySelector('.slider');
+        M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: 'auto' });
+
        // console.log(store.getState().content);
     }
         
     render() {
         return (
-            <div>
-                <ImageSlider />
-                <div style={{backgroundColor: '#66BB6B', width:"100%", height:50}}></div>
-                <div id="container" className="container valign-wrapper">
-                  <div id="content" className="row">
-                    <div className="flexbox">
-                      <div id="box" className="col s12 l12 m12 center-align">
-                        <Announcement />
+            <div className="main-wrap">
+                <div className="header-wrap">
+                  <div className="header-image"><img id="slide1" alt="Golf Bag Header"></img></div>
+                  <div className="header-announcement-wrap">
+                    <div className="container">
+                      <div className="row">
+                        <div className="col m6 offset-md-6 l5 offset-lg-8">
+                          <div className="header-announcement">
+                            <hr />
+                            <h3>{store.getState().content.announcement}</h3>
+                            <hr />
+                          </div>
+                        </div>
                       </div>
-                        <CarouselPanel />
-                      <div id="box" style={{ minHeight: "400px" }}className="col s12 m6 l6 center-align">
-                        <PostsTable />
-                      </div>
-                      <div id="box" className="col s12 center-align">
-                        <h4>Club Calendar</h4>
-                        <div className="lg-calendar"><iframe className="calendar" title="UF Club Golf Calendar Large" scrolling="no" frameBorder="0" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2333B679&amp;ctz=America%2FNew_York&amp;src=ZmxvcmlkYWNsdWJnb2xmdGVhbUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;mode=WEEK"></iframe></div>
-                        <div className="sm-calendar"><iframe className="calendar" title="UF Club Golf Calendar Small" scrolling="no" frameBorder="0" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2333B679&amp;ctz=America%2FNew_York&amp;src=ZmxvcmlkYWNsdWJnb2xmdGVhbUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;mode=AGENDA"></iframe></div>                       
-                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>    
+                <div className="content-wrap content-wrap-home">
+                  <div className="container">
+                    <div className="row home-announcement">
+                      <div className="col">
+                        <aside>
+                          <h4>Club Announcement</h4>
+                          <hr />
+                          <h5>{store.getState().content.announcement}</h5>
+                        </aside>
+                      </div>
+                    </div>
+                    <div className="row home-content">
+                      <div className="col s12 m6 l6 home-box">
+                        <div className="home-about">
+                          <h2>About the Club</h2>
+                          <p></p>
+                        </div>
+                      </div>
+                      <div className="col s12 m6 l6 home-box">
+                        <div className="home-events">
+                          <h2>Events</h2>
+                          <p></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>   
         );
     }
 }
