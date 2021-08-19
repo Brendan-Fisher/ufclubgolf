@@ -71,8 +71,8 @@ nav .sidenav-trigger {
     display: inline-block;
     text-align: left;
     align-items: center;
-    padding-top: 5px;
     flex-basis: auto;
+    height: 64px;
     flex-grow: 1;
 }
 
@@ -88,7 +88,7 @@ nav .sidenav-trigger {
     color: rgb(33, 67, 141);
     background: transparent;
     font-size: 15px !important;
-    font-weight: 400 !important;
+    font-weight: 550 !important;
     text-transform: uppercase;
 }
 
@@ -107,10 +107,14 @@ a:hover {
     text-align: center;
 }
 
+.dropdown-toggle {
+    max-height: 54px;
+}
+
 .dropdown-toggle::after {
     display: inline-block;
     margin-left: .5rem;
-    margin: auto .5rem;
+    margin:  29px .5rem auto .5rem;
     vertical-align: middle;
     content: "";
     border-top: .3em solid;
@@ -126,6 +130,7 @@ a:hover {
 }
 
 .dropdown-content li>a {
+    font-weight: 550 !important;
     color: rgb(33, 67, 141) !important;
     padding: .5rem .75rem;
 }
