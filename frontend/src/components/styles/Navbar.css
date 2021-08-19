@@ -3,6 +3,10 @@
     width: 300px;
 }
 
+.sidenav li>a {
+    color: rgb(33, 67, 141);
+}
+
 #sidenav {
     display: none;
 }
