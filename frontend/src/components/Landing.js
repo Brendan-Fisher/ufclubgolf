@@ -8,6 +8,7 @@ import Announcement from "./features/Announcement";
 import { getAnnouncements, getPostList, getEventList } from "../redux/actions/contentActions";
 import PostsTable from "./features/PostsTable";
 import CarouselPanel from "./features/CarouselPanel";
+import store from "../redux/store";
 
 
 class Landing extends Component {
@@ -22,13 +23,25 @@ class Landing extends Component {
     render() {
         return (
             <div className="main-wrap">
-                <ImageSlider />
+                <div className="carousel-wrap">
+                  <ImageSlider />
+                  <div className="carousel-announcement-wrap">
+                    <div className="container">
+                      <div className="row">
+                        <div className="col m6 offset-md-6 l5 offset-lg-8">
+                          <div className="carousel-announcement">
+                            <hr />
+                            <h3>{store.getState().content.announcement}</h3>
+                            <hr />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div id="container" className="container valign-wrapper">
                   <div id="content" className="row">
                     <div className="flexbox">
-                      <div id="box" className="col s12 l12 m12 center-align">
-                        <Announcement />
-                      </div>
                         <CarouselPanel />
                       <div id="box" style={{ minHeight: "400px" }}className="col s12 m6 l6 center-align">
                         <PostsTable />

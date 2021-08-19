@@ -1,5 +1,7 @@
 import { Component } from "react";
 
+import store from "../../redux/store";
+
 import M from 'materialize-css/dist/js/materialize.min.js';
 import bg1 from '../../img/headers/bg.jpg';
 import bg2 from '../../img/headers/golfbag.jpg';
@@ -73,7 +75,6 @@ class ImageSlider extends Component
 
     render()
     {
-        /*--here is the container the images should store in --*/
         const srcImages = [bg1, bg2, bg4, bg5, bg6]
         const items = []
         
@@ -83,23 +84,17 @@ class ImageSlider extends Component
             
             items.push(
                 <li key={index}>
-                    <img alt={"image number " + index + " has not found."} src={value} className="SliderImg"/>  
-                    <div className="caption">
-                        <h3 className="welcome"><span style={{fontFamily: "monospace"}}>Welcome to Florida Club Golf!</span></h3>
-                        <h5 className="cap">{quote.quote}<br/>- <b><u>{quote.author}</u></b></h5>
-                    </div>
+                    <img alt={'Header Image #' + index} src={value} className="SliderImg"/>  
                 </li>
             )
         }
 
         return(
-            <div className="carousel-wrap">
                 <div className='slider'>
                     <ul className='slides'>
                         {items}
                     </ul>
                 </div>
-            </div>
         )
     }
 }

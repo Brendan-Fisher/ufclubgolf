@@ -4,37 +4,6 @@
     height: 600px;
 }
 
-.welcome {
-    max-width: 700px;
-    margin: 1rem;
-}
-
-.cap{
-    max-width: 700px;
-    margin:  1rem;
-}
-
-h3 {
-    margin-right: 1rem;
-    margin-left: 1rem;
-}
-
-p {
-    margin-right: 1rem;
-    margin-left: 1rem;
-}
-
-h4 {
-    margin-right: 1rem;
-    margin-left: 1rem;
-}
-
-h5 {
-    margin-right: 1rem ;
-    margin-left: 1rem ;
-}
-
-
 .slider .slides li {
     display: inline-block;
     text-align: center;
@@ -49,8 +18,8 @@ h5 {
     top: 0;
     bottom: 0;
     margin: auto;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 100vw;
+    max-height: 100vh;
     vertical-align: middle;
     background-size: cover;
     background-repeat: no-repeat;
@@ -64,7 +33,50 @@ table td {
     font-size: 16px !important;
 }
 
-@media (min-width: 1024px) {
+.carousel-wrap {
+    max-width: 100vw;
+    max-height: 100vh;
+    padding-top: 64px;
+    position: relative;
+    z-index: 1;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 0;
+    padding: 0 !important;
+}
+
+@media (min-width: 768px) {
+    .carousel-wrap {
+        padding-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .carousel-announcement-wrap {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .carousel-announcement {
+        padding: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.8)
+    }
+
+    .carousel-announcement>h3 {
+        margin-top: 0 !important;
+    }
+
     .lg-calendar {
         display: initial;
     }
@@ -86,22 +98,11 @@ table td {
     
 }
 
-@media (max-width: 1023px) {
-    .lg-calendar {
-        display: initial;
-    }
-    .sm-calendar {
+@media (max-width: 768px) {
+    .carousel-announcement {
         display: none;
     }
 
-    table td {
-        font-size: 14px !important;
-    }
-
-    
-}
-
-@media (max-width: 560px) {
     .lg-calendar {
       display: none;
     }
