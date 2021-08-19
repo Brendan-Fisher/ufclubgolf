@@ -7,24 +7,8 @@
     display: none;
 }
 
-.dropdown-trigger {
-    margin: auto;
-    padding-right: 1rem;
-}
-
 nav .sidenav-trigger {
     margin: 11.25px;
-}
-
-nav {
-    border-top: solid 2px rgb(255, 132, 0) !important;
-    border-bottom: solid 2px rgb(13, 0, 255) !important;
-}
-
-.navbar-brand{
-    padding: 0 16px 0 16px  !important;
-    height: 60px;
-    background-color: rgba(49, 97, 0, 0.25);
 }
 
 .dropdown-content {
@@ -32,123 +16,107 @@ nav {
     height: auto !important;
 }
 
-#pass{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:white;
-}
-
-#pass:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: white;
-    transition: all 0.5s;
-}
-
-a:hover #pass:before {
-    width: 100%;
-    left: 0;
-    background: white;
-}
-
-#pass3{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:white;
-}
-
-#pass3:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: white;
-    transition: all 0.5s;
-}
-
-button:hover #pass3:before {
-    width: 100%;
-    left: 0;
-    background: white;
-}
-
-#pass2{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:black
-}
- 
-#pass2:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: black;
-    transition: all 0.3s;
-}
-
-a:hover #pass2:before {
-    width: 100%;
-    left: 0;
-    background: black;
-}
-
-#pass4{
-    text-decoration: none;
-    position: relative;
-    transition: all 0.6s;
-    color:blue
-}
- 
-#pass4:before {
-    content: "";
-    width: 0;
-    height: 0.1em;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background: blue;
-    transition: all 0.3s;
-}
-
-a:hover #pass4:before {
-    width: 100%;
-    left: 0;
-    background: blue;
-}
-
-.navbarhover:hover{
-    background-color: orange;
-}
-
-.nudge{
-    margin-bottom: 1.2vh;
-}
-
-.navbarhover{
-    height: 60px;
-}
-
 .dropdown-trigger{
     height: 64px;
     top: 50%;
     color: white;
+    margin: auto;
+    padding-right: 1rem;
 }
 
 .dropdown-trigger:hover {
     background-color: orange;
     color: white;
+}
+
+.navbar-wrap {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.navbar {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-top: 4px solid rgb(241, 93, 41);
+    border-bottom: 4px solid rgb(33, 67, 141);
+    padding: .5rem 1rem;
+    box-shadow: none !important;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.navbar-brand img {
+    content: url("../../img/logo.png");
+    max-height: 44px;
+    display: block;
+}
+
+.navbar-collapse {
+    display: inline-block;
+    text-align: left;
+    align-items: center;
+    padding-top: 5px;
+    flex-basis: auto;
+    flex-grow: 1;
+}
+
+#nav-mobile {
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.nav-item {
+    padding: 0 .75rem;
+    display: inline-flex;
+    color: rgb(33, 67, 141);
+    background: transparent;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase;
+}
+
+a {
+    color: rgb(33, 67, 141);
+    background: transparent;
+    box-sizing: border-box;
+}
+
+a:hover {
+    text-decoration: none;
+    background: unset !important;
+}
+
+.profile-trigger {
+    text-align: center;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .5rem;
+    margin: auto .5rem;
+    vertical-align: middle;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
 }
 
 @media (max-width: 1023px) {
@@ -163,6 +131,7 @@ a:hover #pass4:before {
     nav .sidenav-trigger {
         margin: auto;
         margin-left: 11.25px;
+        color:rgb(33, 67, 141)
     }
 
     .sidenav-overlay {
@@ -204,10 +173,6 @@ a:hover #pass4:before {
     }
 
 
-}
-
-#navbarhover:hover{
-    background-color: orange;
 }
 
 .join{
