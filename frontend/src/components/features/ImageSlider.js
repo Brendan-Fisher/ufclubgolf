@@ -70,7 +70,7 @@ class ImageSlider extends Component
     componentDidMount()
     {
         let slider = document.querySelector('.slider');
-        M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: window.innerHeight});
+        M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: 'auto' });
     }
 
     render()

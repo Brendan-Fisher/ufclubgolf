@@ -39,18 +39,20 @@ class Landing extends Component {
                     </div>
                   </div>
                 </div>
-                <div id="container" className="container valign-wrapper">
-                  <div id="content" className="row">
-                    <div className="flexbox">
-                        <CarouselPanel />
-                      <div id="box" style={{ minHeight: "400px" }}className="col s12 m6 l6 center-align">
-                        <PostsTable />
-                      </div>
-                      <div id="box" className="col s12 center-align">
-                        <h4>Club Calendar</h4>
-                        <div className="lg-calendar"><iframe className="calendar" title="UF Club Golf Calendar Large" scrolling="no" frameBorder="0" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2333B679&amp;ctz=America%2FNew_York&amp;src=ZmxvcmlkYWNsdWJnb2xmdGVhbUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;mode=WEEK"></iframe></div>
-                        <div className="sm-calendar"><iframe className="calendar" title="UF Club Golf Calendar Small" scrolling="no" frameBorder="0" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2333B679&amp;ctz=America%2FNew_York&amp;src=ZmxvcmlkYWNsdWJnb2xmdGVhbUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;mode=AGENDA"></iframe></div>                       
-                      </div>
+                <div className="content-wrap content-wrap-home">
+                  <div className="container">
+                    <div id="content" className="row">
+                      <div className="flexbox">
+                          <CarouselPanel />
+                        <div id="box" style={{ minHeight: "400px" }}className="col s12 m6 l6 center-align">
+                          <PostsTable />
+                        </div>
+                        <div id="box" className="col s12 center-align">
+                          <h4>Club Calendar</h4>
+                          <div className="lg-calendar"><iframe className="calendar" title="UF Club Golf Calendar Large" scrolling="no" frameBorder="0" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2333B679&amp;ctz=America%2FNew_York&amp;src=ZmxvcmlkYWNsdWJnb2xmdGVhbUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;mode=WEEK"></iframe></div>
+                          <div className="sm-calendar"><iframe className="calendar" title="UF Club Golf Calendar Small" scrolling="no" frameBorder="0" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%2333B679&amp;ctz=America%2FNew_York&amp;src=ZmxvcmlkYWNsdWJnb2xmdGVhbUBnbWFpbC5jb20&amp;color=%237986CB&amp;showTitle=0&amp;showNav=1&amp;mode=AGENDA"></iframe></div>                       
+                        </div>
+                    </div>
                   </div>
                 </div>
               </div>
