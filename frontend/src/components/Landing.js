@@ -21,9 +21,8 @@ class Landing extends Component {
         
     render() {
         return (
-            <div>
+            <div className="main-wrap">
                 <ImageSlider />
-                <div style={{backgroundColor: '#66BB6B', width:"100%", height:50}}></div>
                 <div id="container" className="container valign-wrapper">
                   <div id="content" className="row">
                     <div className="flexbox">

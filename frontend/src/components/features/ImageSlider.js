@@ -1,11 +1,11 @@
 import { Component } from "react";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
-import bg1 from '../../img/impressionImage.jpg';
-import bg2 from '../../img/bg.jpg';
-import bg4 from '../../img/slider/Nationals.jpg';
-import bg5 from '../../img/slider/PresidentsCup2019.jpg';
-import bg6 from '../../img/slider/SkylerandNick.jpg';
+import bg1 from '../../img/headers/bg.jpg';
+import bg2 from '../../img/headers/golfbag.jpg';
+import bg4 from '../../img/headers/Nationals.jpg';
+import bg5 from '../../img/headers/PresidentsCup2019.jpg';
+import bg6 from '../../img/headers/SkylerandNick.jpg';
 
 const quotes = [
     {
@@ -68,7 +68,7 @@ class ImageSlider extends Component
     componentDidMount()
     {
         let slider = document.querySelector('.slider');
-        M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: window.outerHeight * 0.65});
+        M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: window.innerHeight});
     }
 
     render()
@@ -93,10 +93,12 @@ class ImageSlider extends Component
         }
 
         return(
-            <div className='slider'>
-                <ul className='slides'>
-                    {items}
-                </ul>
+            <div className="carousel-wrap">
+                <div className='slider'>
+                    <ul className='slides'>
+                        {items}
+                    </ul>
+                </div>
             </div>
         )
     }
