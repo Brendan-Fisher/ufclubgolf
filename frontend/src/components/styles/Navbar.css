@@ -7,8 +7,11 @@
     display: none;
 }
 
-nav .sidenav-trigger {
-    margin: 11.25px;
+.container {
+    max-width: 1140px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .dropdown-content {
@@ -45,7 +48,6 @@ nav .sidenav-trigger {
     display: flex;
     align-items: center;
     background-color: #fff;
-    border-top: 4px solid rgb(241, 93, 41);
     border-bottom: 4px solid rgb(33, 67, 141);
     padding: .5rem 1rem;
     box-shadow: none !important;
@@ -143,7 +145,18 @@ a:hover {
     min-height: 20px !important;
 }
 
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+
 @media (max-width: 1023px) {
+    .container {
+        max-width: 100%;
+    }
+
     #nav-mobile {
         margin: auto;
     }
@@ -165,6 +178,18 @@ a:hover {
     #sidenav {
         display: inline-block;
         position: fixed;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-wrap {
+        padding: 0;
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;
+        padding: 0;
     }
 }
 
