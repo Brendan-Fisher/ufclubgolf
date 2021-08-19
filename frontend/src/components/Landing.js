@@ -25,7 +25,7 @@ class Landing extends Component {
         return (
             <div className="main-wrap">
                 <div className="header-wrap">
-                  <div className="header-image"><img id="slide1" alt="Golf Bag Header Image"></img></div>
+                  <div className="header-image"><img id="slide1" alt="Golf Bag Header"></img></div>
                   <div className="header-announcement-wrap">
                     <div className="container">
                       <div className="row">
@@ -42,7 +42,29 @@ class Landing extends Component {
                 </div>
                 <div className="content-wrap content-wrap-home">
                   <div className="container">
-
+                    <div className="row home-announcement">
+                      <div className="col">
+                        <aside>
+                          <h4>Club Announcement</h4>
+                          <hr />
+                          <h5>{store.getState().content.announcement}</h5>
+                        </aside>
+                      </div>
+                    </div>
+                    <div className="row home-content">
+                      <div className="col s12 m6 l6 home-box">
+                        <div className="home-about">
+                          <h2>About the Club</h2>
+                          <p></p>
+                        </div>
+                      </div>
+                      <div className="col s12 m6 l6 home-box">
+                        <div className="home-events">
+                          <h2>Events</h2>
+                          <p></p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>   

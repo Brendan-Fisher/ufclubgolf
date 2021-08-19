@@ -54,8 +54,8 @@ class Navbar extends Component {
                                 <li><a href="/posts" className="nav-item">Posts</a></li>
                                 <li><a href="/contact" className="nav-item">Contact</a></li>
                                 <li>
-                                    <a href="#!" data-target="profile-dropdown" className="nav-item profile-trigger"><i class="material-icons">person</i></a>
-                                    <ul id='profile-dropdown' class='dropdown-content'>
+                                    <a href="#!" data-target="profile-dropdown" className="nav-item profile-trigger"><i className="material-icons">person</i></a>
+                                    <ul id='profile-dropdown' className='dropdown-content'>
                                         {!loggedIn &&
                                             <li><a href="/register">Join the Club!</a></li>
                                         }
