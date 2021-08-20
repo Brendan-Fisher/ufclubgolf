@@ -18,6 +18,7 @@ class EventEditor extends Component {
       editorState: EditorState.createEmpty(),
       convertedContent: "",
       location: "",
+      plaintext: "",
       emailAll: false,
       emailExec: false,
     }
@@ -42,6 +43,7 @@ class EventEditor extends Component {
       date: this.state.date,
       location: this.state.location,
       body: this.state.convertedContent,
+      plaintext: this.state.plaintext,
     }
     if(this.state.emailAll){
       this.props.massEmail(event, store.getState().users.memberList);
@@ -66,6 +68,7 @@ class EventEditor extends Component {
       date: "",
       editorState: EditorState.createEmpty(),
       convertedContent: "",
+      plaintext: "",
       location: "",
     })
   }
@@ -104,6 +107,14 @@ class EventEditor extends Component {
               type="text"
               id="location" />
           </div>
+          <div className="input-field">
+            <label>Description</label>
+            <input 
+              onChange={this.onChange}
+              value={this.state.plaintext}
+              type="text"
+              id="plaintext" />
+          </div>
           <label>
             <input type="checkbox" onChange={() => this.setState({ emailAll: !this.state.emailAll, emailExec: false })} id="email" />
             <span>Email all members?</span>
@@ -115,7 +126,7 @@ class EventEditor extends Component {
           </label>
         </form>
         
-        <h5>Event Body</h5>
+        <h5>Add More Information</h5>
         <Editor
             editorState={this.state.editorState}
             wrapperClassName="post-editor"

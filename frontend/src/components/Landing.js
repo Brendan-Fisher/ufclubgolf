@@ -54,7 +54,12 @@ class Landing extends Component {
                         <div className="home-about">
                           <h2>About the Club</h2>
                           <p>The University of Florida Golf club is a place for players of all skill levels to come together and have a good time playing the great game of golf.</p>
+                          <p>
+                            <a className="btn indigo darken-4" href="/officers">Officers</a>
+                            <a className="btn indigo darken-4" href="/officers">History</a>
+                          </p>
                         </div>
+                        
                       </div>
                       <div className="col s12 m6 l6 home-box">
                         <div className="home-events">

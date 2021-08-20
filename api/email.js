@@ -54,15 +54,24 @@ router.post("/newMember", (req, res) => {
 
 router.post("/all", (req, res) => {
     var emails = [];
+    var body = '';
 
     var subject = `New ${req.body.content.type}: ${req.body.content.title}`
     if(req.body.content.type === "Event"){
         var dateTime = splitDateTime(req.body.content.date);
 
         subject += ` on ${dateTime}`;
+
+        if(req.body.content.body === ""){
+            body = '<p>' + req.body.content.plaintext + '</p>';
+        }
+        else body = req.body.content.body;
+    }
+    else {
+        body = req.body.content.body;
     }
 
-    var body = req.body.content.body;
+    
 
     req.body.members.forEach(member => {
         emails.push(member.email);

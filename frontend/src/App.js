@@ -15,7 +15,7 @@ import Calendar from "./components/Calendar";
 import Tournaments from "./components/Tournaments";
 import Posts from "./components/PostsPage";
 import Register from "./components/auth/Register";
-import About from "./components/About";
+import Officers from "./components/Officers";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import ExecDash from "./components/ExecDash";
@@ -75,7 +75,7 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/calendar" component={Calendar} />
             <Route exact path="/tournaments" component={Tournaments} />
-            <Route exact path="/about" component={About} />
+            <Route exact path="/officers" component={Officers} />
             <Route exact path="/posts" component={Posts} />
             <Route exact path="/posts/:id" component={Post} />
             <Route exact path="/events/:id" component={Event} />

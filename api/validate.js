@@ -31,7 +31,7 @@ const validateEventContent = (data) => {
     // Convert empty fields to an empty string so we can use validator functions 
     data.title = !isEmpty(data.title) ? data.title : "";
     data.date = !isEmpty(data.date) ? data.date : "";
-    data.body = !isEmpty(data.body) ? data.body : "";
+    data.plaintext = !isEmpty(data.plaintext) ? data.plaintext : "";
     data.location = !isEmpty(data.body) ? data.body : "";
 
     if(Validator.isEmpty(data.title)){
@@ -42,8 +42,8 @@ const validateEventContent = (data) => {
         errors.date = "Unable to make event without date"
     }
 
-    if(Validator.isEmpty(data.body)) {
-        errors.body = "Unable to make event without body";
+    if(Validator.isEmpty(data.plaintext)){
+        errors.plaintext = "Unable to make event without description"
     }
 
     if(Validator.isEmpty(data.location)) {

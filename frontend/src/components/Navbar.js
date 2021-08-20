@@ -42,7 +42,7 @@ class Navbar extends Component {
                                 <li>
                                     <a href="#!" data-target="club-dropdown" className="dropdown-toggle nav-item club-trigger hide-on-med-and-down">Club</a>
                                     <ul id='club-dropdown' className='dropdown-content'>
-                                        <li><a href="/about">Officers</a></li>
+                                        <li><a href="/officers">Officers</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -78,7 +78,7 @@ class Navbar extends Component {
                 <div>
                     <ul id="slide-out" className="sidenav sidenav-trigger">
                         <li><a href="/" className="nav-item">Home</a></li>
-                        <li><a href="/about" className="nav-item">About</a></li>
+                        <li><a href="/officers" className="nav-item">Officers</a></li>
                         <li><a href="/calendar" className="nav-item">Calendar</a></li>
                         <li><a href="/tournaments" className="nav-item">Tournaments</a></li>
                         <li><a href="/posts" className="nav-item">Posts</a></li>
