@@ -1,24 +1,22 @@
-import React, { Component } from "react";
+import React, { useState, Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import './styles/Landing.css';
 
 import { getAnnouncements, getPostList, getEventList } from "../redux/actions/contentActions";
+import EventList from "./features/EventList";
 import store from "../redux/store";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-
 class Landing extends Component {
     componentDidMount() {
-        this.props.getAnnouncements();
-        this.props.getPostList();
-        this.props.getEventList();
+      this.props.getAnnouncements();
+      this.props.getPostList();
+      this.props.getEventList();
 
-        let slider = document.querySelector('.slider');
-        M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: 'auto' });
-
-       // console.log(store.getState().content);
+      let slider = document.querySelector('.slider');
+      M.Slider.init(slider, {indicators: false, duration: 1500, interval: 5000, height: 'auto' });
     }
         
     render() {
@@ -62,6 +60,7 @@ class Landing extends Component {
                         <div className="home-events">
                           <h2>Events</h2>
                           <p></p>
+                          <EventList />
                         </div>
                       </div>
                     </div>

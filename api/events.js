@@ -56,6 +56,7 @@ router.route("/create").post((req, res) => {
         createdDate: today,
         location: req.body.location,
         body: req.body.body,
+        plaintext: req.body.plaintext,
     })
 
     newEvent
