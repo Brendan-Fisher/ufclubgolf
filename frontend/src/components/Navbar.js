@@ -81,10 +81,13 @@ class Navbar extends Component {
                 <div>
                     <ul id="slide-out" className="sidenav sidenav-trigger">
                         <li><a href="/" className="nav-item">Home</a></li>
+                        <li><a href="/membership" className="nav-item">Membership</a></li>
                         <li><a href="/officers" className="nav-item">Officers</a></li>
+                        <li><a href="/history" className="nav-item">History</a></li>
                         <li><a href="/calendar" className="nav-item">Calendar</a></li>
-                        <li><a href="/tournaments" className="nav-item">Tournaments</a></li>
+                        <li><a href="/events" className="nav-item">Upcoming Events</a></li>
                         <li><a href="/posts" className="nav-item">Posts</a></li>
+                        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd6aY-1EMEt2RWc8qvOE_u9XF7sEnXZmFbvWAOG7xg5SGDZVA/viewform" className="nav-item">Contact</a></li>
                         <Divider />
                         {loggedIn && memberType !== "pending" && memberType !== "member" &&
                             <li><a href="/dashboard/exec" className="nav-item">User Dashboard</a></li>
