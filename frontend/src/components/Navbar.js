@@ -42,13 +42,16 @@ class Navbar extends Component {
                                 <li>
                                     <a href="#!" data-target="club-dropdown" className="dropdown-toggle nav-item club-trigger hide-on-med-and-down">Club</a>
                                     <ul id='club-dropdown' className='dropdown-content'>
+                                        <li><a href="/membership">Membership</a></li>
                                         <li><a href="/officers">Officers</a></li>
+                                        <li><a href="/history">History</a></li>
                                     </ul>
                                 </li>
                                 <li>
                                     <a href="#!" data-target="event-dropdown" className="dropdown-toggle nav-item event-trigger hide-on-med-and-down">Events</a>
                                     <ul id="event-dropdown" className="dropdown-content">
                                         <li><a href="/calendar">Calendar</a></li>
+                                        <li><a href="/events">Upcoming Events</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="/posts" className="nav-item">Posts</a></li>
@@ -87,7 +90,7 @@ class Navbar extends Component {
                             <li><a href="/dashboard/exec" className="nav-item">User Dashboard</a></li>
                         }
                         {!loggedIn && 
-                            <li><a href="/register" className="nav-item">Register</a></li>
+                            <li><a href="/register" className="nav-item">Join the Club!</a></li>
                         }
                         {loggedIn ? 
                         <li><a href="/" onClick={this.onLogoutClick} className="nav-item">Log out</a></li>

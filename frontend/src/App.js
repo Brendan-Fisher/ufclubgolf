@@ -22,6 +22,9 @@ import ExecDash from "./components/ExecDash";
 import AdminDash from "./components/AdminDash";
 import Post from "./components/Post";
 import Event from "./components/Event";
+import History from "./components/History";
+import Membership from "./components/Membership";
+import UpcomingEvents from "./components/UpcomingEvents";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -64,8 +67,11 @@ class App extends Component {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/calendar" component={Calendar} />
+            <Route exact path="/events" component={UpcomingEvents} />
             <Route exact path="/tournaments" component={Tournaments} />
             <Route exact path="/officers" component={Officers} />
+            <Route exact path="/history" component={History} />
+            <Route exact path="/membership" component={Membership} />
             <Route exact path="/posts" component={Posts} />
             <Route exact path="/posts/:id" component={Post} />
             <Route exact path="/events/:id" component={Event} />

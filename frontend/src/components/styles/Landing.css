@@ -96,8 +96,14 @@ aside {
     height: fit-content;
 }
 
-.header-text {
+.header-text-landing {
     bottom: 400px;
+}
+
+@media (max-width: 1300px){
+    .header-text-landing {
+        bottom: 200px;
+    }
 }
 
 @media (min-width: 768px) {

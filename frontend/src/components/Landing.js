@@ -25,7 +25,7 @@ class Landing extends Component {
                 <div className="header-wrap">
                   <div className="header-image"><img id="slide1" alt="Golf Bag Header"></img></div>
                   <div className="header-text-wrap">
-                    <div className="header-text">
+                    <div className="header-text header-text-landing">
                         <h1>{store.getState().content.announcement}</h1>
                     </div>
                   </div>
@@ -46,8 +46,9 @@ class Landing extends Component {
                           <h2>About the Club</h2>
                           <p>The University of Florida Golf club is a place for players of all skill levels to come together and have a good time playing the great game of golf.</p>
                           <p>
+                            <a className="btn indigo darken-4" href="/membership">Membership</a>
                             <a className="btn indigo darken-4" href="/officers">Officers</a>
-                            <a className="btn indigo darken-4" href="/officers">History</a>
+                            <a className="btn indigo darken-4" href="/history">History</a>
                           </p>
                         </div>
                         
