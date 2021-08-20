@@ -10,7 +10,7 @@ class About extends Component {
           <div className="officer-header-image"><img id="officer-header" alt="Mark Bostick GC"></img></div>
           <div className="header-text-wrap">
             <div className="header-text">
-              <h1>Get to Know Your Club Officers</h1>
+              <h1>Get to Know the Exec Board</h1>
             </div>
           </div>
         </div>

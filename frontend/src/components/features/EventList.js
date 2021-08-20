@@ -66,7 +66,9 @@ export default function EventList() {
                         <h3>{events.data[0].title}</h3>
                         <p className="event-date">{splitDateTime(events.data[0].eventDate)}</p>
                         <p className="event-summary">{events.data[0].plaintext}</p>
-                        <p className="event-link"><a href={"/events/" + events.data[0]._id}><u>Learn More</u></a></p>
+                        {events.data[0].body !== "" && 
+                            <p className="event-link"><a href={"/events/" + events.data[0]._id}><u>Learn More</u></a></p>
+                        }
                     </div>
                     <p>
                         <a className="btn indigo darken-4" href="/posts">More Events</a>
