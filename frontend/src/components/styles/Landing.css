@@ -41,6 +41,7 @@ aside {
     border-bottom: 3px solid rgb(241, 93, 41);
     font-size: 2rem;
     color: rgb(33, 67, 141);
+    width: 100%;
 }
 
 .home-about {

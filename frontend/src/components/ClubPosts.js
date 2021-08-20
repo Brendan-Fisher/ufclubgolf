@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import FullEventList from "./features/FullEventList";
 
 
-class UpcomingEvents extends Component {
+class ClubPosts extends Component {
     render() {
 
         return (
@@ -12,17 +12,21 @@ class UpcomingEvents extends Component {
                     <div className="officer-header-image"><img id="officer-header" alt="Mark Bostick GC"></img></div>
                     <div className="header-text-wrap">
                         <div className="header-text">
-                            <h1>See What Events are Coming Up</h1>
+                            <h1>See What the Club has Posted Recently</h1>
                         </div>
                     </div>
                 </div>
                 <div className="content-wrap">
                     <div className="container">
-                        <div className="row aside">
-                            <h1 className="page-title">Upcoming Club Events</h1>
-                            <div className="col s12 home-box">
-                                <div className="home-events">
-                                    <FullEventList />
+                        <div className="row home-content">
+                           <div className="col s12 m6 home-box">
+                                <h2>Tournament Results</h2>
+                                <div className="tournaments">
+                                </div>
+                            </div>
+                            <div className="col s12 m6 home-box">
+                                <h2>Posts</h2>
+                                <div className="posts">
                                 </div>
                             </div>
                         </div>
@@ -34,4 +38,4 @@ class UpcomingEvents extends Component {
 }
 
 
-export default UpcomingEvents;
+export default ClubPosts;

@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Calendar from "./components/Calendar";
 import Tournaments from "./components/Tournaments";
-import Posts from "./components/PostsPage";
+import ClubPosts from "./components/ClubPosts";
 import Register from "./components/auth/Register";
 import Officers from "./components/Officers";
 import Login from "./components/auth/Login";
@@ -72,7 +72,7 @@ class App extends Component {
             <Route exact path="/officers" component={Officers} />
             <Route exact path="/history" component={History} />
             <Route exact path="/membership" component={Membership} />
-            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/posts" component={ClubPosts} />
             <Route exact path="/posts/:id" component={Post} />
             <Route exact path="/events/:id" component={Event} />
             <Switch>

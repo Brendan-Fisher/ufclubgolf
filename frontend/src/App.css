@@ -107,6 +107,10 @@ h2 {
   color: rgb(33, 67, 141);
 }
 
+.event h2 {
+  border-bottom: none !important;
+}
+
 h3 {
   font-size: 1.125rem;
   font-weight: bold !important;

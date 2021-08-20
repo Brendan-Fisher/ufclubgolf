@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import './styles/Landing.css';
 
 import { getAnnouncements, getPostList, getEventList } from "../redux/actions/contentActions";
-import EventList from "./features/EventList";
+import LandingEventList from "./features/LandingEventList";
 import store from "../redux/store";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
@@ -57,7 +57,7 @@ class Landing extends Component {
                         <div className="home-events">
                           <h2>Events</h2>
                           <p></p>
-                          <EventList />
+                          <LandingEventList />
                         </div>
                       </div>
                     </div>

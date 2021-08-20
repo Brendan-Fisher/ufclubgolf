@@ -44,7 +44,7 @@ router.route("/create").post((req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    console.log(req.body)
+    
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
