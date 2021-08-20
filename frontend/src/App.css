@@ -48,6 +48,71 @@ body:after {
   z-index: 1;
 }
 
+.page-title {
+  width: 100%;
+  margin-top: 0;
+}
+
+.header-text-wrap {
+  display: block;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.header-text {
+  margin: auto;
+  bottom: 120px;
+  margin-bottom: 0;
+  position: absolute;
+  vertical-align: center;
+  width: 100%;
+}
+
+.header-text h1 {
+  border-bottom: none !important;
+  color: #fff;
+  font-family: "gentona", "Georgia", serif;
+  font-size: 55px !important;
+  font-weight: 700;
+  text-shadow: 2px 3px 2px #f37021;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+h1 {
+  color: rgb(33, 67, 141);
+  border-bottom: 4px solid rgb(241, 93, 41);
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+h2 {
+  margin-bottom: 0.75rem;
+  margin-top: 0;
+  border-bottom: 3px solid rgb(241, 93, 41);
+  font-size: 2rem;
+  color: rgb(33, 67, 141);
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: bold !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: .5rem;
+}
+
 #content {
   overflow: hidden;
   padding: 0;
@@ -97,12 +162,28 @@ label {
     margin-left: 0;
     margin-right: 0;
   }
+
+  .header-text {
+    bottom: 0;
+  }
+
+  .header-text h1 {
+    font-size: 42px !important;
+  }
   
 }
 
-@media (min-width: 768px) {
+@media (max-width: 991px) {
   .main-wrap {
     padding-bottom: 30px;
+  }
+
+  .header-wrap{
+    margin-bottom: 0 !important;
+  }
+
+  .content-wrap {
+    margin-top: 0px;
   }
 }
 

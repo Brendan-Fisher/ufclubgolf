@@ -52,7 +52,7 @@ class Navbar extends Component {
                                     </ul>
                                 </li>
                                 <li><a href="/posts" className="nav-item">Posts</a></li>
-                                <li><a href="/contact" className="nav-item">Contact</a></li>
+                                <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSd6aY-1EMEt2RWc8qvOE_u9XF7sEnXZmFbvWAOG7xg5SGDZVA/viewform" className="nav-item">Contact</a></li>
                                 <li>
                                     <a href="#!" data-target="profile-dropdown" className="nav-item profile-trigger"><i className="material-icons">person</i></a>
                                     <ul id='profile-dropdown' className='dropdown-content'>

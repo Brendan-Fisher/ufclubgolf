@@ -60,16 +60,6 @@ class App extends Component {
         <Router>
           <div className="App">
             <Navbar />
-            <div className="fixed-action-btn">
-              <button className="btn-floating btn-large orange darken-2">
-                <i className="large material-icons">menu</i>
-              </button>
-              <ul>
-                <li><a rel="noopener noreferrer" href="https://www.facebook.com/groups/uf.club.golf" className="btn-floating blue"><i className="large fab fa-facebook fa-5x"></i></a></li>
-                <li><a rel="noopener noreferrer" href="https://twitter.com/UFClubGolf" className="btn-floating green"><i className="large fab fa-twitter fa-5x"></i></a></li>
-                <li><a rel="noopener noreferrer" href="https://docs.google.com/forms/d/e/1FAIpQLSd6aY-1EMEt2RWc8qvOE_u9XF7sEnXZmFbvWAOG7xg5SGDZVA/viewform" className="btn-floating red"><i className="large far fa-comment-alt"></i></a></li>
-              </ul>
-            </div>
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />

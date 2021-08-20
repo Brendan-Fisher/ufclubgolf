@@ -63,14 +63,6 @@ aside {
     border-bottom: 1px solid #e5e5e5;
 }
 
-p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-}
-
 .event:first-of-type {
     border: none;
     padding-top: 0;

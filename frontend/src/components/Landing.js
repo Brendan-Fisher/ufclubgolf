@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import './styles/Landing.css';
@@ -43,9 +43,8 @@ class Landing extends Component {
                     <div className="row home-announcement">
                       <div className="col">
                         <aside>
-                          <h4>Club Announcement</h4>
-                          <hr />
-                          <h5>{store.getState().content.announcement}</h5>
+                          <h1>Club Announcement</h1>
+                          <h3>{store.getState().content.announcement}</h3>
                         </aside>
                       </div>
                     </div>

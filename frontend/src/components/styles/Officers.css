@@ -1,3 +1,21 @@
+.officer-header-image img {
+    content:url(../../img/headers/bg.jpg);
+    width: 100%!important;
+    display: inline-block!important;
+    max-height: 500px;
+    height: auto;
+    display: none;
+    object-fit: cover;
+}
+
+h2 {
+    width: max-content;
+}
+
+.aside {
+    padding: 30px !important;
+}
+
 .exec-board {
     vertical-align: top;
     display: inline-block;
@@ -8,7 +26,6 @@
     display: grid;
     grid-gap: 30px;
     grid-template-areas:
-        "exec-heading exec-heading"
         "p-image p-desc"
         "vp-image vp-desc"
         "tr-image tr-desc"
@@ -26,8 +43,8 @@
 .grid .vp-image {
     grid-area: vp-image;
     margin: 0;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: url(../../img/about/BlakeSimmons.png) no-repeat center;
     background-size: cover;
     border-radius: 50%;
@@ -38,15 +55,15 @@
 
 .grid .vp-desc {
     grid-area: vp-desc;
-    background: #a5d6a7;
+    background: #f3f3f3;
     padding: 1rem;
 }
 
 .grid .tr-image {
     grid-area: tr-image;
     margin: 0;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: url(../../img/about/JacksonWiesbrot.png) no-repeat center;
     background-size: cover;
     border-radius: 50%;
@@ -57,15 +74,15 @@
 
 .grid .tr-desc {
     grid-area: tr-desc;
-    background: #a5d6a7;
+    background: #f3f3f3;
     padding: 1rem;
 }
 
 .grid .pr1-image {
     grid-area: pr1-image;
     margin: 0;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: url(../../img/about/MomboNgu.png) no-repeat center;
     background-size: cover;
     border-radius: 50%;
@@ -76,15 +93,15 @@
 
 .grid .pr1-desc {
     grid-area: pr1-desc;
-    background: #a5d6a7;
+    background: #f3f3f3;
     padding: 1rem;
 }
 
 .grid .pr2-image {
     grid-area: pr2-image;
     margin: 0;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: url(../../img/about/Dhruv.png) no-repeat center;
     background-size: cover;
     border-radius: 50%;
@@ -95,15 +112,15 @@
 
 .grid .pr2-desc {
     grid-area: pr2-desc;
-    background: #a5d6a7;
+    background: #f3f3f3;
     padding: 1rem;
 }
 
 .grid .p-image {
     grid-area: p-image;
     margin: 0;
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     background: url(../../img/about/Dhruv.png) no-repeat center;
     background-size: cover;
     border-radius: 50%;
@@ -114,7 +131,7 @@
 
 .grid .p-desc {
     grid-area: p-desc;
-    background: #a5d6a7;
+    background: #f3f3f3;
     padding: 1rem;
 }
 
