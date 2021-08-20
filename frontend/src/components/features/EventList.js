@@ -53,8 +53,10 @@ export default function EventList() {
             }
             else if (events.data.length === 0){
                 setEventList(
-                    <div>
-                        <h3>No Upcoming Events</h3>
+                    <div className="events-list">
+                        <div className="event">
+                            <h3>No Upcoming Events</h3>
+                        </div>
                     </div>
                 )
             }
