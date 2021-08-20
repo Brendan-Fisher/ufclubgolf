@@ -25,9 +25,7 @@ export default function EventList() {
 
     const EventFunction = async () => {
         try {
-            const events = await getEvents()
-            console.log(events.data);
-            console.log(events.data.length)
+            const events = await getEvents();
 
             if(events.data.length > 1){
                 setEventList(

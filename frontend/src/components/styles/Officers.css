@@ -33,13 +33,6 @@ h2 {
         "pr2-image pr2-desc";
 }
 
-.exec-heading {
-    grid-area: exec-heading;
-    background: #a5d6a7;
-    text-align: center;
-    padding: 1rem;
-}
-
 .grid .vp-image {
     grid-area: vp-image;
     margin: 0;

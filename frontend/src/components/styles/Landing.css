@@ -1,9 +1,3 @@
-.calendar {
-    border: solid 3px rgba(0, 38, 255, 0.438);
-    width: 100%;
-    height: 600px;
-}
-
 .header-image img {
     content:url(../../img/headers/golfbag.jpg);
     width: 100%!important;
@@ -102,6 +96,10 @@ aside {
     height: fit-content;
 }
 
+.header-text {
+    bottom: 400px;
+}
+
 @media (min-width: 768px) {
     .home-announcement {
         display: none;
@@ -155,6 +153,10 @@ aside {
 }
 
 @media (max-width: 767px) {
+    .header-text {
+        display:none;
+    }
+
     .home-announcement {
         display: block !important;
         width: 100vw;

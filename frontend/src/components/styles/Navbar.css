@@ -45,7 +45,7 @@
     display: flex;
     align-items: center;
     background-color: #fff;
-    border-bottom: 4px solid rgb(33, 67, 141);
+    border-bottom: 4px solid #21438d;
     padding: .5rem 1rem;
     box-shadow: none !important;
 }

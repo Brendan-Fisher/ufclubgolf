@@ -24,17 +24,9 @@ class Landing extends Component {
             <div className="main-wrap">
                 <div className="header-wrap">
                   <div className="header-image"><img id="slide1" alt="Golf Bag Header"></img></div>
-                  <div className="header-announcement-wrap">
-                    <div className="container">
-                      <div className="row">
-                        <div className="col m6 offset-md-6 l5 offset-lg-8">
-                          <div className="header-announcement">
-                            <hr />
-                            <h3>{store.getState().content.announcement}</h3>
-                            <hr />
-                          </div>
-                        </div>
-                      </div>
+                  <div className="header-text-wrap">
+                    <div className="header-text">
+                        <h1>{store.getState().content.announcement}</h1>
                     </div>
                   </div>
                 </div>
