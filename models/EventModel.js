@@ -20,7 +20,11 @@ const EventSchema = mongoose.Schema({
     },
     body: {
         type: String,
-        required: true
+        required: false
+    },
+    plaintext: {
+        type: String, 
+        required: false
     }
 },
     {collection: 'Events'}
