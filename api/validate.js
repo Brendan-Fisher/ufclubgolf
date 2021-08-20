@@ -32,7 +32,7 @@ const validateEventContent = (data) => {
     data.title = !isEmpty(data.title) ? data.title : "";
     data.date = !isEmpty(data.date) ? data.date : "";
     data.plaintext = !isEmpty(data.plaintext) ? data.plaintext : "";
-    data.location = !isEmpty(data.body) ? data.body : "";
+    data.location = !isEmpty(data.location) ? data.location : "";
 
     if(Validator.isEmpty(data.title)){
         errors.title = "Unable to make event without title"

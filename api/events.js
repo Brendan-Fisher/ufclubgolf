@@ -36,13 +36,15 @@ router.route("/find").post((req, res)  => {
 // @route POST api/events/create
 // @desc Creates new events 
 router.route("/create").post((req, res) => {
+    
+
     // Form Validation
     const { errors, isValid } = validate.validateEventContent(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
     }
-
+    console.log(req.body)
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!

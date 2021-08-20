@@ -45,6 +45,7 @@ class EventEditor extends Component {
       body: this.state.convertedContent,
       plaintext: this.state.plaintext,
     }
+
     if(this.state.emailAll){
       this.props.massEmail(event, store.getState().users.memberList);
     }

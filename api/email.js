@@ -71,8 +71,6 @@ router.post("/all", (req, res) => {
         body = req.body.content.body;
     }
 
-    
-
     req.body.members.forEach(member => {
         emails.push(member.email);
     });
