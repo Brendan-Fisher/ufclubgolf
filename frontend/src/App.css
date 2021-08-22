@@ -107,6 +107,13 @@ h2 {
   color: rgb(33, 67, 141);
 }
 
+.fab {
+  font-size:48px;
+  color:#21438d;
+  margin-left: .5rem;
+  margin-right: .5rem;
+}
+
 .event h2 {
   border-bottom: none !important;
 }

@@ -19,7 +19,13 @@ class ClubPosts extends Component {
                 <div className="content-wrap">
                     <div className="container">
                         <div className="row home-content">
-                           <div className="col s12 m6 home-box">
+                            <div className="col s12 home-box" style={{marginBottom: "2rem"}}>
+                                <h3 className="page-title">Don't forget to check us out on our social medias for updated club information!</h3> 
+                                <a href="https://www.facebook.com/groups/uf.club.golf/"><i className="fab fa-facebook-square"></i></a>
+                                <a href="https://twitter.com/UFClubGolf"><i className="fab fa-twitter-square"></i></a>
+                            </div>
+                            
+                            <div className="col s12 m6 home-box">
                                 <h2>Tournament Results</h2>
                                 <div className="tournaments">
                                 </div>
