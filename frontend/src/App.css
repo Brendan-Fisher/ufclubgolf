@@ -111,6 +111,16 @@ h2 {
   border-bottom: none !important;
 }
 
+.event-body {
+  margin-top: 15px;
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
+.event-header-image img{
+  max-height: 300px !important;
+}
+
 h3 {
   font-size: 1.125rem;
   font-weight: bold !important;

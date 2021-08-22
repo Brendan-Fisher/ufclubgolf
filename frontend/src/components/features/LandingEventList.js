@@ -43,7 +43,7 @@ export default function EventList() {
                             <p className="event-date">{splitDateTime(events.data[1].eventDate)}</p>
                             <p className="event-summary">{events.data[1].plaintext}</p>
                             {events.data[1].body !== "" && 
-                                <p className="event-link"><a href={"/events/" + events.data[0]._id}><u>Learn More</u></a></p>
+                                <p className="event-link"><a href={"/events/" + events.data[1]._id}><u>Learn More</u></a></p>
                             }
                         </div>
                         <p>

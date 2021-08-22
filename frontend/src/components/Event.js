@@ -37,18 +37,23 @@ function createMarkup(html) {
 function buildEvent(event){
 
     return (
-        <div id="container" className="container">
-            <div id="row" className="row">
-                <div className="flexbox">
-                    <div id="box" className="col s12 center-align">
-                        <h2>{event.title}</h2>
-                        <h6>Event Date: {convertDate(event.eventDate)}</h6>
-                        <h6>Event Location: {event.location}</h6>
-                    </div>
-                    <div dangerouslySetInnerHTML={createMarkup(event.body)} className="col s12" style={{backgroundColor: "rgba(255, 255, 255, 1)"}}></div>
+        <div className="main-wrap">
+                <div className="header-wrap">
+                    <div className="officer-header-image event-header-image"><img id="officer-header" alt="Mark Bostick GC"></img></div>
+                </div>
+                <div className="content-wrap">
+                    <div className="container">
+                        <div className="row aside">
+                            <div className="col s12 home-about">
+                                <h1>{event.title}</h1>
+                                <h3>{event.location}</h3>
+                                <h3 className="event-date">{convertDate(event.eventDate)}</h3>
+                            </div>
+                            <div dangerouslySetInnerHTML={createMarkup(event.body)} className="col s12 event-body home-about" style={{backgroundColor: "rgba(255, 255, 255, 1)"}}></div>
+                        </div>
+                    </div>                    
                 </div>
             </div>
-        </div>
     )
 }
 
