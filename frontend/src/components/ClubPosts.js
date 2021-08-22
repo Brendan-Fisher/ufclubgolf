@@ -12,7 +12,7 @@ class ClubPosts extends Component {
                     <div className="officer-header-image"><img id="officer-header" alt="Mark Bostick GC"></img></div>
                     <div className="header-text-wrap">
                         <div className="header-text">
-                            <h1>See What the Club has Posted Recently</h1>
+                            <h1>See What We've Posted Recently</h1>
                         </div>
                     </div>
                 </div>

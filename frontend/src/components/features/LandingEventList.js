@@ -16,6 +16,8 @@ function splitDateTime(dateTime){
     else dayPart = "AM"
   
     timeParts[0] = hour % 12;
+
+    if(timeParts[0] === 0) timeParts[0] = 12;
   
     return `${parts[1]}/${extraParts[0]}/${parts[0]} at ${timeParts[0]}:${timeParts[1]} ${dayPart}`;
 }
