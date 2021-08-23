@@ -63,73 +63,81 @@ class Login extends Component {
         const { errors } = this.state;
 
         return(
-            <div id="container" className="container">
-                <div id="content" className="row">
-                    <Link to="/" className="btn-flat waves-effect">
-                        <i className="material-icons left">keyboard_backspace</i> 
-                        <text id="pass2">Back to home</text>
-                    </Link>
-                    <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                        <h4>
-                            <b>Log in</b> below
-                        </h4>
-                        <p className="grey-text text-darken-1">
-                            Don't have an account? <Link to="/register">
-                            <text id="pass4">Register</text></Link>
-                        </p>
+            <div classNake="main-wrap">
+                <div className="header-wrap">
+                    <div className="officer-header-image event-header-image"><img id="officer-header" alt="Mark Bostick GC"></img></div>
+                </div>
+                <div className="content-wrap">
+                    <div className="container">
+                        <div className="row aside">
+                            <Link to="/" className="btn-flat waves-effect">
+                                <i className="material-icons left">keyboard_backspace</i> 
+                                <text id="pass2">Back to home</text>
+                            </Link>
+                            <div className="col s12 home-about">
+                                <h4>
+                                    <b>Log in</b> below
+                                </h4>
+                                <p className="grey-text text-darken-1">
+                                    Don't have an account? <Link to="/register">
+                                    <text id="pass4">Register</text></Link>
+                                </p>
+                                <form noValidate onSubmit={this.onSubmit}>
+                                <div className="input-field col s12">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.email}
+                                        error={errors.email}
+                                        id="email"
+                                        type="email"
+                                        className={classnames("", {
+                                            invalid: errors.email || errors.emailnotfound
+                                        })}
+                                    />
+                                    <label htmlFor="email">Email</label>
+                                    <span className="red-text">
+                                        {errors.email}
+                                        {errors.emailnotfound}
+                                    </span>
+                                </div>
+                                <div className="input-field col s12">
+                                    <input
+                                        onChange={this.onChange}
+                                        value={this.state.password}
+                                        error={errors.password}
+                                        id="password"
+                                        type="password"
+                                        className={classnames("", {
+                                            invalid: errors.password || errors.passwordincorrect
+                                        })}
+                                    />
+                                    <label htmlFor="password">Password</label>
+                                    <span className="red-text">
+                                        {errors.password}
+                                        {errors.passwordincorrect}
+                                    </span>
+                                </div>
+                                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                                    <button
+                                        style={{
+                                            width: "75px",
+                                            borderRadius: "3px",
+                                            letterSpacing: "1.5px",
+                                            margin: "11.250px"
+                                        }}
+                                        type="submit"
+                                        className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
+                                    >
+                                        <text className="join" id="pass3">Log in</text>
+                                    </button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
                     </div>
-                    <form noValidate onSubmit={this.onSubmit}>
-                        <div className="input-field col s12">
-                            <input
-                                onChange={this.onChange}
-                                value={this.state.email}
-                                error={errors.email}
-                                id="email"
-                                type="email"
-                                className={classnames("", {
-                                    invalid: errors.email || errors.emailnotfound
-                                })}
-                            />
-                            <label htmlFor="email">Email</label>
-                            <span className="red-text">
-                                {errors.email}
-                                {errors.emailnotfound}
-                            </span>
-                        </div>
-                        <div className="input-field col s12">
-                            <input
-                                onChange={this.onChange}
-                                value={this.state.password}
-                                error={errors.password}
-                                id="password"
-                                type="password"
-                                className={classnames("", {
-                                    invalid: errors.password || errors.passwordincorrect
-                                })}
-                            />
-                            <label htmlFor="password">Password</label>
-                            <span className="red-text">
-                                {errors.password}
-                                {errors.passwordincorrect}
-                            </span>
-                        </div>
-                        <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                            <button
-                                style={{
-                                    width: "75px",
-                                    borderRadius: "3px",
-                                    letterSpacing: "1.5px",
-                                    margin: "11.250px"
-                                }}
-                                type="submit"
-                                className="btn btn-medium waves-effect waves-green hoverable blue accent-3" 
-                            >
-                                <text className="join" id="pass3">Log in</text>
-                            </button>
-                        </div>
-                    </form>
                 </div>
             </div>
+            
         );
     }
 }
