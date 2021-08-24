@@ -24,6 +24,7 @@ class ClubPosts extends Component {
                                 <h3 className="page-title">Don't forget to check us out on our social medias for updated club information!</h3> 
                                 <a href="https://www.facebook.com/groups/uf.club.golf/"><i className="fab fa-facebook-square"></i></a>
                                 <a href="https://twitter.com/UFClubGolf"><i className="fab fa-twitter-square"></i></a>
+                                <a href="https://www.instagram.com/ufclubgolf/?hl=en"><i className="fab fa-instagram-square"></i></a>
                             </div>
                             
                             <div className="col s12 m6 home-box">
