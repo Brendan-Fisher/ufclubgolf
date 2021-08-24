@@ -22,7 +22,7 @@ export default function TournamentList() {
             tourneys = all.data.map((tourney) => {
                 return (
                     <tr>
-                        <td><a style={{color: "#21438d"}} href={"/tourney/" + tourney._id}>{tourney.title}</a></td>
+                        <td><a style={{color: "#21438d"}} href={"/tournaments/" + tourney._id}>{tourney.title}</a></td>
                         <td>{splitDate(tourney.startDate)}</td>
                     </tr>
                 )

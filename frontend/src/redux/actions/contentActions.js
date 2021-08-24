@@ -174,6 +174,23 @@ export function getTournamentList(){
     }
 }
 
+export async function getTourney(id) {
+    console.log(id);
+    let tourneyID = {
+        _id: id
+    }
+
+    return axios
+        .post("/api/tournaments/find", tourneyID)
+        .then((tourney) => {
+            console.log(tourney)
+            return tourney;
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
+
 export async function getEvent(id) {
     let eventID = {
         _id: id

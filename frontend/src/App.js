@@ -12,7 +12,6 @@ import store from "./redux/store";
 import Navbar from "./components/Navbar";
 import Landing from "./components/Landing";
 import Calendar from "./components/Calendar";
-import Tournaments from "./components/Tournaments";
 import ClubPosts from "./components/ClubPosts";
 import Register from "./components/auth/Register";
 import Officers from "./components/Officers";
@@ -25,6 +24,7 @@ import Event from "./components/Event";
 import History from "./components/History";
 import Membership from "./components/Membership";
 import UpcomingEvents from "./components/UpcomingEvents";
+import Tournament from "./components/Tournament";
 
 import M from 'materialize-css/dist/js/materialize.min.js';
 
@@ -68,13 +68,13 @@ class App extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/calendar" component={Calendar} />
             <Route exact path="/events" component={UpcomingEvents} />
-            <Route exact path="/tournaments" component={Tournaments} />
             <Route exact path="/officers" component={Officers} />
             <Route exact path="/history" component={History} />
             <Route exact path="/membership" component={Membership} />
             <Route exact path="/posts" component={ClubPosts} />
             <Route exact path="/posts/:id" component={Post} />
             <Route exact path="/events/:id" component={Event} />
+            <Route exact path="/tournaments/:id" component={Tournament} />
             <Switch>
               <PrivateRoute exact path="/dashboard/admin" component={AdminDash} />
               <PrivateRoute exact path="/dashboard/exec" component={ExecDash} />

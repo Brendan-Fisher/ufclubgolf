@@ -1,13 +1,21 @@
 import React, { Component } from 'react';
-import { getPost } from '../redux/actions/contentActions';
+import { getTourney } from '../redux/actions/contentActions';
 import DOMPurify from 'dompurify';
 
 
-async function getPostObject(id){
-    let postObj = await getPost(id);
-    let postHTML = buildPost(postObj.data);
 
-    return postHTML;
+function splitDate(dateTime){
+    var parts = dateTime.split('-')
+  
+    return `${parts[1]}/${parts[2]}/${parts[0]}`;
+}
+
+
+async function getTourneyObject(id){
+    let tourneyObj = await getTourney(id);
+    let tourneyHTML = buildTourney(tourneyObj.data);
+
+    return tourneyHTML;
 }
 
 function createMarkup(html) {
@@ -16,7 +24,7 @@ function createMarkup(html) {
     }
   }
 
-function buildPost(post){
+function buildTourney(tourney){
 
     return (
         <div className="main-wrap">
@@ -27,11 +35,10 @@ function buildPost(post){
                     <div className="container">
                         <div className="row aside">
                             <div className="col s12 home-about">
-                                <h1>{post.title}</h1>
-                                <h3>Category: {post.category}</h3>
-                                <h3 className="event-date">Posted: {post.date}</h3>
+                                <h1>{tourney.title}</h1>
+                                <h3>Tournament Date: {splitDate(tourney.startDate)}</h3>
                             </div>
-                            <div dangerouslySetInnerHTML={createMarkup(post.body)} className="col s12 event-body home-about" style={{backgroundColor: "rgba(255, 255, 255, 1)"}}></div>
+                            <div dangerouslySetInnerHTML={createMarkup(tourney.body)} className="col s12 event-body home-about" style={{backgroundColor: "rgba(255, 255, 255, 1)"}}></div>
                         </div>
                     </div>                    
                 </div>
@@ -39,32 +46,33 @@ function buildPost(post){
     )
 }
 
-class Post extends Component{
+class Tournament extends Component{
     constructor(props){
         super(props)
         this.state = {
-            post: <div></div>,
+            tourney: <div></div>,
         }
     }
 
     async componentDidMount(){
         let id = this.props.match.params.id
+        console.log(id)
 
-        let post = await getPostObject(id)
+        let tourney = await getTourneyObject(id)
 
         this.setState({
-            post: post,
+            tourney: tourney,
         })
 
     }
 
     render() {
         return(
-            <div>{this.state.post}</div>
+            <div>{this.state.tourney}</div>
         )
     }
 
     
 }
 
-export default Post;
+export default Tournament;
