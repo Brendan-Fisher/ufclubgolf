@@ -160,7 +160,7 @@ aside {
 }
 
 @media (max-width: 767px) {
-    .header-text {
+    .header-text-landing {
         display:none;
     }
 

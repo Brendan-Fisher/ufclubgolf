@@ -163,6 +163,8 @@ label {
   height: 600px;
 }
 
+
+
 .posts-table tr{
   border-bottom: 1px solid #f37021;
   border-left: 1px solid #f37021;
@@ -221,6 +223,10 @@ th h3 {
   .header-text h1 {
     font-size: 32px !important;
     max-width: 100%;
+  }
+
+  .posts-table {
+    margin-bottom: 30px;
   }
   
 }

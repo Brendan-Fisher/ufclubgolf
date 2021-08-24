@@ -9,7 +9,7 @@ class History extends Component {
                     <div className="officer-header-image"><img id="officer-header" alt="Mark Bostick GC"></img></div>
                     <div className="header-text-wrap">
                         <div className="header-text">
-                            <h1>Learn More About the UF Club Golf</h1>
+                            <h1>Learn More About the Club</h1>
                         </div>
                     </div>
                 </div>

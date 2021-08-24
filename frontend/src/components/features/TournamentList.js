@@ -39,7 +39,7 @@ export default function TournamentList() {
     }, []);
 
     return ( 
-        <div className="posts-list">
+        <div className="events-list">
             <table className="posts-table">
                 <tr className="posts-table-header">
                     <th><h3>Tournament Name</h3></th>

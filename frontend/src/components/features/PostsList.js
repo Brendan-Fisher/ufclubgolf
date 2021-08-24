@@ -31,7 +31,7 @@ export default function PostList() {
     }, []);
 
     return ( 
-        <div className="posts-list">
+        <div className="events-list">
             <table className="posts-table">
                 <tr className="posts-table-header">
                     <th><h3>Title</h3></th>
