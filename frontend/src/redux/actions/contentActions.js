@@ -64,6 +64,14 @@ export async function getEvents() {
             })
 }
 
+export async function getTournaments() {
+    return axios  
+            .get("/api/tournaments")
+            .then((tournaments) => {
+                return tournaments;
+            })
+}
+
 export async function getPost(id) {
     let postID = {
         _id: id

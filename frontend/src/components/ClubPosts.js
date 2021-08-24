@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
-import FullEventList from "./features/FullEventList";
+import PostList from "./features/PostsList";
+import TournamentList from "./features/TournamentList";
 
 
 class ClubPosts extends Component {
@@ -28,11 +29,13 @@ class ClubPosts extends Component {
                             <div className="col s12 m6 home-box">
                                 <h2>Tournament Results</h2>
                                 <div className="tournaments">
+                                    <TournamentList />
                                 </div>
                             </div>
                             <div className="col s12 m6 home-box">
                                 <h2>Posts</h2>
                                 <div className="posts">
+                                    <PostList />
                                 </div>
                             </div>
                         </div>
