@@ -186,12 +186,6 @@ class Register extends Component {
                                     </div>
                                     <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                                         <button
-                                            style={{
-                                                width: "75px",
-                                                borderRadius: "3px",
-                                                letterSpacing: "1.5px",
-                                                margin: "11.250px",
-                                            }}
                                             type="submit"
                                             className="btn btn-medium waves-effect waves-green hoverable blue accent-3"
                                         >
